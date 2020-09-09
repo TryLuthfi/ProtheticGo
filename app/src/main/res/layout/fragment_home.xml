@@ -42,13 +42,32 @@
                     <RelativeLayout
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/circle_menu_primary">
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/circle_menu_primary"/>
+                        <RelativeLayout
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_centerHorizontal="true"
+                                android:id="@+id/home_menu_rehab_icon"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/ic_rehab_24"
+                                app:tint="@color/colorWhite"/>
+
+                            <TextView
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/home_menu_rehab_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rehabilitasi"
+                                android:textColor="@color/colorWhite"/>
+
+                        </RelativeLayout>
 
                     </RelativeLayout>
 
