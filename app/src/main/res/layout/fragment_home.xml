@@ -43,8 +43,12 @@
                         android:layout_margin="10dp"
                         android:layout_weight="1"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@drawable/circle_menu_primary">
+                        android:layout_height="100dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@color/colorPrimary"/>
 
                         <RelativeLayout
                             android:layout_centerInParent="true"
@@ -75,8 +79,12 @@
                         android:layout_margin="10dp"
                         android:layout_weight="1"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@drawable/circle_menu_primary">
+                        android:layout_height="100dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@color/colorPrimary"/>
 
                         <RelativeLayout
                             android:layout_centerInParent="true"
@@ -107,8 +115,12 @@
                         android:layout_margin="10dp"
                         android:layout_weight="1"
                         android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@drawable/circle_menu_primary">
+                        android:layout_height="100dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@color/colorPrimary"/>
 
                         <RelativeLayout
                             android:layout_centerInParent="true"
