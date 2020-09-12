@@ -18,8 +18,7 @@ public class HomeFragment extends Fragment {
     }
 
     SwipeRefreshLayout reload;
-    CircleImageView menuRehab, menuPsiko, menuBelanja;
-    CardView menuLayanan;
+    CircleImageView menuRehab, menuPsiko, menuBelanja, menuLayanan;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,6 +44,7 @@ public class HomeFragment extends Fragment {
         reload = view.findViewById(R.id.home_fragment_reload);
         menuRehab = view.findViewById(R.id.home_menu_rehab);
         menuPsiko = view.findViewById(R.id.home_menu_psiko);
+        menuBelanja = view.findViewById(R.id.home_menu_belanja);
         menuLayanan = view.findViewById(R.id.home_menu_layanan);
     }
 }
