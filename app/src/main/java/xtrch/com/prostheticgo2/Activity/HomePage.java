@@ -13,6 +13,8 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import xtrch.com.prostheticgo2.Fragment.AkunFragment;
 import xtrch.com.prostheticgo2.Fragment.FirstFragment;
 import xtrch.com.prostheticgo2.Fragment.HomeFragment;
 import xtrch.com.prostheticgo2.Fragment.SecondFragment;
@@ -27,9 +29,9 @@ public class HomePage extends AppCompatActivity {
     FrameLayout frameLayout;
 
     HomeFragment homeFragment;
+    AkunFragment akunFragment;
     SecondFragment secondFragment;
     ThirdFragment thirdFragment;
-    FirstFragment firstFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +53,7 @@ public class HomePage extends AppCompatActivity {
         //Fragment Instatntiation
         homeFragment = new HomeFragment();
         secondFragment = new SecondFragment();
-        thirdFragment = new ThirdFragment();
-        firstFragment = new FirstFragment();
+        akunFragment = new AkunFragment();
     }
 
     private void setMenuHome(){
@@ -81,13 +82,7 @@ public class HomePage extends AppCompatActivity {
                         setFragment(secondFragment);
                         return true;
                     case 2:
-                        setFragment(firstFragment);
-                        return true;
-                    case 3:
-                        setFragment(thirdFragment);
-                        return true;
-                    case 4:
-                        setFragment(thirdFragment);
+                        setFragment(akunFragment);
                         return true;
                     default:
                         return false;

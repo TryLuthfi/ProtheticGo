@@ -13,9 +13,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.R;
 
 public class HomeFragment extends Fragment {
-    public HomeFragment() {
-        // Required empty public constructor
-    }
+    public HomeFragment() {}
 
     SwipeRefreshLayout reload;
     CircleImageView menuRehab, menuPsiko, menuBelanja, menuLayanan;
