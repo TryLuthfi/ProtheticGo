@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import xtrch.com.prostheticgo2.Fragment.AkunFragment;
 import xtrch.com.prostheticgo2.Fragment.FirstFragment;
 import xtrch.com.prostheticgo2.Fragment.HomeFragment;
+import xtrch.com.prostheticgo2.Fragment.InfoFragment;
 import xtrch.com.prostheticgo2.Fragment.SecondFragment;
 import xtrch.com.prostheticgo2.Fragment.ThirdFragment;
 import xtrch.com.prostheticgo2.R;
@@ -30,8 +31,7 @@ public class HomePage extends AppCompatActivity {
 
     HomeFragment homeFragment;
     AkunFragment akunFragment;
-    SecondFragment secondFragment;
-    ThirdFragment thirdFragment;
+    InfoFragment infoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class HomePage extends AppCompatActivity {
 
         //Fragment Instatntiation
         homeFragment = new HomeFragment();
-        secondFragment = new SecondFragment();
+        infoFragment = new InfoFragment();
         akunFragment = new AkunFragment();
     }
 
@@ -79,7 +79,7 @@ public class HomePage extends AppCompatActivity {
                         setFragment(homeFragment);
                         return true;
                     case 1:
-                        setFragment(secondFragment);
+                        setFragment(infoFragment);
                         return true;
                     case 2:
                         setFragment(akunFragment);
