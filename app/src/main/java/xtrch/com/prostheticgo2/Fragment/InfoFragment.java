@@ -51,9 +51,10 @@ public class InfoFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Lower Extremity"));
 
         //Adapter TabLayout
-        AdapterTabInfo adapterTabInfo = new AdapterTabInfo(getFragmentManager(), tabLayout.getTabCount());
+        AdapterTabInfo adapterTabInfo = new AdapterTabInfo(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapterTabInfo);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.setOffscreenPageLimit(adapterTabInfo.getCount());
 
         //TabLayout OnClick
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

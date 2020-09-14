@@ -4,16 +4,21 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
+import xtrch.com.prostheticgo2.Adapter.AdapterTabInfo;
 import xtrch.com.prostheticgo2.Fragment.AkunFragment;
 import xtrch.com.prostheticgo2.Fragment.FirstFragment;
 import xtrch.com.prostheticgo2.Fragment.HomeFragment;
@@ -28,6 +33,9 @@ public class HomePage extends AppCompatActivity {
 
     AHBottomNavigation menuHome;
     FrameLayout frameLayout;
+    RelativeLayout tabContainer;
+    TabLayout tabLayout;
+    ViewPager viewPager;
 
     HomeFragment homeFragment;
     AkunFragment akunFragment;
@@ -40,15 +48,19 @@ public class HomePage extends AppCompatActivity {
         
         setFindView();
         getIdUser();
-        Toast.makeText(this, getId_user, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, getId_user, Toast.LENGTH_SHORT).show();
         setMenuHome();
         setFragment(homeFragment);
+        setTabLayout();
     }
 
     private void setFindView() {
         //FindView
         frameLayout = findViewById(R.id.home_frame);
         menuHome = findViewById(R.id.home_menu);
+        tabContainer = findViewById(R.id.home_tab_container);
+        tabLayout = findViewById(R.id.home_tab_layout);
+        viewPager = findViewById(R.id.home_pager);
 
         //Fragment Instatntiation
         homeFragment = new HomeFragment();
@@ -77,16 +89,52 @@ public class HomePage extends AppCompatActivity {
                 {
                     case 0:
                         setFragment(homeFragment);
+                        frameLayout.setVisibility(View.VISIBLE);
+                        tabContainer.setVisibility(View.GONE);
                         return true;
                     case 1:
-                        setFragment(infoFragment);
+                        frameLayout.setVisibility(View.GONE);
+//                        setFragment(infoFragment);
+                        tabContainer.setVisibility(View.VISIBLE);
                         return true;
                     case 2:
                         setFragment(akunFragment);
+                        frameLayout.setVisibility(View.VISIBLE);
+                        tabContainer.setVisibility(View.GONE);
                         return true;
                     default:
                         return false;
                 }
+            }
+        });
+    }
+
+    private void setTabLayout(){
+        //TabLayout Tabs
+        tabLayout.addTab(tabLayout.newTab().setText("Upper Extremity"));
+        tabLayout.addTab(tabLayout.newTab().setText("Lower Extremity"));
+
+        //Adapter TabLayout
+        AdapterTabInfo adapterTabInfo = new AdapterTabInfo(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapterTabInfo);
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.setOffscreenPageLimit(adapterTabInfo.getCount());
+
+        //TabLayout OnClick
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
     }
