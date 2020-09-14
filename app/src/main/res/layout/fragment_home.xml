@@ -46,7 +46,6 @@
                     android:orientation="horizontal">
                     
                     <LinearLayout
-                        android:layout_marginRight="5dp"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:orientation="vertical">
@@ -81,7 +80,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginHorizontal="5dp"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:orientation="vertical">
@@ -116,7 +114,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginHorizontal="5dp"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:orientation="vertical">
@@ -151,7 +148,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginLeft="5dp"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:orientation="vertical">

@@ -29,7 +29,23 @@ public class InfoFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        //TabLayout
+        setTabLayout();
 
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    private void setFindView(View view){
+        tabLayout = view.findViewById(R.id.info_tab_layout);
+        viewPager = view.findViewById(R.id.info_pager);
+    }
+
+    private void setTabLayout(){
         //TabLayout Tabs
         tabLayout.addTab(tabLayout.newTab().setText("Upper Extremity"));
         tabLayout.addTab(tabLayout.newTab().setText("Lower Extremity"));
@@ -56,12 +72,5 @@ public class InfoFragment extends Fragment {
 
             }
         });
-
-        return view;
-    }
-
-    private void setFindView(View view){
-        tabLayout = view.findViewById(R.id.info_tab_layout);
-        viewPager = view.findViewById(R.id.info_pager);
     }
 }
