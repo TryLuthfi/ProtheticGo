@@ -53,8 +53,8 @@
 
                         <RelativeLayout
                             android:layout_gravity="center"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp">
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/home_menu_rehab"
@@ -64,8 +64,8 @@
 
                             <ImageView
                                 android:layout_centerInParent="true"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/ic_rehab_24"
                                 app:tint="@color/colorWhite" />
 
@@ -88,8 +88,8 @@
 
                         <RelativeLayout
                             android:layout_gravity="center"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp">
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/home_menu_psiko"
@@ -99,8 +99,8 @@
 
                             <ImageView
                                 android:layout_centerInParent="true"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/ic_round_accessibility_new_24"
                                 app:tint="@color/colorWhite" />
 
@@ -123,8 +123,8 @@
 
                         <RelativeLayout
                             android:layout_gravity="center"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp">
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/home_menu_belanja"
@@ -134,8 +134,8 @@
 
                             <ImageView
                                 android:layout_centerInParent="true"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/ic_round_shopping_cart_24"
                                 app:tint="@color/colorWhite" />
 
@@ -158,8 +158,8 @@
 
                         <RelativeLayout
                             android:layout_gravity="center"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp">
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/home_menu_layanan"
@@ -169,8 +169,8 @@
 
                             <ImageView
                                 android:layout_centerInParent="true"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/ic_baseline_call_24"
                                 app:tint="@color/colorWhite" />
 
