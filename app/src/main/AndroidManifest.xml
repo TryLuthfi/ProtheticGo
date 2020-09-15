@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Psikologi"></activity>
+        <activity android:name=".Activity.Belanja"></activity>
+        <activity android:name=".Activity.Psikologi" />
         <activity android:name=".Activity.Rehabilitasi" />
         <activity android:name=".Activity.Register" />
         <activity android:name=".Activity.Login" />
