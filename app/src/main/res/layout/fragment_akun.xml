@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -42,12 +43,73 @@
                         android:textSize="35sp"
                         android:textStyle="bold"/>
 
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_round_edit_24"
+                        android:background="@color/colorTransparent"
+                        app:tint="@color/colorWhite" />
+
                 </RelativeLayout>
+
+                <LinearLayout
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="15dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white_border"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/akun_email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_round_email_24"/>
+
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="7dp"
+                            android:layout_toRightOf="@id/akun_email_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="email@gmail.com"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/akun_hp_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_call_24"/>
+
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="7dp"
+                            android:layout_toRightOf="@id/akun_hp_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+6234567890987"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:paddingHorizontal="5dp"
                     android:paddingVertical="15dp"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white_border"
