@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import xtrch.com.prostheticgo2.Activity.Psikologi;
 import xtrch.com.prostheticgo2.Activity.Rehabilitasi;
 import xtrch.com.prostheticgo2.R;
 
@@ -55,6 +56,13 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent rehab = new Intent(getContext(), Rehabilitasi.class);
                 startActivity(rehab);
+            }
+        });
+        menuPsiko.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent psiko = new Intent(getContext(), Psikologi.class);
+                startActivity(psiko);
             }
         });
     }
