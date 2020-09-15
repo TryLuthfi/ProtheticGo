@@ -1,5 +1,6 @@
 package xtrch.com.prostheticgo2.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import xtrch.com.prostheticgo2.Activity.Rehabilitasi;
 import xtrch.com.prostheticgo2.R;
 
 public class HomeFragment extends Fragment {
@@ -26,7 +28,8 @@ public class HomeFragment extends Fragment {
 
         //FindView
         setFindView(view);
-
+        //Menu Function
+        menuOnClick();
         //Reload Page
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -44,5 +47,15 @@ public class HomeFragment extends Fragment {
         menuPsiko = view.findViewById(R.id.home_menu_psiko);
         menuBelanja = view.findViewById(R.id.home_menu_belanja);
         menuLayanan = view.findViewById(R.id.home_menu_layanan);
+    }
+
+    private void menuOnClick(){
+        menuRehab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rehab = new Intent(getContext(), Rehabilitasi.class);
+                startActivity(rehab);
+            }
+        });
     }
 }
