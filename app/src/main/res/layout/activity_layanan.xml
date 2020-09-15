@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Activity.Layanan"
     android:background="@drawable/curved_background"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,5 +34,117 @@
             android:textStyle="bold"/>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/round_white_border"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:id="@+id/layanan_wa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/layanan_wa_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_whatsapp"
+                app:tint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/layanan_wa_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hubungi via WhatsApp"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_arrow_forward_ios_24"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_marginVertical="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey"/>
+
+        <RelativeLayout
+            android:id="@+id/layanan_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/layanan_call_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_call_24"
+                app:tint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/layanan_call_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hubungi via Telepon"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_arrow_forward_ios_24"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_marginVertical="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey"/>
+
+        <RelativeLayout
+            android:id="@+id/layanan_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/layanan_email_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_round_email_24"
+                app:tint="@color/colorPrimary" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/layanan_email_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hubungi via Email"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_round_arrow_forward_ios_24"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

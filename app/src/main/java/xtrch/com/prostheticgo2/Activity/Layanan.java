@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import xtrch.com.prostheticgo2.R;
 
 public class Layanan extends AppCompatActivity {
 
     ImageButton mBack;
+    RelativeLayout hubWA, hubCall, hubEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

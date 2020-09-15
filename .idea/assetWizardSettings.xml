@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialiconsround/arrow_back_ios/round_arrow_back_ios_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialiconsround/email/round_email_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_round_arrow_back_ios_24" />
-                            <entry key="sourceFile" value="D:\Ghifa\Projects\AndroidStudioProjects\ProstheticGo" />
+                            <entry key="outputName" value="ic_round_email_24" />
+                            <entry key="sourceFile" value="D:\Ghifa\Icons\Icons8\icons8-whatsapp.svg" />
                           </map>
                         </option>
                       </PersistentState>
