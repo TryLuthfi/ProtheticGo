@@ -80,7 +80,7 @@ public class HomePage extends AppCompatActivity {
         menuHome.addItem(akun);
         menuHome.setDefaultBackgroundColor(Color.parseColor("#FFFFFF"));
         menuHome.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        menuHome.setAccentColor(Color.parseColor("#8BC34A"));
+        menuHome.setAccentColor(Color.parseColor("#35cb54"));
 
         menuHome.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
