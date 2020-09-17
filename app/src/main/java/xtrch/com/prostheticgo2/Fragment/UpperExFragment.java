@@ -51,7 +51,7 @@ public class UpperExFragment extends Fragment {
 
     private void setDialogInfo(){
         dialogInfo = new AlertDialog.Builder(getContext());
-        dialogInfo.setTitle("Upper Extrimity");
+        dialogInfo.setTitle("Ekstrimitas Atas");
         dialogInfo.setMessage("Fungsi dari ekstremitas atas lebih sulit digantikan dibandingkan ekstremitas bawah. Selain untuk aktivitas motorik, ekstremitas atas juga digunakan untuk keperluan sehari-hari seperti merawat diri, interaksi dengan orang lain, dan ekspresi diri.");
         dialogInfo.setCancelable(true);
         dialogInfo.setPositiveButton("OK", new DialogInterface.OnClickListener() {
