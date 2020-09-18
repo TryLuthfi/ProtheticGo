@@ -45,12 +45,17 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        
+
+        //FIndView
         setFindView();
+        //IdUser
         getIdUser();
 //        Toast.makeText(this, getId_user, Toast.LENGTH_SHORT).show();
+        //MenuHome
         setMenuHome();
+        //DefaultFragment
         setFragment(homeFragment);
+        //TabLayout
         setTabLayout();
     }
 
@@ -80,7 +85,7 @@ public class HomePage extends AppCompatActivity {
         menuHome.addItem(akun);
         menuHome.setDefaultBackgroundColor(Color.parseColor("#FFFFFF"));
         menuHome.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        menuHome.setAccentColor(Color.parseColor("#35cb54"));
+        menuHome.setAccentColor(Color.parseColor("#c02743"));
 
         menuHome.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
