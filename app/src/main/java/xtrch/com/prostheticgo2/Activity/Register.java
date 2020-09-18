@@ -29,14 +29,14 @@ public class Register extends AppCompatActivity {
     ImageView btn_back;
     EditText et_firstname;
     EditText et_lastname;
-    EditText et_username;
+    EditText et_email;
     EditText et_password;
     CardView btn_signup;
     TextView tv_login;
 
     String first_name;
     String last_name;
-    String username;
+    String email;
     String password;
 
     ProgressDialog progressDialog;
@@ -79,7 +79,7 @@ public class Register extends AppCompatActivity {
         btn_back = findViewById(R.id.Register_btnBack);
         et_firstname = findViewById(R.id.Register_firstname);
         et_lastname = findViewById(R.id.Register_lastname);
-        et_username = findViewById(R.id.Register_username);
+        et_email = findViewById(R.id.Register_username);
         et_password = findViewById(R.id.Register_password);
         btn_signup = findViewById(R.id.Register_btnSignup);
         tv_login = findViewById(R.id.Register_btnLogin);
@@ -96,15 +96,15 @@ public class Register extends AppCompatActivity {
     private void getEmptyData() {
         first_name = et_firstname.getText().toString().trim();
         last_name = et_lastname.getText().toString().trim();
-        username = et_username.getText().toString().trim();
+        email = et_email.getText().toString().trim();
         password = et_password.getText().toString().trim();
 
         if(first_name.isEmpty()){
             Toast.makeText(this, "Harap isi nama anda", Toast.LENGTH_SHORT).show();
         } else if(last_name.isEmpty()){
             Toast.makeText(this, "Harap isi nama anda", Toast.LENGTH_SHORT).show();
-        } else if(username.isEmpty()){
-            Toast.makeText(this, "harap isi username anda", Toast.LENGTH_SHORT).show();
+        } else if(email.isEmpty()){
+            Toast.makeText(this, "harap isi email anda", Toast.LENGTH_SHORT).show();
         }else if(password.isEmpty()){
             Toast.makeText(this, "harap isi password anda", Toast.LENGTH_SHORT).show();
         } else {
@@ -147,7 +147,7 @@ public class Register extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put(Konfigurasi.NAMA, first_name+" "+last_name);
-                params.put(Konfigurasi.USERNAME, username);
+                params.put(Konfigurasi.EMAIL, email);
                 params.put(Konfigurasi.PASSWORD, password);
 
                 return params;
