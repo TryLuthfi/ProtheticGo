@@ -62,7 +62,7 @@
                                 android:id="@+id/home_menu_rehab"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@color/colorPrimary"/>
+                                android:src="@color/colorBlue"/>
 
                             <ImageView
                                 android:layout_centerInParent="true"
@@ -99,7 +99,7 @@
                                 android:id="@+id/home_menu_psiko"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@color/colorPrimary"/>
+                                android:src="@color/colorYellow"/>
 
                             <ImageView
                                 android:layout_centerInParent="true"
@@ -136,7 +136,7 @@
                                 android:id="@+id/home_menu_belanja"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:src="@color/colorPrimary"/>
+                                android:src="@color/colorAccent"/>
 
                             <ImageView
                                 android:layout_centerInParent="true"
