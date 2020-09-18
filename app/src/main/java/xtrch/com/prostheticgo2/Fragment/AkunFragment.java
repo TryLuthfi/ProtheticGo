@@ -40,9 +40,10 @@ public class AkunFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        //SharedPreference
         getSharedPreference();
+        //SetLocalVariable
         setLocalVariable();
-
         //Logout
         logoutBtn();
 
@@ -50,6 +51,8 @@ public class AkunFragment extends Fragment {
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                getSharedPreference();
+                setLocalVariable();
                 reload.setRefreshing(false);
             }
         });
