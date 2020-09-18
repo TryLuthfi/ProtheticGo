@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
     TextView tv_signup;
     ProgressDialog progressDialog;
     CardView cd_login;
-    String username = "";
+    String email = "";
     String password = "";
     String hasilmd5;
 
@@ -118,7 +118,7 @@ public class Login extends AppCompatActivity {
                             gotoHomepage();
                         } else {
                             progressDialog.hide();
-                            Toast.makeText(Login.this, "Username atau password anda salah", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Email atau password anda salah", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -132,7 +132,7 @@ public class Login extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put(Konfigurasi.USERNAME, username);
+                params.put(Konfigurasi.EMAIL, email);
                 params.put(Konfigurasi.PASSWORD, hasilmd5);
 
                 return params;
@@ -143,11 +143,11 @@ public class Login extends AppCompatActivity {
     }
 
     private void getEmptyData() {
-        username = et_email.getText().toString().trim();
+        email = et_email.getText().toString().trim();
         password= et_password.getText().toString().trim();
 
-        if(username.isEmpty()){
-            Toast.makeText(this, "Harap isi username", Toast.LENGTH_SHORT).show();
+        if(email.isEmpty()){
+            Toast.makeText(this, "Harap isi email", Toast.LENGTH_SHORT).show();
         } else if(password.isEmpty()){
             Toast.makeText(this, "Harap isi password", Toast.LENGTH_SHORT).show();
         } else{

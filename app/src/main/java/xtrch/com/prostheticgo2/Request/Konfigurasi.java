@@ -7,9 +7,9 @@ public class Konfigurasi {
     public static final String FAILURE = "failure";
     public static final String ALREADY = "already";
 
-    public static final String NAMA = "nama";
-    public static final String USERNAME = "username";
-    public static final String PASSWORD = "password";
+    public static final String NAMA = "nama_user";
+    public static final String EMAIL = "email_user";
+    public static final String PASSWORD = "pass_user";
 
     //API URL
     public static final String URL_REGISTER = "https://prostheticgo.000webhostapp.com/koneksi/register.php";
