@@ -9,9 +9,9 @@
     <ImageView
         android:id="@+id/SplashScreen_mainlogo"
         android:layout_centerInParent="true"
-        android:background="@drawable/main_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:background="@drawable/app_logo_trans"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 
     <TextView
         android:id="@+id/SplashScreen_version"
