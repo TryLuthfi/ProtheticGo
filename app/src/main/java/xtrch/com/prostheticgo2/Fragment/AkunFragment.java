@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.R;
@@ -22,6 +23,15 @@ public class AkunFragment extends Fragment {
     Button btnLogout;
     SwipeRefreshLayout reload;
 
+    String getIdUser;
+    String getNamaUser;
+    String getEmailUser;
+    String getPasswordUser;
+
+    TextView nama;
+    TextView email;
+    TextView notelp;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,6 +40,8 @@ public class AkunFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        getSharedPreference();
+        setLocalVariable();
 
         //Logout
         logoutBtn();
@@ -45,9 +57,19 @@ public class AkunFragment extends Fragment {
         return view;
     }
 
+    private void setLocalVariable() {
+        nama.setText(getNamaUser);
+        email.setText(getEmailUser);
+        notelp.setText("");
+
+    }
+
     public void setFindView(View view){
         btnLogout = view.findViewById(R.id.akun_logout_btn);
         reload = view.findViewById(R.id.akun_fragment_reload);
+        nama = view.findViewById(R.id.akun_nama);
+        email = view.findViewById(R.id.akun_email);
+        notelp = view.findViewById(R.id.akun_notelp);
     }
 
     private void logoutBtn() {
@@ -63,5 +85,14 @@ public class AkunFragment extends Fragment {
                 getActivity().finish();
             }
         });
+    }
+
+    private void getSharedPreference(){
+        SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        getIdUser = preferences.getString("id_user", "null");
+        getNamaUser = preferences.getString("nama_user", "null");
+        getEmailUser = preferences.getString("email_user", "null");
+        getPasswordUser = preferences.getString("password_user", "null");
+
     }
 }

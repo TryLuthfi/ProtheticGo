@@ -33,6 +33,7 @@
                         android:src="@color/colorWhite"/>
 
                     <TextView
+                        android:id="@+id/akun_nama"
                         android:layout_marginLeft="16dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/akun_foto_profil"
@@ -74,6 +75,7 @@
                             android:src="@drawable/ic_round_email_24"/>
 
                         <TextView
+                            android:id="@+id/akun_email"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="7dp"
                             android:layout_toRightOf="@id/akun_email_icon"
@@ -95,6 +97,7 @@
                             android:src="@drawable/ic_baseline_call_24"/>
 
                         <TextView
+                            android:id="@+id/akun_notelp"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="7dp"
                             android:layout_toRightOf="@id/akun_hp_icon"
@@ -116,6 +119,7 @@
                     android:orientation="vertical">
 
                     <Button
+                        android:foreground="?attr/selectableItemBackground"
                         android:id="@+id/akun_logout_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
