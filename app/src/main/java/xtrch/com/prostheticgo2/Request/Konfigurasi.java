@@ -12,7 +12,10 @@ public class Konfigurasi {
     public static final String PASSWORD = "pass_user";
 
     //API URL
-    public static final String URL_REGISTER = "https://prostheticgo.000webhostapp.com/koneksi/register.php";
-    public static final String URL_LOGIN = "https://prostheticgo.000webhostapp.com/koneksi/login.php";
+    public static final String URL_REGISTER = "https://prostheticgo.000webhostapp.com/koneksi/main_register.php";
+    public static final String URL_LOGIN = "https://prostheticgo.000webhostapp.com/koneksi/main_login.php";
+    public static final String URL_EDIT_PROFILE = "https://prostheticgo.000webhostapp.com/koneksi/main_editprofile.php";
+    public static final String URL_VIEW_USER = "https://prostheticgo.000webhostapp.com/koneksi/view_user.php";
+    public static final String URL_VIEW_INFORMASI = "https://prostheticgo.000webhostapp.com/koneksi/view_informasi.php";
     public static final String UR_MAIN = "https://prostheticgo.000webhostapp.com/";
 }
