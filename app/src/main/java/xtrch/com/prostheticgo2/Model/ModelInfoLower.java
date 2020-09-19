@@ -16,6 +16,7 @@ public class ModelInfoLower {
         this.emailUser = emailUser;
     }
 
+    public ModelInfoLower(){}
 
     public String getIdInfo() {
         return idInfo;
