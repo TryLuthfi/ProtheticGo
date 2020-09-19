@@ -104,7 +104,7 @@ public class LowerExFragment extends Fragment {
                                 JSONObject product = array.getJSONObject(i);
 
                                 //adding the product to product list
-//                                if(product.getString("jenis_informasi").equals("lower")) {
+                                if(product.getString("jenis_informasi").equals("lower")) {
                                     lowerInfoList.add(new ModelInfoLower(
                                             product.getString("id_informasi"),
                                             product.getString("judul_informasi"),
@@ -116,7 +116,7 @@ public class LowerExFragment extends Fragment {
                                             product.getString("nama_user"),
                                             product.getString("email_user")
                                     ));
-//                                }
+                                }
                             }
 
                             AdapterLowerInfoRecycler adapter= new AdapterLowerInfoRecycler(getActivity(), lowerInfoList);

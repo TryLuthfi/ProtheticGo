@@ -8,28 +8,29 @@
     android:padding="16dp"
     android:background="@color/colorTransparent">
 
-    <RelativeLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/upper_swipe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/upper_ex_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upper Extrimity"
-            android:textSize="30sp"
-            android:textColor="@color/colorWhite"/>
 
-        <ImageView
-            android:id="@+id/upper_ex_info_icon"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_round_info_24"
-            app:tint="@color/colorWhite" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upper_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/upper_loading"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -14,15 +14,41 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import xtrch.com.prostheticgo2.Adapter.AdapterLowerInfoRecycler;
+import xtrch.com.prostheticgo2.Adapter.AdapterUpperInfoReycler;
+import xtrch.com.prostheticgo2.Model.ModelInfoLower;
+import xtrch.com.prostheticgo2.Model.ModelInfoUpper;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class UpperExFragment extends Fragment {
     public UpperExFragment() {}
 
-    ImageView btnInfo;
-    Dialog dialogInfo;
+    List<ModelInfoUpper> upperInfoList;
+    RecyclerView recyclerViewUpperInfo;
+    ProgressBar loading;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +58,7 @@ public class UpperExFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        loadPostingan();
         //OnClick
         setOnClick();
 
@@ -39,41 +66,86 @@ public class UpperExFragment extends Fragment {
     }
 
     private void setFindView(View view){
-        btnInfo = view.findViewById(R.id.upper_ex_info_icon);
+        recyclerViewUpperInfo = view.findViewById(R.id.upper_recycler);
+        loading = view.findViewById(R.id.upper_loading);
+        swipeRefreshLayout = view.findViewById(R.id.upper_swipe);
+
+
+        recyclerViewUpperInfo.setHasFixedSize(true);
+        recyclerViewUpperInfo.setLayoutManager(new LinearLayoutManager(getActivity()));
+        upperInfoList = new ArrayList<>();
     }
 
     private void setOnClick(){
-        //Info
-        btnInfo.setOnClickListener(new View.OnClickListener() {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View v) {
-                setDialogInfo();
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                loadPostingan();
             }
         });
     }
 
-    private void setDialogInfo(){
-//        dialogInfo.setMessage("Fungsi dari ekstremitas atas lebih sulit digantikan dibandingkan ekstremitas bawah. " +
-//                "Selain untuk aktivitas motorik, ekstremitas atas juga digunakan untuk keperluan sehari-hari seperti merawat diri, interaksi dengan orang lain, dan ekspresi diri.");
-//        dialogInfo.setCancelable(true);
-//        dialogInfo.show();
-        dialogInfo = new Dialog(getContext());
-        dialogInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogInfo.setContentView(R.layout.dialog_info);
-        TextView tvTitle = dialogInfo.findViewById(R.id.dialog_info_title);
-        TextView tvText1 = dialogInfo.findViewById(R.id.dialog_info_text1);
-        TextView tvText2 = dialogInfo.findViewById(R.id.dialog_info_text2);
-        Button btnOk = dialogInfo.findViewById(R.id.dialog_info_ok);
-        tvTitle.setText("Ekstremitas Atas");
-        tvText1.setText("Fungsi dari ekstremitas atas lebih sulit digantikan dibandingkan ekstremitas bawah.");
-        tvText2.setText("Selain untuk aktivitas motorik, ekstremitas atas juga digunakan untuk keperluan sehari-hari seperti merawat diri, interaksi dengan orang lain, dan ekspresi diri.");
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogInfo.dismiss();
-            }
-        });
-        dialogInfo.show();
+    private void loadPostingan() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Konfigurasi.URL_VIEW_INFORMASI,
+
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            //converting the string to json array object
+                            JSONArray array = new JSONArray(response);
+
+
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject product = array.getJSONObject(i);
+
+                                //adding the product to product list
+                                if(product.getString("jenis_informasi").equals("upper")) {
+                                    upperInfoList.add(new ModelInfoUpper(
+                                            product.getString("id_informasi"),
+                                            product.getString("judul_informasi"),
+                                            product.getString("isi_informasi"),
+                                            product.getString("foto_informasi"),
+                                            product.getString("jenis_informasi"),
+                                            product.getString("id_user"),
+                                            product.getString("tgl_input"),
+                                            product.getString("nama_user"),
+                                            product.getString("email_user")
+                                    ));
+                                }
+                            }
+
+                            AdapterUpperInfoReycler adapter= new AdapterUpperInfoReycler(getActivity(), upperInfoList);
+
+                            if (adapter != null){
+                                recyclerViewUpperInfo.setAdapter(adapter);
+                                loading.setVisibility(View.INVISIBLE);
+                                swipeRefreshLayout.setRefreshing(false);
+
+                            }else {
+                                Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
+                            }
+
+//                            loading.dismiss();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        //adding our stringrequest to queue
+        Volley.newRequestQueue(Objects.requireNonNull(getActivity())).add(stringRequest);
     }
 
     public interface OnFragmentInteractionListener {
