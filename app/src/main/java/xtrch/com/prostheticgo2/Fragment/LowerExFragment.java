@@ -34,6 +34,7 @@ import java.util.Objects;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import xtrch.com.prostheticgo2.Adapter.AdapterLowerInfoRecycler;
 import xtrch.com.prostheticgo2.Adapter.AdapterTabInfo;
 import xtrch.com.prostheticgo2.Model.ModelInfoLower;
@@ -46,6 +47,7 @@ public class LowerExFragment extends Fragment {
     List<ModelInfoLower> lowerInfoList;
     RecyclerView recyclerViewLowerInfo;
     ProgressBar loading;
+    SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -66,6 +68,8 @@ public class LowerExFragment extends Fragment {
     private void setFindView(View view){
         recyclerViewLowerInfo = view.findViewById(R.id.lower_recycler);
         loading = view.findViewById(R.id.lower_loading);
+        swipeRefreshLayout = view.findViewById(R.id.lower_swipe);
+
 
         recyclerViewLowerInfo.setHasFixedSize(true);
         recyclerViewLowerInfo.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -73,6 +77,13 @@ public class LowerExFragment extends Fragment {
     }
 
     private void setOnClick(){
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                loadPostingan();
+            }
+        });
     }
 
     private void loadPostingan() {
@@ -113,6 +124,7 @@ public class LowerExFragment extends Fragment {
                             if (adapter != null){
                                 recyclerViewLowerInfo.setAdapter(adapter);
                                 loading.setVisibility(View.INVISIBLE);
+                                swipeRefreshLayout.setRefreshing(false);
 
                             }else {
                                 Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
