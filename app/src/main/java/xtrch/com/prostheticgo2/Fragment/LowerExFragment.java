@@ -14,16 +14,39 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import xtrch.com.prostheticgo2.Adapter.AdapterLowerInfoRecycler;
+import xtrch.com.prostheticgo2.Adapter.AdapterTabInfo;
+import xtrch.com.prostheticgo2.Model.ModelInfoLower;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class LowerExFragment extends Fragment {
     public LowerExFragment() {}
 
-    ImageView btnInfo;
+    List<ModelInfoLower> lowerInfoList;
+    RecyclerView recyclerViewLowerInfo;
+    ProgressBar loading;
 
-    Dialog dialogInfo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +56,7 @@ public class LowerExFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        loadPostingan();
         //OnClick
         setOnClick();
 
@@ -40,38 +64,76 @@ public class LowerExFragment extends Fragment {
     }
 
     private void setFindView(View view){
-        btnInfo = view.findViewById(R.id.lower_ex_info_icon);
+        recyclerViewLowerInfo = view.findViewById(R.id.lower_recycler);
+        loading = view.findViewById(R.id.lower_loading);
+
+        recyclerViewLowerInfo.setHasFixedSize(true);
+        recyclerViewLowerInfo.setLayoutManager(new LinearLayoutManager(getActivity()));
+        lowerInfoList = new ArrayList<>();
     }
 
     private void setOnClick(){
-        //Info
-        btnInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setDialogInfo();
-            }
-        });
     }
 
-    private void setDialogInfo(){
-        dialogInfo = new Dialog(getContext());
-        dialogInfo.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogInfo.setContentView(R.layout.dialog_info);
-        TextView tvTitle = dialogInfo.findViewById(R.id.dialog_info_title);
-        TextView tvText1 = dialogInfo.findViewById(R.id.dialog_info_text1);
-        TextView tvText2 = dialogInfo.findViewById(R.id.dialog_info_text2);
-        Button btnOk = dialogInfo.findViewById(R.id.dialog_info_ok);
-        tvTitle.setText("Ekstremitas Bawah");
-        tvText1.setText("Saat amputasi pada ekstremitas bawah dilakukan, seleksi dari level yang tepat merupakan hal penting untuk mengoptimalisasi potensi penyembuhan dan juga pengembalian fungsi ekstremitas.");
-        tvText2.setText("");
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogInfo.dismiss();
-            }
-        });
-        dialogInfo.show();
+    private void loadPostingan() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Konfigurasi.URL_VIEW_INFORMASI,
 
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            //converting the string to json array object
+                            JSONArray array = new JSONArray(response);
+
+
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject product = array.getJSONObject(i);
+
+                                //adding the product to product list
+//                                if(product.getString("jenis_informasi").equals("lower")) {
+                                    lowerInfoList.add(new ModelInfoLower(
+                                            product.getString("id_informasi"),
+                                            product.getString("judul_informasi"),
+                                            product.getString("isi_informasi"),
+                                            product.getString("foto_informasi"),
+                                            product.getString("jenis_informasi"),
+                                            product.getString("id_user"),
+                                            product.getString("tgl_input"),
+                                            product.getString("nama_user"),
+                                            product.getString("email_user")
+                                    ));
+//                                }
+                            }
+
+                            AdapterLowerInfoRecycler adapter= new AdapterLowerInfoRecycler(getActivity(), lowerInfoList);
+
+                            if (adapter != null){
+                                recyclerViewLowerInfo.setAdapter(adapter);
+                                loading.setVisibility(View.INVISIBLE);
+
+                            }else {
+                                Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
+                            }
+
+//                            loading.dismiss();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        //adding our stringrequest to queue
+        Volley.newRequestQueue(Objects.requireNonNull(getActivity())).add(stringRequest);
     }
 
     public interface OnFragmentInteractionListener {

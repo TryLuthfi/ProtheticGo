@@ -29,11 +29,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //FindView
         setFindView(view);
-        //Menu Function
         menuOnClick();
-        //Reload Page
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
