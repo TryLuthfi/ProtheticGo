@@ -80,6 +80,7 @@ public class UpperExFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                upperInfoList.clear();
                 swipeRefreshLayout.setRefreshing(true);
                 loadPostingan();
             }
