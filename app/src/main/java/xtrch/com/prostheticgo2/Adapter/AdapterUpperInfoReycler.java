@@ -6,8 +6,11 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +25,6 @@ public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperIn
 
     private Activity mCtx;
     private List<ModelInfoUpper> upperInfoList;
-    List<String> colors;
-    int i1;
-    GradientDrawable draw;
 
     public AdapterUpperInfoReycler(Activity mCtx, List<ModelInfoUpper> upperInfoList) {
         this.mCtx = mCtx;
@@ -35,20 +35,6 @@ public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperIn
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-
-        colors=new ArrayList<String>();
-
-        colors.add("#577D80");
-        colors.add("#F0D06B");
-        colors.add("#DA5A41");
-        colors.add("#00FFFF");
-
-
-        Random r = new Random();
-        i1 = r.nextInt(4- 0) + 0;
-
-        draw = new GradientDrawable();
-        draw.setColor(Color.parseColor(colors.get(i1)));
 
         View view = inflater.inflate(R.layout.row_info, parent, false);
         return new ProductViewHolder(view);
@@ -61,9 +47,17 @@ public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperIn
 //                .placeholder(R.color.colorPrimary);
 //
 //        Glide.with(Objects.requireNonNull(mCtx)).load("https://malang-paradise.000webhostapp.com/" + postingan.getGambar()).apply(requestOptions).into(holder.gambar);
-        holder.row_judul.setText(list.getJudulInfo());
-        holder.row_isi.setText(list.getIsiInfo());
-        holder.background.setBackground(draw);
+        holder.info_judul.setText(list.getJudulInfo());
+        holder.info_date.setText(list.getTglInput());
+        holder.info_isi.setText(list.getIsiInfo());
+        holder.info_nama.setText(list.getNamaUser());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mCtx, list.getIdInfo(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
@@ -75,18 +69,22 @@ public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperIn
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
         View view;
-        TextView row_judul;
-        TextView row_isi;
-        RelativeLayout background;
+        ImageView info_gambar;
+        TextView info_judul;
+        TextView info_date;
+        TextView info_isi;
+        TextView info_nama;
 
 
 
         public ProductViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-            row_isi = view.findViewById(R.id.row_info_isi);
-            row_judul = view.findViewById(R.id.row_info_judul);
-            background = view.findViewById(R.id.background);
+            info_gambar = view.findViewById(R.id.info_gambar);
+            info_judul = view.findViewById(R.id.info_judul);
+            info_date = view.findViewById(R.id.info_date);
+            info_isi = view.findViewById(R.id.info_isi);
+            info_nama = view.findViewById(R.id.info_nama);
 
         }
     }
