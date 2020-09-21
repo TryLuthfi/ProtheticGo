@@ -105,13 +105,14 @@ public class AkunFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent edit = new Intent(getContext(), EditAkun.class);
+                dialog.dismiss();
                 startActivity(edit);
             }
         });
         btnPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                dialog.dismiss();
             }
         });
         dialog.show();
