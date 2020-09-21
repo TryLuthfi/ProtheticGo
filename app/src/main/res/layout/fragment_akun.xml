@@ -17,12 +17,12 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:padding="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:layout_margin="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -60,10 +60,12 @@
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="15dp"
                     android:layout_marginTop="100dp"
+                    android:layout_marginHorizontal="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white_border"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:elevation="5dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -111,13 +113,16 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginHorizontal="16dp"
                     android:paddingHorizontal="5dp"
                     android:paddingVertical="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white_border"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:elevation="5dp"
+                    android:layout_marginBottom="16dp">
 
                     <Button
                         android:foreground="?attr/selectableItemBackground"
