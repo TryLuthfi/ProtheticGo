@@ -45,10 +45,11 @@
                         android:textStyle="bold"/>
 
                     <ImageView
+                        android:id="@+id/akun_fragment_edit"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@drawable/ic_round_edit_24"
                         android:background="@color/colorTransparent"
                         app:tint="@color/colorWhite" />

@@ -1,5 +1,6 @@
 package xtrch.com.prostheticgo2.Fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,9 +12,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import xtrch.com.prostheticgo2.Activity.EditAkun;
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.R;
 
@@ -22,6 +27,8 @@ public class AkunFragment extends Fragment {
 
     Button btnLogout;
     SwipeRefreshLayout reload;
+    ImageView btnEdit;
+    Dialog dialog;
 
     String getIdUser;
     String getNamaUser;
@@ -44,6 +51,8 @@ public class AkunFragment extends Fragment {
         getSharedPreference();
         //SetLocalVariable
         setLocalVariable();
+        //on Click
+        setOnClick();
         //Logout
         logoutBtn();
 
@@ -64,15 +73,48 @@ public class AkunFragment extends Fragment {
         nama.setText(getNamaUser);
         email.setText(getEmailUser);
         notelp.setText("");
-
     }
 
-    public void setFindView(View view){
+    private void setFindView(View view){
         btnLogout = view.findViewById(R.id.akun_logout_btn);
         reload = view.findViewById(R.id.akun_fragment_reload);
         nama = view.findViewById(R.id.akun_nama);
         email = view.findViewById(R.id.akun_email);
         notelp = view.findViewById(R.id.akun_notelp);
+        btnEdit = view.findViewById(R.id.akun_fragment_edit);
+    }
+
+    private void setOnClick(){
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDialogEdit();
+            }
+        });
+    }
+
+    private void setDialogEdit(){
+        dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_edit_akun);
+        dialog.setCancelable(true);
+        RelativeLayout btnEdit = dialog.findViewById(R.id.dialog_edit_akun_edit_btn);
+        RelativeLayout btnPass = dialog.findViewById(R.id.dialog_edit_akun_pass_btn);
+//        ImageView btnCancel = dialog.findViewById(R.id.dialog_edit_akun_cancel);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getContext(), EditAkun.class);
+                startActivity(edit);
+            }
+        });
+        btnPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //
+            }
+        });
+        dialog.show();
     }
 
     private void logoutBtn() {
