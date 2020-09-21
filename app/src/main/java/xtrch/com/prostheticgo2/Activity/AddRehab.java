@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import xtrch.com.prostheticgo2.R;
 
-public class AddInformasi extends AppCompatActivity {
+public class AddRehab extends AppCompatActivity {
 
     ImageView btnTambahFoto;
     EditText etJudul, etIsi;
@@ -24,39 +24,39 @@ public class AddInformasi extends AppCompatActivity {
     Button btnSimpan;
     SwipeRefreshLayout reload;
 
-    String idInfo;
+    String idRehab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_informasi);
+        setContentView(R.layout.activity_add_rehab);
 
         //FindView
         setFindView();
-        //getIntent
+        //getintent
         getIntentState();
         //Reload
         setReload();
     }
 
     private void setFindView(){
-        btnTambahFoto = findViewById(R.id.add_info_foto);
-        btnBack = findViewById(R.id.back_from_add_info);
-        etJudul = findViewById(R.id.add_info_judul);
-        etIsi = findViewById(R.id.add_info_isi);
-        sJenis = findViewById(R.id.add_info_jenis);
-        tvTitle = findViewById(R.id.add_info_title);
-        btnSimpan = findViewById(R.id.add_info_simpan);
-        reload = findViewById(R.id.add_info_reload);
+        btnTambahFoto = findViewById(R.id.add_rehab_foto);
+        etJudul = findViewById(R.id.add_rehab_judul);
+        etIsi = findViewById(R.id.add_rehab_isi);
+        sJenis = findViewById(R.id.add_rehab_jenis);
+        btnBack = findViewById(R.id.back_from_add_rehab);
+        tvTitle = findViewById(R.id.add_rehab_title);
+        btnSimpan = findViewById(R.id.add_rehab_simpan);
+        reload = findViewById(R.id.add_rehab_reload);
     }
 
     private void getIntentState(){
         Intent id = getIntent();
-        idInfo = id.getStringExtra("id_info");
-        if (idInfo.equals("0")){
-            tvTitle.setText("Tambah Informasi");
+        idRehab = id.getStringExtra("id_info");
+        if (idRehab.equals("0")){
+            tvTitle.setText("Tambah Rehabilitasi");
         } else {
-            tvTitle.setText("Edit Informasi");
+            tvTitle.setText("Edit Rehabilitasi");
         }
     }
 

@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AddInformasi"
-    android:background="@drawable/curved_background"
-    android:orientation="vertical">
+    tools:context=".Activity.AddRehab"
+    android:orientation="vertical"
+    android:background="@drawable/curved_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="56dp">
 
         <ImageButton
-            android:id="@+id/back_from_add_info"
+            android:id="@+id/back_from_add_rehab"
             android:layout_centerVertical="true"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -22,13 +22,13 @@
             android:tint="@color/colorWhite"/>
 
         <TextView
-            android:id="@+id/add_info_title"
+            android:id="@+id/add_rehab_title"
             android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/back_from_add_info"
+            android:layout_toRightOf="@id/back_from_add_rehab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tambah Informasi"
+            android:text="Tambah Rehabilitasi"
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
             android:textStyle="bold"/>
@@ -36,7 +36,7 @@
     </RelativeLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/add_info_reload"
+        android:id="@+id/add_rehab_reload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -59,7 +59,7 @@
                     android:padding="10dp">
 
                     <ImageView
-                        android:id="@+id/add_info_foto"
+                        android:id="@+id/add_rehab_foto"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/undraw_photos"/>
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/add_info_judul"
+                            android:id="@+id/add_rehab_judul"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Judul"
@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
-                            android:id="@+id/add_info_isi"
+                            android:id="@+id/add_rehab_isi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Isi"
@@ -97,7 +97,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Spinner
-                        android:id="@+id/add_info_jenis"
+                        android:id="@+id/add_rehab_jenis"
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                     android:padding="10dp">
 
                     <Button
-                        android:id="@+id/add_info_simpan"
+                        android:id="@+id/add_rehab_simpan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="SIMPAN"
