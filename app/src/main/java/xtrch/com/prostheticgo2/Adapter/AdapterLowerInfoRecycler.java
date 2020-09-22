@@ -59,7 +59,7 @@ public class AdapterLowerInfoRecycler extends RecyclerView.Adapter<AdapterLowerI
         holder.info_judul.setText(list.getJudulInfo());
         holder.info_date.setText(list.getTglInput());
         holder.info_isi.setText("   "+list.getIsiInfo());
-        holder.info_nama.setText(list.getNamaUser());
+        holder.info_nama.setText(list.getNamaDepanUser()+" "+list.getNamaBelakangUser());
     }
 
     @Override

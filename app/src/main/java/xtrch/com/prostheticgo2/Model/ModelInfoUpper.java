@@ -2,10 +2,9 @@ package xtrch.com.prostheticgo2.Model;
 
 public class ModelInfoUpper {
 
-    String idInfo, judulInfo, isiInfo, fotoInfo, jenisInfo, idUser, tglInput, namaUser, emailUser;
+    String idInfo, judulInfo, isiInfo, fotoInfo, jenisInfo, idUser, tglInput, namaDepanUser, namaBelakangUser, emailUser;
 
-
-    public ModelInfoUpper(String idInfo, String judulInfo, String isiInfo, String fotoInfo, String jenisInfo, String idUser, String tglInput, String namaUser,  String emailUser) {
+    public ModelInfoUpper(String idInfo, String judulInfo, String isiInfo, String fotoInfo, String jenisInfo, String idUser, String tglInput, String namaDepanUser, String namaBelakangUser, String emailUser) {
         this.idInfo = idInfo;
         this.judulInfo = judulInfo;
         this.isiInfo = isiInfo;
@@ -13,9 +12,12 @@ public class ModelInfoUpper {
         this.jenisInfo = jenisInfo;
         this.idUser = idUser;
         this.tglInput = tglInput;
-        this.namaUser = namaUser;
+        this.namaDepanUser = namaDepanUser;
+        this.namaBelakangUser = namaBelakangUser;
         this.emailUser = emailUser;
     }
+
+    public ModelInfoUpper(){}
 
     public String getIdInfo() {
         return idInfo;
@@ -45,8 +47,12 @@ public class ModelInfoUpper {
         return tglInput;
     }
 
-    public String getNamaUser() {
-        return namaUser;
+    public String getNamaDepanUser() {
+        return namaDepanUser;
+    }
+
+    public String getNamaBelakangUser() {
+        return namaBelakangUser;
     }
 
     public String getEmailUser() {

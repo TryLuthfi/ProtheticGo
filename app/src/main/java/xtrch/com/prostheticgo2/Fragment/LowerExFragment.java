@@ -114,7 +114,8 @@ public class LowerExFragment extends Fragment {
                                             product.getString("jenis_informasi"),
                                             product.getString("id_user"),
                                             product.getString("tgl_input"),
-                                            product.getString("nama_user"),
+                                            product.getString("nama_depan_user"),
+                                            product.getString("nama_belakang_user"),
                                             product.getString("email_user")
                                     ));
                                 }
