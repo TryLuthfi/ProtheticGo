@@ -31,7 +31,8 @@ public class AkunFragment extends Fragment {
     Dialog dialog;
 
     String getIdUser;
-    String getNamaUser;
+    String getNamaDepanUser;
+    String getNamaBelakangUser;
     String getEmailUser;
     String getPasswordUser;
 
@@ -70,7 +71,7 @@ public class AkunFragment extends Fragment {
     }
 
     private void setLocalVariable() {
-        nama.setText(getNamaUser);
+        nama.setText(getNamaDepanUser+" "+getNamaBelakangUser);
         email.setText(getEmailUser);
         notelp.setText("");
     }
@@ -136,7 +137,8 @@ public class AkunFragment extends Fragment {
     private void getSharedPreference(){
         SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         getIdUser = preferences.getString("id_user", "null");
-        getNamaUser = preferences.getString("nama_user", "null");
+        getNamaDepanUser = preferences.getString("nama_depan_user", "null");
+        getNamaBelakangUser = preferences.getString("nama_belakang_user", "null");
         getEmailUser = preferences.getString("email_user", "null");
         getPasswordUser = preferences.getString("password_user", "null");
 

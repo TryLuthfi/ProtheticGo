@@ -146,7 +146,8 @@ public class Register extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put(Konfigurasi.NAMA, first_name+" "+last_name);
+                params.put(Konfigurasi.NAMA_DEPAN, first_name);
+                params.put(Konfigurasi.NAMA_BELAKANG, last_name);
                 params.put(Konfigurasi.EMAIL, email);
                 params.put(Konfigurasi.PASSWORD, password);
 

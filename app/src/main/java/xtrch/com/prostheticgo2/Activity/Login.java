@@ -111,11 +111,12 @@ public class Login extends AppCompatActivity {
                         if (response.contains(Konfigurasi.SUCCESS)) {
                             progressDialog.hide();
                             String id_user = response.toString().split(";")[1];
-                            String nama_user = response.toString().split(";")[2];
-                            String email_user = response.toString().split(";")[3];
-                            String password_user = response.toString().split(";")[4];
-                            String status_user = response.toString().split(";")[5];
-                            setPreference(id_user, nama_user, email_user, password_user, status_user);
+                            String nama_depan_user = response.toString().split(";")[2];
+                            String nama_belakang_user = response.toString().split(";")[3];
+                            String email_user = response.toString().split(";")[4];
+                            String password_user = response.toString().split(";")[5];
+                            String status_user = response.toString().split(";")[6];
+                            setPreference(id_user, nama_depan_user, nama_belakang_user, email_user, password_user, status_user);
                             gotoHomepage();
                         } else {
                             progressDialog.hide();
@@ -182,11 +183,12 @@ public class Login extends AppCompatActivity {
 
     }
 
-    void setPreference(String id_user, String nama_user, String email_user, String password_user, String status_user){
+    void setPreference(String id_user, String nama_depan_user, String nama_belakang_user, String email_user, String password_user, String status_user){
         SharedPreferences mSettings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putString("id_user", id_user);
-        editor.putString("nama_user", nama_user);
+        editor.putString("nama_depan_user", nama_depan_user);
+        editor.putString("nama_belakang_user", nama_belakang_user);
         editor.putString("email_user", email_user);
         editor.putString("password_user", password_user);
         editor.putString("status_user", status_user);

@@ -7,7 +7,8 @@ public class Konfigurasi {
     public static final String FAILURE = "failure";
     public static final String ALREADY = "already";
 
-    public static final String NAMA = "nama_user";
+    public static final String NAMA_DEPAN = "nama_depan_user";
+    public static final String NAMA_BELAKANG = "nama_belakang_user";
     public static final String EMAIL = "email_user";
     public static final String PASSWORD = "pass_user";
 
