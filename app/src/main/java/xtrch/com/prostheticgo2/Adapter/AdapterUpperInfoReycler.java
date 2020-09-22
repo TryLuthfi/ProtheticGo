@@ -12,13 +12,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 import androidx.recyclerview.widget.RecyclerView;
 import xtrch.com.prostheticgo2.Model.ModelInfoUpper;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperInfoReycler.ProductViewHolder>{
     private static final String TAG = "AdapterUpperInfoReycler";
@@ -43,13 +48,13 @@ public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperIn
     @Override
     public void onBindViewHolder(final ProductViewHolder holder, int position) {
         final ModelInfoUpper list = upperInfoList.get(position);
-//        RequestOptions requestOptions = new RequestOptions()
-//                .placeholder(R.color.colorPrimary);
-//
-//        Glide.with(Objects.requireNonNull(mCtx)).load("https://malang-paradise.000webhostapp.com/" + postingan.getGambar()).apply(requestOptions).into(holder.gambar);
+        RequestOptions requestOptions = new RequestOptions()
+                .placeholder(R.color.colorPrimary);
+
+        Glide.with(Objects.requireNonNull(mCtx)).load(Konfigurasi.URL_IMAGE_INFORMASI+ list.getFotoInfo()).apply(requestOptions).into(holder.info_gambar);
         holder.info_judul.setText(list.getJudulInfo());
         holder.info_date.setText(list.getTglInput());
-        holder.info_isi.setText(list.getIsiInfo());
+        holder.info_isi.setText("   "+list.getIsiInfo());
         holder.info_nama.setText(list.getNamaUser());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
