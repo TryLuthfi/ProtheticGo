@@ -3,7 +3,9 @@ package xtrch.com.prostheticgo2.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -21,6 +23,8 @@ public class Rehabilitasi extends AppCompatActivity {
     ViewPager rehabPager;
     ImageView btnAddRehab;
 
+    String getStatusUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,10 @@ public class Rehabilitasi extends AppCompatActivity {
 
         //FindView
         setFindView();
+        //getSharedPreference
+        getSharedPreference();
+        //setLocalVar
+        setLocalVariable();
         //TabLayout
         setTabLayout();
         //OnClick
@@ -39,6 +47,14 @@ public class Rehabilitasi extends AppCompatActivity {
         rehabTab = findViewById(R.id.rehab_tab);
         rehabPager = findViewById(R.id.rehab_pager);
         btnAddRehab = findViewById(R.id.rehab_add_btn);
+    }
+
+    private void setLocalVariable() {
+        if(getStatusUser.equals("admin")){
+            btnAddRehab.setVisibility(View.VISIBLE);
+        } else {
+            btnAddRehab.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void setOnClick(){
@@ -58,6 +74,11 @@ public class Rehabilitasi extends AppCompatActivity {
                 startActivity(addRehab);
             }
         });
+    }
+
+    private void getSharedPreference(){
+        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        getStatusUser = preferences.getString("status_user", "null");
     }
 
     private void setTabLayout(){

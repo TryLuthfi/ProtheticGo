@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -19,6 +21,8 @@ public class Psikologi extends AppCompatActivity {
     SwipeRefreshLayout reload;
     RecyclerView recyclerView;
 
+    String getStatusUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,10 @@ public class Psikologi extends AppCompatActivity {
 
         //FindView
         setFindView();
+        //getSharedPreference
+        getSharedPreference();
+        //setLocalVar
+        setLocalVariable();
         //OnClick
         setOnClick();
         //Reload
@@ -37,6 +45,14 @@ public class Psikologi extends AppCompatActivity {
         btnAddPsiko = findViewById(R.id.psiko_add_btn);
         reload = findViewById(R.id.psiko_reload);
         recyclerView = findViewById(R.id.psiko_recycler);
+    }
+
+    private void setLocalVariable() {
+        if(getStatusUser.equals("admin")){
+            btnAddPsiko.setVisibility(View.VISIBLE);
+        } else {
+            btnAddPsiko.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void setOnClick(){
@@ -64,5 +80,10 @@ public class Psikologi extends AppCompatActivity {
                 reload.setRefreshing(false);
             }
         });
+    }
+
+    private void getSharedPreference(){
+        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        getStatusUser = preferences.getString("status_user", "null");
     }
 }
