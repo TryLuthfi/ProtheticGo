@@ -18,6 +18,7 @@ public class Konfigurasi {
     public static final String URL_EDIT_PROFILE = "https://prostheticgo.000webhostapp.com/koneksi/main_editprofile.php";
     public static final String URL_VIEW_USER = "https://prostheticgo.000webhostapp.com/koneksi/view_user.php";
     public static final String URL_VIEW_INFORMASI = "https://prostheticgo.000webhostapp.com/koneksi/view_informasi.php";
+    public static final String URL_VIEW_REHABILITASI = "https://prostheticgo.000webhostapp.com/koneksi/view_rehabilitasi.php";
     public static final String URL_MAIN = "https://prostheticgo.000webhostapp.com/";
     public static final String URL_IMAGE_INFORMASI = "https://prostheticgo.000webhostapp.com/koneksi/image_informasi/";
 }

@@ -2,7 +2,10 @@ package xtrch.com.prostheticgo2.Fragment;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -23,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +39,7 @@ import java.util.Objects;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import xtrch.com.prostheticgo2.Activity.AddInformasi;
 import xtrch.com.prostheticgo2.Adapter.AdapterLowerInfoRecycler;
 import xtrch.com.prostheticgo2.Adapter.AdapterUpperInfoReycler;
 import xtrch.com.prostheticgo2.Model.ModelInfoLower;
@@ -49,6 +54,14 @@ public class UpperExFragment extends Fragment {
     RecyclerView recyclerViewUpperInfo;
     ProgressBar loading;
     SwipeRefreshLayout swipeRefreshLayout;
+    FloatingActionButton floating;
+
+    String getIdUser;
+    String getNamaDepanUser;
+    String getNamaBelakangUser;
+    String getEmailUser;
+    String getPasswordUser;
+    String getStatusUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +71,8 @@ public class UpperExFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        getSharedPreference();
+        setLocalVariable();
         loadPostingan();
         //OnClick
         setOnClick();
@@ -65,10 +80,19 @@ public class UpperExFragment extends Fragment {
         return view;
     }
 
+    private void setLocalVariable() {
+        if(getStatusUser.equals("admin")){
+            floating.setVisibility(View.VISIBLE);
+        } else {
+            floating.setVisibility(View.INVISIBLE);
+        }
+    }
+
     private void setFindView(View view){
         recyclerViewUpperInfo = view.findViewById(R.id.upper_recycler);
         loading = view.findViewById(R.id.upper_loading);
         swipeRefreshLayout = view.findViewById(R.id.upper_swipe);
+        floating = view.findViewById(R.id.upper_floating);
 
 
         recyclerViewUpperInfo.setHasFixedSize(true);
@@ -83,6 +107,15 @@ public class UpperExFragment extends Fragment {
                 upperInfoList.clear();
                 swipeRefreshLayout.setRefreshing(true);
                 loadPostingan();
+            }
+        });
+
+        floating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AddInformasi.class);
+                intent.putExtra("id_info",  "0");
+                startActivity(intent);
             }
         });
     }
@@ -152,5 +185,16 @@ public class UpperExFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void getSharedPreference(){
+        SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        getIdUser = preferences.getString("id_user", "null");
+        getNamaDepanUser = preferences.getString("nama_depan_user", "null");
+        getNamaBelakangUser = preferences.getString("nama_belakang_user", "null");
+        getEmailUser = preferences.getString("email_user", "null");
+        getPasswordUser = preferences.getString("password_user", "null");
+        getStatusUser = preferences.getString("status_user", "null");
+
     }
 }

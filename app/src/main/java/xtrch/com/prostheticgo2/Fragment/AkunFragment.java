@@ -35,6 +35,7 @@ public class AkunFragment extends Fragment {
     String getNamaBelakangUser;
     String getEmailUser;
     String getPasswordUser;
+    String getStatusUser;
 
     TextView nama;
     TextView email;
@@ -141,6 +142,7 @@ public class AkunFragment extends Fragment {
         getNamaBelakangUser = preferences.getString("nama_belakang_user", "null");
         getEmailUser = preferences.getString("email_user", "null");
         getPasswordUser = preferences.getString("password_user", "null");
+        getStatusUser = preferences.getString("status_user", "null");
 
     }
 }
