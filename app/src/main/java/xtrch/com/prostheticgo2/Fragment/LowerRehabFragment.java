@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +16,35 @@ import xtrch.com.prostheticgo2.R;
 public class LowerRehabFragment extends Fragment {
     public LowerRehabFragment() {}
 
+    SwipeRefreshLayout reload;
+    RecyclerView recyclerView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lower_rehab, container, false);
+        View view =  inflater.inflate(R.layout.fragment_lower_rehab, container, false);
+
+        //FindView
+        setFindView(view);
+        //Reload
+        setReload();
+
+        return view;
+    }
+
+    private void setFindView(View view){
+        reload = view.findViewById(R.id.lower_rehab_reload);
+        recyclerView = view.findViewById(R.id.lower_rehab_recycler);
+    }
+
+    private void setReload(){
+        reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                reload.setRefreshing(false);
+            }
+        });
     }
 
     public interface OnFragmentInteractionListener {
