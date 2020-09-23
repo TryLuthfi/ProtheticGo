@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -11,8 +12,10 @@ import android.widget.Toast;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -31,7 +34,7 @@ public class HomePage extends AppCompatActivity {
 
     String getId_user;
 
-    AHBottomNavigation menuHome;
+    BottomNavigationView menuHome;
     FrameLayout frameLayout;
     RelativeLayout tabContainer;
     TabLayout tabLayout;
@@ -74,35 +77,22 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void setMenuHome(){
-        AHBottomNavigationItem home = new AHBottomNavigationItem("Home", R.drawable.ic_round_home_24, R.color.colorPrimary);
-        AHBottomNavigationItem info = new AHBottomNavigationItem("Informasi", R.drawable.ic_round_menu_book_24, R.color.colorPrimary);
-//        AHBottomNavigationItem psiko = new AHBottomNavigationItem("Psikologi", R.drawable.ic_round_accessibility_new_24, R.color.colorPrimary);
-//        AHBottomNavigationItem belanja = new AHBottomNavigationItem("Belanja", R.drawable.ic_round_shopping_cart_24, R.color.colorPrimary);
-//        AHBottomNavigationItem layanan = new AHBottomNavigationItem("Layanan", R.drawable.ic_baseline_call_24, R.color.colorPrimary);
-        AHBottomNavigationItem akun = new AHBottomNavigationItem("Akun", R.drawable.ic_round_person_24, R.color.colorPrimary);
-        menuHome.addItem(home);
-        menuHome.addItem(info);
-        menuHome.addItem(akun);
-        menuHome.setDefaultBackgroundColor(Color.parseColor("#FFFFFF"));
-        menuHome.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-        menuHome.setAccentColor(Color.parseColor("#c02743"));
-
-        menuHome.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+        menuHome.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public boolean onTabSelected(int position, boolean wasSelected) {
-                switch (position)
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
                 {
-                    case 0:
+                    case R.id.botnav_home:
                         setFragment(homeFragment);
                         frameLayout.setVisibility(View.VISIBLE);
                         tabContainer.setVisibility(View.GONE);
                         return true;
-                    case 1:
+                    case R.id.botnav_info:
                         frameLayout.setVisibility(View.GONE);
 //                        setFragment(infoFragment);
                         tabContainer.setVisibility(View.VISIBLE);
                         return true;
-                    case 2:
+                    case R.id.botnav_akun:
                         setFragment(akunFragment);
                         frameLayout.setVisibility(View.VISIBLE);
                         tabContainer.setVisibility(View.GONE);
