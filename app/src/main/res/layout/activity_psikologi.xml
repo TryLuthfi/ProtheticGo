@@ -32,6 +32,16 @@
             android:textSize="30sp"
             android:textStyle="bold"/>
 
+        <ImageView
+            android:id="@+id/psiko_add_btn"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_round_add_24"
+            app:tint="@color/colorWhite"/>
+
     </RelativeLayout>
 
 </RelativeLayout>
