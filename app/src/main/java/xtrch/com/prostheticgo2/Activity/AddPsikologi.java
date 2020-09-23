@@ -15,55 +15,55 @@ import android.widget.TextView;
 
 import xtrch.com.prostheticgo2.R;
 
-public class AddRehab extends AppCompatActivity {
+public class AddPsikologi extends AppCompatActivity {
 
     ImageView btnTambahFoto;
     EditText etJudul, etIsi;
-    Spinner sJenis;
+//    Spinner sJenis;
     ImageButton btnBack;
     TextView tvTitle;
     Button btnSimpan;
     SwipeRefreshLayout reload;
 
-    String idRehab;
+    String idPsiko;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_rehab);
+        setContentView(R.layout.activity_add_psikologi);
 
-        //FindView
+        //Find View
         setFindView();
-        //getintent
+        //getIntent
         getIntentState();
         //OnClick
-        setOnnClick();
-        //Reload
+        setOnClick();
+        //reload
         setReload();
     }
 
     private void setFindView(){
-        btnTambahFoto = findViewById(R.id.add_rehab_foto);
-        etJudul = findViewById(R.id.add_rehab_judul);
-        etIsi = findViewById(R.id.add_rehab_isi);
-        sJenis = findViewById(R.id.add_rehab_jenis);
-        btnBack = findViewById(R.id.back_from_add_rehab);
-        tvTitle = findViewById(R.id.add_rehab_title);
-        btnSimpan = findViewById(R.id.add_rehab_simpan);
-        reload = findViewById(R.id.add_rehab_reload);
+        btnTambahFoto = findViewById(R.id.add_psiko_foto);
+        etJudul = findViewById(R.id.add_psiko_judul);
+        etIsi = findViewById(R.id.add_psiko_isi);
+        btnBack = findViewById(R.id.back_from_add_psiko);
+        tvTitle = findViewById(R.id.add_psiko_title);
+        btnSimpan = findViewById(R.id.add_psiko_simpan);
+        reload = findViewById(R.id.add_psiko_reload);
     }
 
     private void getIntentState(){
-        Intent id = getIntent();
-        idRehab = id.getStringExtra("id_info");
-        if (idRehab.equals("0")){
-            tvTitle.setText("Tambah Rehabilitasi");
+        Intent psiko = getIntent();
+        idPsiko = psiko.getStringExtra("id_psiko");
+        if(idPsiko.equals("0")){
+            tvTitle.setText("Tambah Psikologi");
         } else {
-            tvTitle.setText("Edit Rehabilitasi");
+            tvTitle.setText("Edit Psikologi");
         }
     }
 
-    private void setOnnClick(){
+    private void setOnClick(){
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
