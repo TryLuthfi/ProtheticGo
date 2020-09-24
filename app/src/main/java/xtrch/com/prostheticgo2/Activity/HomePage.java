@@ -1,6 +1,7 @@
 package xtrch.com.prostheticgo2.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
@@ -32,13 +34,14 @@ import xtrch.com.prostheticgo2.R;
 
 public class HomePage extends AppCompatActivity {
 
-    String getId_user;
+    String getId_user, getStatusUser;
 
     BottomNavigationView menuHome;
     FrameLayout frameLayout;
     RelativeLayout tabContainer;
     TabLayout tabLayout;
     ViewPager viewPager;
+    FloatingActionButton floating;
 
     HomeFragment homeFragment;
     AkunFragment akunFragment;
@@ -56,6 +59,10 @@ public class HomePage extends AppCompatActivity {
 //        Toast.makeText(this, getId_user, Toast.LENGTH_SHORT).show();
         //MenuHome
         setMenuHome();
+        //OnClick
+        setONClick();
+        //SetLocal
+        setLocalVariable();
         //DefaultFragment
         setFragment(homeFragment);
         //TabLayout
@@ -69,11 +76,27 @@ public class HomePage extends AppCompatActivity {
         tabContainer = findViewById(R.id.home_tab_container);
         tabLayout = findViewById(R.id.home_tab_layout);
         viewPager = findViewById(R.id.home_pager);
+        floating = findViewById(R.id.home_floating);
 
         //Fragment Instatntiation
         homeFragment = new HomeFragment();
         infoFragment = new InfoFragment();
         akunFragment = new AkunFragment();
+    }
+
+    private void setONClick(){
+        floating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePage.this, AddInformasi.class);
+                intent.putExtra("id_info",  "0");
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setLocalVariable() {
+        //
     }
 
     private void setMenuHome(){
@@ -86,16 +109,23 @@ public class HomePage extends AppCompatActivity {
                         setFragment(homeFragment);
                         frameLayout.setVisibility(View.VISIBLE);
                         tabContainer.setVisibility(View.GONE);
+                        floating.setVisibility(View.GONE);
                         return true;
                     case R.id.botnav_info:
                         frameLayout.setVisibility(View.GONE);
 //                        setFragment(infoFragment);
                         tabContainer.setVisibility(View.VISIBLE);
+                        if(getStatusUser.equals("admin")){
+                            floating.setVisibility(View.VISIBLE);
+                        } else {
+                            floating.setVisibility(View.GONE);
+                        }
                         return true;
                     case R.id.botnav_akun:
                         setFragment(akunFragment);
                         frameLayout.setVisibility(View.VISIBLE);
                         tabContainer.setVisibility(View.GONE);
+                        floating.setVisibility(View.GONE);
                         return true;
                     default:
                         return false;
@@ -143,6 +173,6 @@ public class HomePage extends AppCompatActivity {
     private void getIdUser(){
         SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         getId_user = preferences.getString("id_user", "null");
-
+        getStatusUser = preferences.getString("status_user", "null");
     }
 }
