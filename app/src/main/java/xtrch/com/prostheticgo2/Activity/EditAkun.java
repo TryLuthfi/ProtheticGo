@@ -72,7 +72,7 @@ public class EditAkun extends AppCompatActivity {
         } else if(tanggal_lahir[1].equals("11")){
             bulan = "November";
         } else if(tanggal_lahir[1].equals("12")){
-            bulan = "Desmber";
+            bulan = "Desember";
         }
     }
 
