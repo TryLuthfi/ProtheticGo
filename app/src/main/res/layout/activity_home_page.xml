@@ -48,7 +48,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="70dp"
         android:layout_marginRight="16dp"
-        android:background="#c02743"
+        android:backgroundTint="@color/colorPrimary"
         android:src="@drawable/ic_round_add_24"
         android:tint="@color/colorWhite"/>
 
