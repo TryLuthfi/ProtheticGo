@@ -21,6 +21,7 @@ import android.widget.TextView;
 import xtrch.com.prostheticgo2.Activity.EditAkun;
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class AkunFragment extends Fragment {
     public AkunFragment() {}
@@ -31,10 +32,6 @@ public class AkunFragment extends Fragment {
     Dialog dialog;
 
     String getIdUser;
-    String getNamaDepanUser;
-    String getNamaBelakangUser;
-    String getEmailUser;
-    String getPasswordUser;
     String getStatusUser;
 
     TextView nama;
@@ -72,9 +69,9 @@ public class AkunFragment extends Fragment {
     }
 
     private void setLocalVariable() {
-        nama.setText(getNamaDepanUser+" "+getNamaBelakangUser);
-        email.setText(getEmailUser);
-        notelp.setText("");
+        nama.setText(Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
+        email.setText(Konfigurasi.Demail_user);
+        notelp.setText(Konfigurasi.Dnohp_user);
     }
 
     private void setFindView(View view){
@@ -138,10 +135,6 @@ public class AkunFragment extends Fragment {
     private void getSharedPreference(){
         SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         getIdUser = preferences.getString("id_user", "null");
-        getNamaDepanUser = preferences.getString("nama_depan_user", "null");
-        getNamaBelakangUser = preferences.getString("nama_belakang_user", "null");
-        getEmailUser = preferences.getString("email_user", "null");
-        getPasswordUser = preferences.getString("password_user", "null");
         getStatusUser = preferences.getString("status_user", "null");
 
     }

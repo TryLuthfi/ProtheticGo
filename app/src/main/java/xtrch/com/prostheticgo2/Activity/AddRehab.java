@@ -55,7 +55,7 @@ public class AddRehab extends AppCompatActivity {
 
     private void getIntentState(){
         Intent id = getIntent();
-        idRehab = id.getStringExtra("id_info");
+        idRehab = id.getStringExtra("id_rehab");
         if (idRehab.equals("0")){
             tvTitle.setText("Tambah Rehabilitasi");
         } else {

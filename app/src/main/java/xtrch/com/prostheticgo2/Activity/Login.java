@@ -18,13 +18,20 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.math.BigInteger;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.AppController;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
 import xtrch.com.prostheticgo2.Request.Utils;
 import xtrch.com.prostheticgo2.Request.encryptMd5;
@@ -42,6 +49,8 @@ public class Login extends AppCompatActivity {
 
     String getId_user;
 
+    ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +58,7 @@ public class Login extends AppCompatActivity {
 
         getFindView();
         setAnime();
+        getDataUser();
         cekSessions();
 
         cd_login.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +94,10 @@ public class Login extends AppCompatActivity {
         tv_signup = findViewById(R.id.Login_btn_signup);
         progressDialog= new ProgressDialog(this);
         cd_login = findViewById(R.id.Login_btn_login);
+        dialog= new ProgressDialog(Login.this);
+
+        dialog.setMessage("Mengambil data...");
+        dialog.setTitle("Harap sabar...");
 
     }
 
@@ -95,7 +109,7 @@ public class Login extends AppCompatActivity {
     private void cekSessions() {
         getIdUser();
         if(getId_user != "null"){
-            gotoHomepage();
+            getDataUser();
         }
     }
 
@@ -111,12 +125,8 @@ public class Login extends AppCompatActivity {
                         if (response.contains(Konfigurasi.SUCCESS)) {
                             progressDialog.hide();
                             String id_user = response.toString().split(";")[1];
-                            String nama_depan_user = response.toString().split(";")[2];
-                            String nama_belakang_user = response.toString().split(";")[3];
-                            String email_user = response.toString().split(";")[4];
-                            String password_user = response.toString().split(";")[5];
                             String status_user = response.toString().split(";")[6];
-                            setPreference(id_user, nama_depan_user, nama_belakang_user, email_user, password_user, status_user);
+                            setPreference(id_user,status_user);
                             gotoHomepage();
                         } else {
                             progressDialog.hide();
@@ -158,6 +168,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void gotoHomepage() {
+        dialog.dismiss();
         startActivity(new Intent(getApplicationContext(), HomePage.class));
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         finish();
@@ -183,14 +194,10 @@ public class Login extends AppCompatActivity {
 
     }
 
-    void setPreference(String id_user, String nama_depan_user, String nama_belakang_user, String email_user, String password_user, String status_user){
+    void setPreference(String id_user,String status_user){
         SharedPreferences mSettings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putString("id_user", id_user);
-        editor.putString("nama_depan_user", nama_depan_user);
-        editor.putString("nama_belakang_user", nama_belakang_user);
-        editor.putString("email_user", email_user);
-        editor.putString("password_user", password_user);
         editor.putString("status_user", status_user);
         editor.apply();
     }
@@ -199,5 +206,62 @@ public class Login extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         getId_user = preferences.getString("id_user", "null");
 
+    }
+
+    public void getDataUser() {
+        dialog.show();
+        StringRequest loadInvoice = new StringRequest(Request.Method.POST,
+                Konfigurasi.URL_VIEW_USER,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            DecimalFormat formatRupiah = (DecimalFormat) NumberFormat.getInstance();
+                            formatRupiah.setPositivePrefix("Rp. ");
+                            formatRupiah.setMinimumFractionDigits(0);
+                            formatRupiah.setMaximumFractionDigits(0);
+
+                            JSONArray jsonArray = new JSONArray(response);
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                if (getId_user.equals(jsonObject.getString("id_user"))) {
+
+                                    Konfigurasi.Did_user = jsonObject.getString("id_user");
+                                    Konfigurasi.Dnama_depan_user = jsonObject.getString("nama_depan_user");
+                                    Konfigurasi.Dnama_belakang_user = jsonObject.getString("nama_belakang_user");
+                                    Konfigurasi.Demail_user = jsonObject.getString("email_user");
+                                    Konfigurasi.Dpass_user = jsonObject.getString("pass_user");
+                                    Konfigurasi.Dalamat_user = jsonObject.getString("alamat_user");
+                                    Konfigurasi.Dnohp_user = jsonObject.getString("nohp_user");
+                                    Konfigurasi.Dpekerjaan_user = jsonObject.getString("pekerjaan_user");
+                                    Konfigurasi.Dtempat_lahir_user = jsonObject.getString("tempat_lahir_user");
+                                    Konfigurasi.Dtanggal_lahir_user = jsonObject.getString("tanggal_lahir_user");
+                                    Konfigurasi.Dstatus_user = jsonObject.getString("status_user");
+                                    Konfigurasi.Dtanggal_daftar = jsonObject.getString("tanggal_daftar");
+
+                                    gotoHomepage();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            dialog.dismiss();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        dialog.dismiss();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(loadInvoice);
     }
 }

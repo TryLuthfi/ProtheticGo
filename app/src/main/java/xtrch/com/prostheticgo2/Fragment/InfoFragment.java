@@ -1,5 +1,8 @@
 package xtrch.com.prostheticgo2.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,9 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import xtrch.com.prostheticgo2.Activity.AddInformasi;
 import xtrch.com.prostheticgo2.Adapter.AdapterTabInfo;
 import xtrch.com.prostheticgo2.R;
 
@@ -20,6 +26,14 @@ public class InfoFragment extends Fragment {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    FloatingActionButton floating;
+
+    String getIdUser;
+    String getNamaDepanUser;
+    String getNamaBelakangUser;
+    String getEmailUser;
+    String getPasswordUser;
+    String getStatusUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,10 +43,24 @@ public class InfoFragment extends Fragment {
 
         //FindView
         setFindView(view);
+        getSharedPreference();
+        setLocalVariable();
         //TabLayout
         setTabLayout();
+        setOnClick();
 
         return view;
+    }
+
+    private void setOnClick() {
+        floating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AddInformasi.class);
+                intent.putExtra("id_info",  "0");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -43,6 +71,15 @@ public class InfoFragment extends Fragment {
     private void setFindView(View view){
         tabLayout = view.findViewById(R.id.info_tab_layout);
         viewPager = view.findViewById(R.id.info_pager);
+        floating = view.findViewById(R.id.upper_floating);
+    }
+
+    private void setLocalVariable() {
+        if(getStatusUser.equals("admin")){
+            floating.setVisibility(View.VISIBLE);
+        } else {
+            floating.setVisibility(View.VISIBLE);
+        }
     }
 
     private void setTabLayout(){
@@ -73,5 +110,12 @@ public class InfoFragment extends Fragment {
 
             }
         });
+    }
+
+    private void getSharedPreference(){
+        SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        getIdUser = preferences.getString("id_user", "null");
+        getStatusUser = preferences.getString("status_user", "null");
+
     }
 }

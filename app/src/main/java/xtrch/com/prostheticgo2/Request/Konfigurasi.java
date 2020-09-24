@@ -21,4 +21,17 @@ public class Konfigurasi {
     public static final String URL_VIEW_REHABILITASI = "https://prostheticgo.000webhostapp.com/koneksi/view_rehabilitasi.php";
     public static final String URL_MAIN = "https://prostheticgo.000webhostapp.com/";
     public static final String URL_IMAGE_INFORMASI = "https://prostheticgo.000webhostapp.com/koneksi/image_informasi/";
+
+    public static String Did_user= null;
+    public static String Dnama_depan_user= null;
+    public static String Dnama_belakang_user= null;
+    public static String Demail_user= null;
+    public static String Dpass_user= null;
+    public static String Dalamat_user= null;
+    public static String Dnohp_user= null;
+    public static String Dpekerjaan_user= null;
+    public static String Dtempat_lahir_user= null;
+    public static String Dtanggal_lahir_user= null;
+    public static String Dstatus_user= null;
+    public static String Dtanggal_daftar= null;
 }

@@ -1,5 +1,6 @@
 package xtrch.com.prostheticgo2.Fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,30 +9,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.Activity.Belanja;
 import xtrch.com.prostheticgo2.Activity.Layanan;
+import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.Activity.Psikologi;
 import xtrch.com.prostheticgo2.Activity.Rehabilitasi;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class HomeFragment extends Fragment {
     public HomeFragment() {
     }
 
     String getIdUser;
-    String getNamaDepanUser;
-    String getNamaBelakangUser;
-    String getEmailUser;
-    String getPasswordUser;
+    String getStatusUser;
 
     SwipeRefreshLayout reload;
     TextView intro;
@@ -40,6 +37,7 @@ public class HomeFragment extends Fragment {
     SimpleDateFormat date;
     String formattedDate;
     int waktu;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,26 +106,23 @@ public class HomeFragment extends Fragment {
 
     private void setIntro(final int waktu) {
         if (waktu >= 4 && waktu < 10) {
-            intro.setText("Selamat Pagi, "+getNamaDepanUser+" "+getNamaBelakangUser);
+            intro.setText("Selamat Pagi, "+ Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         }
         if (waktu >= 10 && waktu < 15) {
-            intro.setText("Selamat Siang, "+getNamaDepanUser+" "+getNamaBelakangUser);
+            intro.setText("Selamat Siang, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         }
         if (waktu >= 15 && waktu < 19) {
-            intro.setText("Selamat Sore, "+getNamaDepanUser+" "+getNamaBelakangUser);
+            intro.setText("Selamat Sore, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         }
         if (waktu >= 19) {
-            intro.setText("Selamat Malam, "+getNamaDepanUser+" "+getNamaBelakangUser);
+            intro.setText("Selamat Malam, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         }
     }
 
     private void getSharedPreference(){
         SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         getIdUser = preferences.getString("id_user", "null");
-        getNamaDepanUser = preferences.getString("nama_depan_user", "null");
-        getNamaBelakangUser = preferences.getString("nama_belakang_user", "null");
-        getEmailUser = preferences.getString("email_user", "null");
-        getPasswordUser = preferences.getString("password_user", "null");
+        getStatusUser = preferences.getString("status_user", "null");
 
     }
 }

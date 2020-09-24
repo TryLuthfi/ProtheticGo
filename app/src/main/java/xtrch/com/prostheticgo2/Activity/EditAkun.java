@@ -29,10 +29,7 @@ public class EditAkun extends AppCompatActivity {
 
 
     String getIdUser;
-    String getNamaDepanUser;
-    String getNamaBelakangUser;
-    String getEmailUser;
-    String getPasswordUser;
+    String getStatusUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +45,6 @@ public class EditAkun extends AppCompatActivity {
     }
 
     private void setLocalVariable() {
-        etNamadepan.setText(getNamaDepanUser);
-        etNamabelakang.setText(getNamaBelakangUser);
-        etEmail.setText(getEmailUser);
     }
 
     private void setFindFiew(){
@@ -121,10 +115,7 @@ public class EditAkun extends AppCompatActivity {
     private void getSharedPreference(){
         SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         getIdUser = preferences.getString("id_user", "null");
-        getNamaDepanUser = preferences.getString("nama_depan_user", "null");
-        getNamaBelakangUser = preferences.getString("nama_belakang_user", "null");
-        getEmailUser = preferences.getString("email_user", "null");
-        getPasswordUser = preferences.getString("password_user", "null");
+        getStatusUser = preferences.getString("status_user", "null");
 
     }
 
