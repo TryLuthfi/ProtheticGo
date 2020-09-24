@@ -1,6 +1,7 @@
 package xtrch.com.prostheticgo2.Adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 import androidx.recyclerview.widget.RecyclerView;
+import xtrch.com.prostheticgo2.Activity.DetailPost;
 import xtrch.com.prostheticgo2.Model.ModelRehabUpper;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
@@ -54,6 +56,24 @@ public class AdapterUpperRehabRecycler extends RecyclerView.Adapter<AdapterUpper
         holder.info_date.setText(list.getTglInput());
         holder.info_isi.setText("   "+list.getIsiRehab());
         holder.info_nama.setText(list.getNamaDepanUser()+" "+list.getNamaBelakangUser());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mCtx, DetailPost.class);
+                intent.putExtra("id_info", list.getIdRehab());
+                intent.putExtra("judul_info", list.getJudulRehab());
+                intent.putExtra("isi_info", list.getIsiRehab());
+                intent.putExtra("foto_info", list.getFotoRehab());
+                intent.putExtra("jenis_info", list.getJenisRehab());
+                intent.putExtra("id_user", list.getIdUser());
+                intent.putExtra("tanggal_input", list.getTglInput());
+                intent.putExtra("nama_depan_user", list.getNamaDepanUser());
+                intent.putExtra("nama_belakang_user", list.getNamaBelakangUser());
+                intent.putExtra("email_user", list.getEmailUser());
+                mCtx.startActivity(intent);
+            }
+        });
     }
 
     @Override

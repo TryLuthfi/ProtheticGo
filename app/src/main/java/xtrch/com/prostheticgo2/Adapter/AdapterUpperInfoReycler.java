@@ -1,6 +1,7 @@
 package xtrch.com.prostheticgo2.Adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import java.util.Objects;
 import java.util.Random;
 
 import androidx.recyclerview.widget.RecyclerView;
+import xtrch.com.prostheticgo2.Activity.DetailPost;
 import xtrch.com.prostheticgo2.Model.ModelInfoUpper;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
@@ -64,6 +66,23 @@ public class AdapterUpperInfoReycler extends RecyclerView.Adapter<AdapterUpperIn
             }
         });
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mCtx, DetailPost.class);
+                intent.putExtra("id_info", list.getIdInfo());
+                intent.putExtra("judul_info", list.getJudulInfo());
+                intent.putExtra("isi_info", list.getIsiInfo());
+                intent.putExtra("foto_info", list.getFotoInfo());
+                intent.putExtra("jenis_info", list.getJenisInfo());
+                intent.putExtra("id_user", list.getIdUser());
+                intent.putExtra("tanggal_input", list.getTglInput());
+                intent.putExtra("nama_depan_user", list.getNamaDepanUser());
+                intent.putExtra("nama_belakang_user", list.getNamaBelakangUser());
+                intent.putExtra("email_user", list.getEmailUser());
+                mCtx.startActivity(intent);
+            }
+        });
 
     }
 
