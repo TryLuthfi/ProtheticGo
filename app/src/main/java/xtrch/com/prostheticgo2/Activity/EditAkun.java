@@ -83,7 +83,7 @@ public class EditAkun extends AppCompatActivity {
         etNamabelakang.setText(Konfigurasi.Dnama_belakang_user);
         etTempat.setText(Konfigurasi.Dtempat_lahir_user);
         etAlamat.setText(Konfigurasi.Dalamat_user);
-        etHp.setText(" kosong ");
+        etHp.setText(Konfigurasi.Dnohp_user);
         etPekerjaan.setText(Konfigurasi.Dpekerjaan_user);
         etTanggal.setText(tanggal_lahir[2] +" "+bulan+" "+tanggal_lahir[0]);
     }
