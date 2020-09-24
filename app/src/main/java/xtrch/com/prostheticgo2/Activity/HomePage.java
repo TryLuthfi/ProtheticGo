@@ -96,11 +96,7 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void setLocalVariable() {
-        if(getStatusUser.equals("admin")){
-            floating.setVisibility(View.VISIBLE);
-        } else {
-            floating.setVisibility(View.INVISIBLE);
-        }
+        //
     }
 
     private void setMenuHome(){
@@ -119,7 +115,11 @@ public class HomePage extends AppCompatActivity {
                         frameLayout.setVisibility(View.GONE);
 //                        setFragment(infoFragment);
                         tabContainer.setVisibility(View.VISIBLE);
-                        floating.setVisibility(View.VISIBLE);
+                        if(getStatusUser.equals("admin")){
+                            floating.setVisibility(View.VISIBLE);
+                        } else {
+                            floating.setVisibility(View.GONE);
+                        }
                         return true;
                     case R.id.botnav_akun:
                         setFragment(akunFragment);
