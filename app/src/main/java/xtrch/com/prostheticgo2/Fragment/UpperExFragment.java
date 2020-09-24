@@ -82,9 +82,9 @@ public class UpperExFragment extends Fragment {
 
     private void setLocalVariable() {
         if(getStatusUser.equals("admin")){
-            floating.setVisibility(View.VISIBLE);
+//            floating.setVisibility(View.VISIBLE);
         } else {
-            floating.setVisibility(View.INVISIBLE);
+//            floating.setVisibility(View.INVISIBLE);
         }
     }
 
