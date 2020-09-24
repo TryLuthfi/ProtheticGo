@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.EditFotoAkun"
+    android:orientation="vertical"
+    android:background="@drawable/curved_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageButton
+            android:id="@+id/back_from_edit_foto_akun"
+            android:layout_centerVertical="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_round_arrow_back_ios_24"
+            android:background="@color/colorTransparent"
+            android:tint="@color/colorWhite"/>
+
+        <TextView
+            android:id="@+id/edit_foto_title_akun"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/back_from_edit_foto_akun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Foto"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/edit_foto_akun_reload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="70dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/round_white_border"
+                    android:padding="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/edit_foto_akun_tvProfil"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Foto Profil :"/>
+
+                        <ImageView
+                            android:id="@+id/edit_foto_akun_profil"
+                            android:layout_below="@id/edit_foto_akun_tvProfil"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/undraw_photos"/>
+
+                        <Button
+                            android:id="@+id/edit_foto_akun_profil_btn"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SIMPAN"
+                            android:background="@drawable/btn_primary_round"
+                            android:textColor="@color/colorWhite"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/edit_foto_akun_tvDepan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Foto Body Depan :"/>
+
+                        <ImageView
+                            android:id="@+id/edit_foto_akun_depan"
+                            android:layout_below="@id/edit_foto_akun_tvDepan"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/undraw_photos"/>
+
+                        <Button
+                            android:id="@+id/edit_foto_akun_depan_btn"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SIMPAN"
+                            android:background="@drawable/btn_primary_round"
+                            android:textColor="@color/colorWhite"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/edit_foto_akun_tvSamping"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Foto Body Samping :"/>
+
+                        <ImageView
+                            android:id="@+id/edit_foto_akun_samping"
+                            android:layout_below="@id/edit_foto_akun_tvSamping"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/undraw_photos"/>
+
+                        <Button
+                            android:id="@+id/edit_foto_akun_samping_btn"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SIMPAN"
+                            android:background="@drawable/btn_primary_round"
+                            android:textColor="@color/colorWhite"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/edit_foto_akun_tvBlkg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Foto Body Belakang :"/>
+
+                        <ImageView
+                            android:id="@+id/edit_foto_akun_blkg"
+                            android:layout_below="@id/edit_foto_akun_tvBlkg"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/undraw_photos"/>
+
+                        <Button
+                            android:id="@+id/edit_foto_akun_blkg_btn"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SIMPAN"
+                            android:background="@drawable/btn_primary_round"
+                            android:textColor="@color/colorWhite"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
