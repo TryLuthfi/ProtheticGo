@@ -72,16 +72,16 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/akun_email_icon"
+                            android:id="@+id/akun_tgl_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_round_email_24"/>
 
                         <TextView
-                            android:id="@+id/akun_email"
+                            android:id="@+id/akun_tgl"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="7dp"
-                            android:layout_toRightOf="@id/akun_email_icon"
+                            android:layout_toRightOf="@id/akun_tgl_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="email@gmail.com"/>
@@ -89,24 +89,65 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/akun_hp_icon"
+                            android:id="@+id/akun_alamat_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_round_email_24"/>
+
+                        <TextView
+                            android:id="@+id/akun_alamat"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="7dp"
+                            android:layout_toRightOf="@id/akun_alamat_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="email@gmail.com"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/akun_nohp_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_baseline_call_24"/>
 
                         <TextView
-                            android:id="@+id/akun_notelp"
+                            android:id="@+id/akun_nohp"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="7dp"
-                            android:layout_toRightOf="@id/akun_hp_icon"
+                            android:layout_toRightOf="@id/akun_nohp_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="+6234567890987"/>
+                            android:text="email@gmail.com"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/akun_pekerjaan_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_round_email_24"/>
+
+                        <TextView
+                            android:id="@+id/akun_pekerjaan"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="7dp"
+                            android:layout_toRightOf="@id/akun_pekerjaan_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="email@gmail.com"/>
 
                     </RelativeLayout>
 

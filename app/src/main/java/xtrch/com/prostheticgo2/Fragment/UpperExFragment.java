@@ -72,7 +72,6 @@ public class UpperExFragment extends Fragment {
         //FindView
         setFindView(view);
         getSharedPreference();
-        setLocalVariable();
         loadPostingan();
         //OnClick
         setOnClick();
@@ -80,19 +79,11 @@ public class UpperExFragment extends Fragment {
         return view;
     }
 
-    private void setLocalVariable() {
-        if(getStatusUser.equals("admin")){
-//            floating.setVisibility(View.VISIBLE);
-        } else {
-//            floating.setVisibility(View.INVISIBLE);
-        }
-    }
 
     private void setFindView(View view){
         recyclerViewUpperInfo = view.findViewById(R.id.upper_recycler);
         loading = view.findViewById(R.id.upper_loading);
         swipeRefreshLayout = view.findViewById(R.id.upper_swipe);
-        floating = view.findViewById(R.id.upper_floating);
 
 
         recyclerViewUpperInfo.setHasFixedSize(true);
@@ -107,15 +98,6 @@ public class UpperExFragment extends Fragment {
                 upperInfoList.clear();
                 swipeRefreshLayout.setRefreshing(true);
                 loadPostingan();
-            }
-        });
-
-        floating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), AddInformasi.class);
-                intent.putExtra("id_info",  "0");
-                startActivity(intent);
             }
         });
     }

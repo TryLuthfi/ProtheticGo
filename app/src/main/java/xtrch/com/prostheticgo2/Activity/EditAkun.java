@@ -23,10 +23,12 @@ import xtrch.com.prostheticgo2.Request.RequestHandler;
 
 public class EditAkun extends AppCompatActivity {
 
-    EditText etNamadepan, etNamabelakang, etEmail, etHp;
+    EditText etNamadepan, etNamabelakang, etTempat, etTanggal, etAlamat, etPekerjaan, etHp;
     Button btnSimpan;
     ImageButton btnBack;
 
+    String[] tanggal_lahir;
+    String bulan;
 
     String getIdUser;
     String getStatusUser;
@@ -39,18 +41,58 @@ public class EditAkun extends AppCompatActivity {
         //FindView
         setFindFiew();
         getSharedPreference();
+        getMonth();
         setLocalVariable();
         //onClick
         setOnClick();
     }
 
+    private void getMonth() {
+        tanggal_lahir = Konfigurasi.Dtanggal_lahir_user.trim().split("-");
+        if(tanggal_lahir[1].equals("1")){
+            bulan = "Januari";
+        } else if(tanggal_lahir[1].equals("2")){
+            bulan = "Februari";
+        } else if(tanggal_lahir[1].equals("3")){
+            bulan = "Maret";
+        } else if(tanggal_lahir[1].equals("4")){
+            bulan = "April";
+        } else if(tanggal_lahir[1].equals("5")){
+            bulan = "Mei";
+        } else if(tanggal_lahir[1].equals("6")){
+            bulan = "Juni";
+        } else if(tanggal_lahir[1].equals("7")){
+            bulan = "Juli";
+        } else if(tanggal_lahir[1].equals("8")){
+            bulan = "Agustus";
+        } else if(tanggal_lahir[1].equals("9")){
+            bulan = "September";
+        } else if(tanggal_lahir[1].equals("10")){
+            bulan = "Oktober";
+        } else if(tanggal_lahir[1].equals("11")){
+            bulan = "November";
+        } else if(tanggal_lahir[1].equals("12")){
+            bulan = "Desmber";
+        }
+    }
+
     private void setLocalVariable() {
+        etNamadepan.setText(Konfigurasi.Dnama_depan_user);
+        etNamabelakang.setText(Konfigurasi.Dnama_belakang_user);
+        etTempat.setText(Konfigurasi.Dtempat_lahir_user);
+        etAlamat.setText(Konfigurasi.Dalamat_user);
+        etHp.setText(" kosong ");
+        etPekerjaan.setText(Konfigurasi.Dpekerjaan_user);
+        etTanggal.setText(tanggal_lahir[2] +" "+bulan+" "+tanggal_lahir[0]);
     }
 
     private void setFindFiew(){
         etNamadepan = findViewById(R.id.edit_akun_namadepan);
         etNamabelakang = findViewById(R.id.edit_akun_namabelakang);
-        etEmail = findViewById(R.id.edit_akun_email);
+        etTempat = findViewById(R.id.edit_akun_tempat_lahir);
+        etTanggal = findViewById(R.id.edit_akun_tanggal_lahir);
+        etAlamat = findViewById(R.id.edit_akun_alamat);
+        etPekerjaan = findViewById(R.id.edit_akun_pekerjaan);
         etHp = findViewById(R.id.edit_akun_hp);
         btnSimpan = findViewById(R.id.edit_akun_simpan_btn);
         btnBack = findViewById(R.id.back_from_edit_akun);
@@ -88,7 +130,7 @@ public class EditAkun extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                 if(s.equals("Berhasil diperbarui")){
                     loading.dismiss();
-                    setPreference(etNamadepan.getText().toString(), etNamabelakang.getText().toString(), etEmail.getText().toString());
+                    setPreference(etNamadepan.getText().toString(), etNamabelakang.getText().toString(), etPekerjaan.getText().toString());
                     Intent intent = new Intent(getApplicationContext(),HomePage.class);
                     startActivity(intent);
                 }
@@ -101,7 +143,7 @@ public class EditAkun extends AppCompatActivity {
                 params.put("id_user", getIdUser);
                 params.put("nama_depan_user", etNamadepan.getText().toString());
                 params.put("nama_belakang_user", etNamabelakang.getText().toString());
-                params.put("email_user", etEmail.getText().toString());
+                params.put("email_user", etPekerjaan.getText().toString());
 
                 RequestHandler rh = new RequestHandler();
                 String res = rh.sendPostRequest(Konfigurasi.URL_EDIT_PROFILE, params);

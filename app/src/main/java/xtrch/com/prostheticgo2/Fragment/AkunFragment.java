@@ -35,8 +35,10 @@ public class AkunFragment extends Fragment {
     String getStatusUser;
 
     TextView nama;
-    TextView email;
-    TextView notelp;
+    TextView tgl;
+    TextView alamat;
+    TextView nohp;
+    TextView pekerjaan;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,16 +72,20 @@ public class AkunFragment extends Fragment {
 
     private void setLocalVariable() {
         nama.setText(Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        email.setText(Konfigurasi.Demail_user);
-        notelp.setText(Konfigurasi.Dnohp_user);
+        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+Konfigurasi.Dtanggal_lahir_user);
+        alamat.setText(Konfigurasi.Dalamat_user);
+        nohp.setText(Konfigurasi.Dnohp_user);
+        pekerjaan.setText(Konfigurasi.Dpekerjaan_user);
     }
 
     private void setFindView(View view){
         btnLogout = view.findViewById(R.id.akun_logout_btn);
         reload = view.findViewById(R.id.akun_fragment_reload);
         nama = view.findViewById(R.id.akun_nama);
-        email = view.findViewById(R.id.akun_email);
-        notelp = view.findViewById(R.id.akun_notelp);
+        tgl = view.findViewById(R.id.akun_tgl);
+        alamat = view.findViewById(R.id.akun_alamat);
+        nohp = view.findViewById(R.id.akun_nohp);
+        pekerjaan = view.findViewById(R.id.akun_pekerjaan);
         btnEdit = view.findViewById(R.id.akun_fragment_edit);
     }
 
