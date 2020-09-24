@@ -47,6 +47,8 @@ public class Login extends AppCompatActivity {
     String password = "";
     String hasilmd5;
 
+    String id_user = "0";
+
     String getId_user;
 
     ProgressDialog dialog;
@@ -58,7 +60,6 @@ public class Login extends AppCompatActivity {
 
         getFindView();
         setAnime();
-        getDataUser();
         cekSessions();
 
         cd_login.setOnClickListener(new View.OnClickListener() {
@@ -124,10 +125,10 @@ public class Login extends AppCompatActivity {
                     public void onResponse(String response) {
                         if (response.contains(Konfigurasi.SUCCESS)) {
                             progressDialog.hide();
-                            String id_user = response.toString().split(";")[1];
+                            id_user = response.toString().split(";")[1];
                             String status_user = response.toString().split(";")[6];
                             setPreference(id_user,status_user);
-                            gotoHomepage();
+                            getDataUser();
                         } else {
                             progressDialog.hide();
                             Toast.makeText(Login.this, "Email atau password anda salah", Toast.LENGTH_SHORT).show();
@@ -225,7 +226,7 @@ public class Login extends AppCompatActivity {
                             JSONArray jsonArray = new JSONArray(response);
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                if (getId_user.equals(jsonObject.getString("id_user"))) {
+                                if (getId_user.equals(jsonObject.getString("id_user")) || id_user.equals(jsonObject.getString("id_user"))) {
 
                                     Konfigurasi.Did_user = jsonObject.getString("id_user");
                                     Konfigurasi.Dnama_depan_user = jsonObject.getString("nama_depan_user");
@@ -241,6 +242,8 @@ public class Login extends AppCompatActivity {
                                     Konfigurasi.Dtanggal_daftar = jsonObject.getString("tanggal_daftar");
 
                                     gotoHomepage();
+                                } else{
+                                    dialog.dismiss();
                                 }
                             }
                         } catch (JSONException e) {
