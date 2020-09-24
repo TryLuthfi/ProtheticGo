@@ -114,7 +114,7 @@ public class HomeFragment extends Fragment {
         if (waktu >= 15 && waktu < 19) {
             intro.setText("Selamat Sore, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         }
-        if (waktu >= 19) {
+        else {
             intro.setText("Selamat Malam, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         }
     }

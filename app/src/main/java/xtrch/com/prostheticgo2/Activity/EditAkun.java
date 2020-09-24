@@ -49,23 +49,23 @@ public class EditAkun extends AppCompatActivity {
 
     private void getMonth() {
         tanggal_lahir = Konfigurasi.Dtanggal_lahir_user.trim().split("-");
-        if(tanggal_lahir[1].equals("1")){
+        if(tanggal_lahir[1].equals("01")){
             bulan = "Januari";
-        } else if(tanggal_lahir[1].equals("2")){
+        } else if(tanggal_lahir[1].equals("02")){
             bulan = "Februari";
-        } else if(tanggal_lahir[1].equals("3")){
+        } else if(tanggal_lahir[1].equals("03")){
             bulan = "Maret";
-        } else if(tanggal_lahir[1].equals("4")){
+        } else if(tanggal_lahir[1].equals("04")){
             bulan = "April";
-        } else if(tanggal_lahir[1].equals("5")){
+        } else if(tanggal_lahir[1].equals("05")){
             bulan = "Mei";
-        } else if(tanggal_lahir[1].equals("6")){
+        } else if(tanggal_lahir[1].equals("06")){
             bulan = "Juni";
-        } else if(tanggal_lahir[1].equals("7")){
+        } else if(tanggal_lahir[1].equals("07")){
             bulan = "Juli";
-        } else if(tanggal_lahir[1].equals("8")){
+        } else if(tanggal_lahir[1].equals("08")){
             bulan = "Agustus";
-        } else if(tanggal_lahir[1].equals("9")){
+        } else if(tanggal_lahir[1].equals("09")){
             bulan = "September";
         } else if(tanggal_lahir[1].equals("10")){
             bulan = "Oktober";
@@ -73,6 +73,8 @@ public class EditAkun extends AppCompatActivity {
             bulan = "November";
         } else if(tanggal_lahir[1].equals("12")){
             bulan = "Desember";
+        } else {
+            bulan = "?";
         }
     }
 

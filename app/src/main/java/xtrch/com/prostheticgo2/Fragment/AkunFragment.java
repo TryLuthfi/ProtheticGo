@@ -40,6 +40,9 @@ public class AkunFragment extends Fragment {
     TextView nohp;
     TextView pekerjaan;
 
+    String[] tanggal_lahir;
+    String bulan;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class AkunFragment extends Fragment {
         setFindView(view);
         //SharedPreference
         getSharedPreference();
+        //setNamaBulan
+        getMonth();
         //SetLocalVariable
         setLocalVariable();
         //on Click
@@ -70,9 +75,40 @@ public class AkunFragment extends Fragment {
         return view;
     }
 
+    private void getMonth() {
+        tanggal_lahir = Konfigurasi.Dtanggal_lahir_user.trim().split("-");
+        if(tanggal_lahir[1].equals("01")){
+            bulan = "Januari";
+        } else if(tanggal_lahir[1].equals("02")){
+            bulan = "Februari";
+        } else if(tanggal_lahir[1].equals("03")){
+            bulan = "Maret";
+        } else if(tanggal_lahir[1].equals("04")){
+            bulan = "April";
+        } else if(tanggal_lahir[1].equals("05")){
+            bulan = "Mei";
+        } else if(tanggal_lahir[1].equals("06")){
+            bulan = "Juni";
+        } else if(tanggal_lahir[1].equals("07")){
+            bulan = "Juli";
+        } else if(tanggal_lahir[1].equals("08")){
+            bulan = "Agustus";
+        } else if(tanggal_lahir[1].equals("09")){
+            bulan = "September";
+        } else if(tanggal_lahir[1].equals("10")){
+            bulan = "Oktober";
+        } else if(tanggal_lahir[1].equals("11")){
+            bulan = "November";
+        } else if(tanggal_lahir[1].equals("12")){
+            bulan = "Desember";
+        } else {
+            bulan = "?";
+        }
+    }
+
     private void setLocalVariable() {
         nama.setText(Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+Konfigurasi.Dtanggal_lahir_user);
+        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+tanggal_lahir[2] +" "+bulan+" "+tanggal_lahir[0]);
         alamat.setText(Konfigurasi.Dalamat_user);
         nohp.setText(Konfigurasi.Dnohp_user);
         pekerjaan.setText(Konfigurasi.Dpekerjaan_user);
