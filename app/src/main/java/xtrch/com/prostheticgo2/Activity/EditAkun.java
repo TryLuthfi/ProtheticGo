@@ -159,6 +159,13 @@ public class EditAkun extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                 if(s.equals("Berhasil diperbarui")){
                     loading.dismiss();
+                    Konfigurasi.Dnama_depan_user = etNamadepan.getText().toString();
+                    Konfigurasi.Dnama_belakang_user = etNamabelakang.getText().toString();
+                    Konfigurasi.Dtempat_lahir_user = etTempat.getText().toString();
+                    Konfigurasi.Dtanggal_lahir_user = etTanggal.getText().toString();
+                    Konfigurasi.Dalamat_user = etAlamat.getText().toString();
+                    Konfigurasi.Dnohp_user = etHp.getText().toString();
+                    Konfigurasi.Dpekerjaan_user = etPekerjaan.getText().toString();
                     setPreference(etNamadepan.getText().toString(), etNamabelakang.getText().toString(), etPekerjaan.getText().toString());
                     Intent intent = new Intent(getApplicationContext(),HomePage.class);
                     startActivity(intent);
@@ -172,7 +179,11 @@ public class EditAkun extends AppCompatActivity {
                 params.put("id_user", getIdUser);
                 params.put("nama_depan_user", etNamadepan.getText().toString());
                 params.put("nama_belakang_user", etNamabelakang.getText().toString());
-                params.put("email_user", etPekerjaan.getText().toString());
+                params.put("tempat_lahir_user", etTempat.getText().toString());
+                params.put("tanggal_lahir_user", etTanggal.getText().toString());
+                params.put("alamat_user", etAlamat.getText().toString());
+                params.put("nohp_user", etHp.getText().toString());
+                params.put("pekerjaan_user", etPekerjaan.getText().toString());
 
                 RequestHandler rh = new RequestHandler();
                 String res = rh.sendPostRequest(Konfigurasi.URL_EDIT_PROFILE, params);
