@@ -30,121 +30,119 @@
             android:layout_height="wrap_content"
             android:text="Layanan Prostesis"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold"/>
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_marginTop="80dp"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/layanan_reload"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/round_white_border"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/layanan_wa"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/layanan_wa_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_whatsapp"
-                app:tint="@color/colorPrimary" />
-
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/layanan_wa_icon"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hubungi via WhatsApp"
-                android:textSize="20sp"/>
+                android:orientation="vertical">
 
-            <ImageView
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_round_arrow_forward_ios_24"/>
+                <LinearLayout
+                    android:layout_marginTop="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/round_white_border"
+                    android:padding="16dp"
+                    android:elevation="5dp">
 
-        </RelativeLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ic_round_person_24">
 
-        <View
-            android:layout_marginVertical="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorGrey"/>
+                        <EditText
+                            android:id="@+id/layanan_nama"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Nama"
+                            android:background="@null"
+                            android:inputType="text"/>
 
-        <RelativeLayout
-            android:id="@+id/layanan_call"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/layanan_call_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_call_24"
-                app:tint="@color/colorPrimary" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ic_round_map_24">
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/layanan_call_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hubungi via Telepon"
-                android:textSize="20sp"/>
+                        <EditText
+                            android:id="@+id/layanan_alamat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Alamat"
+                            android:background="@null"
+                            android:inputType="text"/>
 
-            <ImageView
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_round_arrow_forward_ios_24"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        </RelativeLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ic_round_email_24">
 
-        <View
-            android:layout_marginVertical="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorGrey"/>
+                        <EditText
+                            android:id="@+id/layanan_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:background="@null"
+                            android:inputType="textEmailAddress"/>
 
-        <RelativeLayout
-            android:id="@+id/layanan_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/layanan_email_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_round_email_24"
-                app:tint="@color/colorPrimary" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:startIconDrawable="@drawable/ic_round_edit_24">
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/layanan_email_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hubungi via Email"
-                android:textSize="20sp"/>
+                        <EditText
+                            android:id="@+id/layanan_ket"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Keterangan"
+                            android:background="@null"
+                            android:inputType="textMultiLine"
+                            android:minLines="5"/>
 
-            <ImageView
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_round_arrow_forward_ios_24"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        </RelativeLayout>
+                </LinearLayout>
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="16dp"
+                    android:elevation="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white_border"
+                    android:padding="16dp">
+
+                    <Button
+                        android:id="@+id/layanan_kirim_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="KIRIM"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/btn_primary_round"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>
