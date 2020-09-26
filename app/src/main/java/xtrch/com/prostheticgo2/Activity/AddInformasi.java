@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -26,9 +28,12 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Objects;
 
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
+import xtrch.com.prostheticgo2.Request.RequestHandler;
 
 public class AddInformasi extends AppCompatActivity {
 
@@ -41,7 +46,7 @@ public class AddInformasi extends AppCompatActivity {
     SwipeRefreshLayout reload;
 
     String idInfo;
-    String jenis_informasi;
+    String jenis_informasi = "kosong";
     public String selectedItemText;
 
     private File f;
@@ -76,6 +81,70 @@ public class AddInformasi extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openGallery();
+            }
+        });
+        btnSimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String getJudul = etJudul.getText().toString().trim();
+                final String getIsi = etIsi.getText().toString().trim();
+
+                if(getJudul.isEmpty()){
+                    etJudul.setError("Harap isi judul informasi");
+                    Toast.makeText(AddInformasi.this, "Harap isi judul informasi", Toast.LENGTH_SHORT).show();
+                } else if(getIsi.isEmpty()){
+                    etIsi.setError("Harap isi deskripsi informasi");
+                    Toast.makeText(AddInformasi.this, "Harap isi deskripsi informasi", Toast.LENGTH_SHORT).show();
+                } else if(jenis_informasi.equals("kosong")){
+                    Toast.makeText(AddInformasi.this, "Harap Pilih Kategori", Toast.LENGTH_SHORT).show();
+                } else{
+                    if (imageUri != null) {
+                        imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+                        byteArray = byteArrayOutputStream.toByteArray();
+                        ConvertImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+                        class Upload extends AsyncTask<Void, Void, String> {
+
+                            ProgressDialog loading;
+
+                            @Override
+                            protected void onPreExecute() {
+                                super.onPreExecute();
+                                loading = ProgressDialog.show(AddInformasi.this, "Sedang Diproses...", "Tunggu...", false, false);
+                            }
+
+                            @Override
+                            protected void onPostExecute(String s) {
+                                super.onPostExecute(s);
+                                loading.dismiss();
+                                Toast.makeText(AddInformasi.this, s, Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+
+                            @Override
+                            protected String doInBackground(Void... v) {
+                                HashMap<String, String> params = new HashMap<>();
+
+
+//                                params.put("id_user", id_user);
+                                params.put("judul_informasi", getJudul);
+                                params.put("isi_informasi", getIsi);
+                                params.put("ImageName", f.getName());
+                                params.put("foto_informasi", ConvertImage);
+                                params.put("jenis_informasi", jenis_informasi);;
+
+                                RequestHandler rh = new RequestHandler();
+                                String res = rh.sendPostRequest(Konfigurasi.URL_ADD_INFORMASI, params);
+                                return res;
+                            }
+                        }
+
+                        Upload ae = new Upload();
+                        ae.execute();
+                    } else {
+                        Toast.makeText(AddInformasi.this, "Lampirkan Foto", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }
