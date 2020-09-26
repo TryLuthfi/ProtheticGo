@@ -21,6 +21,7 @@ public class Konfigurasi {
     public static final String URL_VIEW_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/view_rehabilitasi.php";
     public static final String URL_VIEW_PSIKOLOGI = "https://prosthetic-go.000webhostapp.com/koneksi/view_psikologi.php";
     public static final String URL_VIEW_PROVIDER = "https://prosthetic-go.000webhostapp.com/koneksi/view_provider.php";
+    public static final String URL_VIEW_PRODUK = "https://prosthetic-go.000webhostapp.com/koneksi/view_produk.php";
     public static final String URL_MAIN = "https://prosthetic-go.000webhostapp.com/";
     public static final String URL_IMAGE_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/image_informasi/";
     public static final String URL_IMAGE_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/image_rehabilitasi/";
