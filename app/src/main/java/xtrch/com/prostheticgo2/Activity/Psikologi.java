@@ -54,6 +54,7 @@ public class Psikologi extends AppCompatActivity {
         setFindView();
         //getSharedPreference
         getSharedPreference();
+        loadPostingan();
         //setLocalVar
         setLocalVariable();
         //OnClick
