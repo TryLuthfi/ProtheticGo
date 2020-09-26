@@ -122,7 +122,7 @@ public class AkunFragment extends Fragment {
 
     private void setLocalVariable() {
         nama.setText(Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+tanggal_lahir[2] +" "+bulan+" "+tanggal_lahir[0]);
+        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+ Konfigurasi.Dtanggal_lahir_user);
         alamat.setText(Konfigurasi.Dalamat_user);
         nohp.setText(Konfigurasi.Dnohp_user);
         pekerjaan.setText(Konfigurasi.Dpekerjaan_user);

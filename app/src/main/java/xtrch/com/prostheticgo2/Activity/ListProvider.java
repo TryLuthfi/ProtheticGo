@@ -28,6 +28,7 @@ import java.util.Objects;
 import xtrch.com.prostheticgo2.Adapter.AdapterLowerRehabRecycler;
 import xtrch.com.prostheticgo2.Adapter.AdapterProvider;
 import xtrch.com.prostheticgo2.Model.ModelProvider;
+import xtrch.com.prostheticgo2.Model.ModelPsikologi;
 import xtrch.com.prostheticgo2.Model.ModelRehabLower;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
@@ -40,7 +41,6 @@ public class ListProvider extends AppCompatActivity {
     ProgressBar loading;
 
     List<ModelProvider> mItems;
-    AdapterProvider adapterProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,7 @@ public class ListProvider extends AppCompatActivity {
         mItems = new ArrayList<>();
         reload = findViewById(R.id.listProv_reload);
         recyclerView = findViewById(R.id.listProv_recycler);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         btnBack = findViewById(R.id.back_from_listProv);
         loading = findViewById(R.id.listProv_loading);
@@ -101,43 +102,40 @@ public class ListProvider extends AppCompatActivity {
                                 //getting product object from json array
                                 JSONObject product = array.getJSONObject(i);
 
-                                //adding the product to product list
-//                                if(product.getString("jenis_rehabilitasi").equals("lower")) {
-                                    mItems.add(new ModelProvider(
-                                            product.getString("id_provider"),
-                                            product.getString("nama_provider"),
-                                            product.getString("foto_provider"),
-                                            product.getString("nohp_provider")
-                                    ));
+//                                if(product.getString("id_psikologi").equals("1")) {
+                                mItems.add(new ModelProvider(
+                                        product.getString("id_provider"),
+                                        product.getString("nama_provider"),
+                                        product.getString("foto_provider"),
+                                        product.getString("nohp_provider")
+                                ));
 //                                }
                             }
 
-                            adapterProvider = new AdapterProvider(ListProvider.this, mItems);
+                            AdapterProvider adapter= new AdapterProvider(ListProvider.this, mItems);
 
-                            if (adapterProvider != null){
-                                recyclerView.setAdapter(adapterProvider);
+                            if (adapter != null){
+                                recyclerView.setAdapter(adapter);
                                 loading.setVisibility(View.INVISIBLE);
                                 reload.setRefreshing(false);
 
                             }else {
-                                Toast.makeText(ListProvider.this, "null", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
                             }
 
 //                            loading.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(ListProvider.this, "" + e, Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ListProvider.this, "" +error, Toast.LENGTH_SHORT).show();
+
                     }
                 });
-
-        //adding our stringrequest to queue
         Volley.newRequestQueue(Objects.requireNonNull(getApplicationContext())).add(stringRequest);
     }
 }

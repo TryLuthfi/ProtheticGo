@@ -125,7 +125,7 @@ public class Psikologi extends AppCompatActivity {
                                 //getting product object from json array
                                 JSONObject product = array.getJSONObject(i);
 
-                                if(product.getString("id_psikologi").equals("1")) {
+//                                if(product.getString("id_psikologi").equals("1")) {
                                     psikoList.add(new ModelPsikologi(
                                             product.getString("id_psikologi"),
                                             product.getString("judul_psikologi"),
@@ -137,7 +137,7 @@ public class Psikologi extends AppCompatActivity {
                                             product.getString("nama_belakang_user"),
                                             product.getString("email_user")
                                     ));
-                                }
+//                                }
                             }
 
                             AdapterPsikoRecycler adapter= new AdapterPsikoRecycler(Psikologi.this, psikoList);
