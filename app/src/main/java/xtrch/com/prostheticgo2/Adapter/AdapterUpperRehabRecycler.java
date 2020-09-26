@@ -71,6 +71,7 @@ public class AdapterUpperRehabRecycler extends RecyclerView.Adapter<AdapterUpper
                 intent.putExtra("nama_depan_user", list.getNamaDepanUser());
                 intent.putExtra("nama_belakang_user", list.getNamaBelakangUser());
                 intent.putExtra("email_user", list.getEmailUser());
+                intent.putExtra("status", "rehabilitasi");
                 mCtx.startActivity(intent);
             }
         });
