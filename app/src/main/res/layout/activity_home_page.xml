@@ -52,8 +52,27 @@
         android:src="@drawable/ic_round_add_24"
         android:tint="@color/colorWhite"/>
 
+    <ImageView
+        android:id="@+id/home_menu_akun"
+        android:layout_margin="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_round_person_24"
+        app:tint="@color/colorWhite"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:id="@+id/home_menu_home"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/app_logo_trans"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/home_menu"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"

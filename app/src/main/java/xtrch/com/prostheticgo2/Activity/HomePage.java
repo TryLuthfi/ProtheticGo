@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class HomePage extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     FloatingActionButton floating;
+    ImageView btnMenuHome, btnMenuAkun;
 
     HomeFragment homeFragment;
     AkunFragment akunFragment;
@@ -77,6 +79,8 @@ public class HomePage extends AppCompatActivity {
         tabLayout = findViewById(R.id.home_tab_layout);
         viewPager = findViewById(R.id.home_pager);
         floating = findViewById(R.id.home_floating);
+        btnMenuHome = findViewById(R.id.home_menu_home);
+        btnMenuAkun = findViewById(R.id.home_menu_akun);
 
         //Fragment Instatntiation
         homeFragment = new HomeFragment();
@@ -91,6 +95,26 @@ public class HomePage extends AppCompatActivity {
                 Intent intent = new Intent(HomePage.this, AddInformasi.class);
                 intent.putExtra("id_info",  "0");
                 startActivity(intent);
+            }
+        });
+        btnMenuHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(homeFragment);
+                frameLayout.setVisibility(View.VISIBLE);
+                tabContainer.setVisibility(View.GONE);
+                floating.setVisibility(View.GONE);
+                btnMenuAkun.setVisibility(View.VISIBLE);
+            }
+        });
+        btnMenuAkun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setFragment(akunFragment);
+                frameLayout.setVisibility(View.VISIBLE);
+                tabContainer.setVisibility(View.GONE);
+                floating.setVisibility(View.GONE);
+                btnMenuAkun.setVisibility(View.GONE);
             }
         });
     }
