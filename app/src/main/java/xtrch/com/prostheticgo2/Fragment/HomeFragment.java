@@ -18,6 +18,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.Activity.Belanja;
 import xtrch.com.prostheticgo2.Activity.Layanan;
 import xtrch.com.prostheticgo2.Activity.Login;
+import xtrch.com.prostheticgo2.Activity.Prostesis;
 import xtrch.com.prostheticgo2.Activity.Psikologi;
 import xtrch.com.prostheticgo2.Activity.Rehabilitasi;
 import xtrch.com.prostheticgo2.R;
@@ -32,7 +33,7 @@ public class HomeFragment extends Fragment {
 
     SwipeRefreshLayout reload;
     TextView intro;
-    CircleImageView menuRehab, menuPsiko, menuBelanja, menuLayanan;
+    CircleImageView menuRehab, menuPsiko, menuBelanja, menuLayanan, menuProst;
     Calendar c;
     SimpleDateFormat date;
     String formattedDate;
@@ -59,6 +60,7 @@ public class HomeFragment extends Fragment {
         menuPsiko = view.findViewById(R.id.home_menu_psiko);
         menuBelanja = view.findViewById(R.id.home_menu_belanja);
         menuLayanan = view.findViewById(R.id.home_menu_layanan);
+        menuProst = view.findViewById(R.id.home_menu_prost);
         intro = view.findViewById(R.id.home_intro);
 
         c = Calendar.getInstance();
@@ -94,6 +96,13 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent layanan = new Intent(getContext(), Layanan.class);
                 startActivity(layanan);
+            }
+        });
+        menuProst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent prost = new Intent(getContext(), Prostesis.class);
+                startActivity(prost);
             }
         });
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
