@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.UpperExFragment"
-    android:background="@color/colorTransparent"
-    android:paddingBottom="?attr/actionBarSize">
+    android:background="@color/colorTransparent">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/upper_swipe"

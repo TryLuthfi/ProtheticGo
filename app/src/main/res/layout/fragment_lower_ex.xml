@@ -14,8 +14,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lower_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="56dp"/>
+            android:layout_height="wrap_content"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
