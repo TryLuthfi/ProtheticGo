@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="270dp"
-    android:background="@color/colorWhite"
+    android:background="@drawable/bg_round_white"
     android:layout_margin="10dp"
     android:elevation="5dp">
 
@@ -19,6 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nama Provider"
-        android:textSize="25sp"/>
+        android:textSize="20sp"/>
 
 </LinearLayout>

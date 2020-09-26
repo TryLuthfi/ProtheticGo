@@ -80,6 +80,7 @@ public class ListProvider extends AppCompatActivity {
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                mItems.clear();
                 loadProvider();
             }
         });

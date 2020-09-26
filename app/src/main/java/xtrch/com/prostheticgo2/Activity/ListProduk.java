@@ -90,7 +90,8 @@ public class ListProduk extends AppCompatActivity {
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                reload.setRefreshing(false);
+                mItems.clear();
+                loadProduk();
             }
         });
     }
