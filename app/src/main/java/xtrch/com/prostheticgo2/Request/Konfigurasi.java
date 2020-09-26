@@ -13,22 +13,22 @@ public class Konfigurasi {
     public static final String PASSWORD = "pass_user";
 
     //API URL
-    public static final String URL_REGISTER = "https://prosthetic-go.000webhostapp.com/koneksi/main_register.php";
-    public static final String URL_LOGIN = "https://prosthetic-go.000webhostapp.com/koneksi/main_login.php";
-    public static final String URL_EDIT_PROFILE = "https://prosthetic-go.000webhostapp.com/koneksi/main_editprofile.php";
-    public static final String URL_VIEW_USER = "https://prosthetic-go.000webhostapp.com/koneksi/view_user.php";
-    public static final String URL_VIEW_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/view_informasi.php";
-    public static final String URL_VIEW_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/view_rehabilitasi.php";
-    public static final String URL_VIEW_PSIKOLOGI = "https://prosthetic-go.000webhostapp.com/koneksi/view_psikologi.php";
-    public static final String URL_VIEW_PROVIDER = "https://prosthetic-go.000webhostapp.com/koneksi/view_provider.php";
-    public static final String URL_VIEW_PRODUK = "https://prosthetic-go.000webhostapp.com/koneksi/view_produk.php";
-    public static final String URL_MAIN = "https://prosthetic-go.000webhostapp.com/";
-    public static final String URL_IMAGE_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/image_informasi/";
-    public static final String URL_IMAGE_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/image_rehabilitasi/";
-    public static final String URL_ADD_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/insert_informasi.php";
-    public static final String URL_ADD_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/insert_rehabilitasi.php";
-    public static final String URL_IMAGE_PROVIDER = "https://prosthetic-go.000webhostapp.com/koneksi/image_provider/";
-    public static final String URL_IMAGE_PRODUK = "https://prosthetic-go.000webhostapp.com/koneksi/image_produk/";
+    public static final String URL_REGISTER = "https://prostheticgo2020.000webhostapp.com/koneksi/main_register.php";
+    public static final String URL_LOGIN = "https://prostheticgo2020.000webhostapp.com/koneksi/main_login.php";
+    public static final String URL_EDIT_PROFILE = "https://prostheticgo2020.000webhostapp.com/koneksi/main_editprofile.php";
+    public static final String URL_VIEW_USER = "https://prostheticgo2020.000webhostapp.com/koneksi/view_user.php";
+    public static final String URL_VIEW_INFORMASI = "https://prostheticgo2020.000webhostapp.com/koneksi/view_informasi.php";
+    public static final String URL_VIEW_REHABILITASI = "https://prostheticgo2020.000webhostapp.com/koneksi/view_rehabilitasi.php";
+    public static final String URL_VIEW_PSIKOLOGI = "https://prostheticgo2020.000webhostapp.com/koneksi/view_psikologi.php";
+    public static final String URL_VIEW_PROVIDER = "https://prostheticgo2020.000webhostapp.com/koneksi/view_provider.php";
+    public static final String URL_VIEW_PRODUK = "https://prostheticgo2020/prosthetic/koneksi/view_produk.php";
+    public static final String URL_MAIN = "https://prostheticgo2020.000webhostapp.com/";
+    public static final String URL_IMAGE_INFORMASI = "https://prostheticgo2020.000webhostapp.com/koneksi/image_informasi/";
+    public static final String URL_IMAGE_REHABILITASI = "https://prostheticgo2020.000webhostapp.com/koneksi/image_rehabilitasi/";
+    public static final String URL_ADD_INFORMASI = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_informasi.php";
+    public static final String URL_ADD_REHABILITASI = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_rehabilitasi.php";
+    public static final String URL_IMAGE_PROVIDER = "https://prostheticgo2020.000webhostapp.com/koneksi/image_provider/";
+    public static final String URL_IMAGE_PRODUK = "https://prostheticgo2020.000webhostapp.com/koneksi/image_produk/";
 
     public static String Did_user= "kosong";
     public static String Dnama_depan_user= "";

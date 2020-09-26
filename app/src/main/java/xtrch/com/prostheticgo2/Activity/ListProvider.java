@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -127,14 +128,12 @@ public class ListProvider extends AppCompatActivity {
 //                            loading.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
-
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                     }
                 });
         Volley.newRequestQueue(Objects.requireNonNull(getApplicationContext())).add(stringRequest);
