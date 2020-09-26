@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class ListProduk extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView tvTitle;
     ProgressBar loading;
+    ImageView btnAdd;
 
     List<ModelProduk> mItems;
     String idProvider;
@@ -53,6 +55,8 @@ public class ListProduk extends AppCompatActivity {
         setFindView();
         //getINtent
         getIntentState();
+        //setLocalVar
+        setLocalVariable();
         //loadData
         loadProduk();
         //OnClick
@@ -69,6 +73,7 @@ public class ListProduk extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         tvTitle = findViewById(R.id.listProduk_title);
         loading = findViewById(R.id.listProduk_loading);
+        btnAdd = findViewById(R.id.listProduk_add);
     }
 
     private void setOnCLick(){
@@ -78,12 +83,28 @@ public class ListProduk extends AppCompatActivity {
                 finish();
             }
         });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add = new Intent(ListProduk.this, AddProduk.class);
+                add.putExtra("id_produk", "0");
+                startActivity(add);
+            }
+        });
     }
 
     private void getIntentState(){
         Intent getIntent = getIntent();
-        tvTitle.setText("Produk dari " + getIntent.getStringExtra("nama_provider"));
+        tvTitle.setText("Produk " + getIntent.getStringExtra("nama_provider"));
         idProvider = getIntent.getStringExtra("id_provider");
+    }
+
+    private void setLocalVariable(){
+        if(Konfigurasi.Dstatus_user.equals("admin")){
+            btnAdd.setVisibility(View.VISIBLE);
+        } else {
+            btnAdd.setVisibility(View.GONE);
+        }
     }
 
     private void setReload(){

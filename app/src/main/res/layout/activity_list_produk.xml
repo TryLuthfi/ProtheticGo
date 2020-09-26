@@ -29,10 +29,21 @@
             android:layout_toRightOf="@id/back_from_listProduk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Produk dari Nama Provider"
+            android:text="Produk Nama Provider"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/listProduk_add"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_round_add_24"
+            app:tint="@color/colorWhite" />
 
     </RelativeLayout>
 

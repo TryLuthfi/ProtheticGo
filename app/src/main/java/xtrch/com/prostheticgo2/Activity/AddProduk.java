@@ -75,7 +75,7 @@ public class AddProduk extends AppCompatActivity {
 
     private void getIntentState(){
         Intent id = getIntent();
-        idProduk = id.getStringExtra("id_info");
+        idProduk = id.getStringExtra("id_produk");
         if (idProduk.equals("0")){
             tvTitle.setText("Tambah Produk untuk");
         } else {
