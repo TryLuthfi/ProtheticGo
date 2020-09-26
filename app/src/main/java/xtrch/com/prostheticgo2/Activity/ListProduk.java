@@ -143,14 +143,14 @@ public class ListProduk extends AppCompatActivity {
 //                            loading.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
-
+                            Toast.makeText(ListProduk.this, "EX" + e, Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(ListProduk.this, "ER" + error, Toast.LENGTH_SHORT).show();
                     }
                 });
         Volley.newRequestQueue(Objects.requireNonNull(getApplicationContext())).add(stringRequest);

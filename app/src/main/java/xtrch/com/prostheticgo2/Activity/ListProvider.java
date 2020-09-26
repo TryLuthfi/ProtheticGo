@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -40,6 +42,7 @@ public class ListProvider extends AppCompatActivity {
     SwipeRefreshLayout reload;
     RecyclerView recyclerView;
     ProgressBar loading;
+    ImageView btnAdd;
 
     List<ModelProvider> mItems;
 
@@ -54,6 +57,8 @@ public class ListProvider extends AppCompatActivity {
         setOnClick();
         //LoadProv
         loadProvider();
+        //LocalVar
+        setLocalVariable();
         //Reload
         setReload();
     }
@@ -66,6 +71,7 @@ public class ListProvider extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         btnBack = findViewById(R.id.back_from_listProv);
         loading = findViewById(R.id.listProv_loading);
+        btnAdd = findViewById(R.id.listProv_add);
     }
 
     private void setOnClick(){
@@ -73,6 +79,14 @@ public class ListProvider extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add = new Intent(ListProvider.this, AddProvider.class);
+                add.putExtra("id_provider", "0");
+                startActivity(add);
             }
         });
     }
@@ -85,6 +99,14 @@ public class ListProvider extends AppCompatActivity {
                 loadProvider();
             }
         });
+    }
+
+    private void setLocalVariable(){
+        if(Konfigurasi.Dstatus_user.equals("admin")){
+            btnAdd.setVisibility(View.VISIBLE);
+        }else{
+            btnAdd.setVisibility(View.GONE);
+        }
     }
 
     private void loadProvider() {
