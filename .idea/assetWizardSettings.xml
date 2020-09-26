@@ -317,8 +317,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_round_work_24" />
-                            <entry key="sourceFile" value="D:\Ghifa\Icons\Icons8\icons8-whatsapp.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_undraw_login" />
+                            <entry key="sourceFile" value="C:\Users\ASUS\Downloads\undraw_Login_re_4vu2.svg" />
                           </map>
                         </option>
                       </PersistentState>

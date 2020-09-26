@@ -114,17 +114,30 @@ public class HomeFragment extends Fragment {
     }
 
     private void setIntro(final int waktu) {
-        if (waktu >= 4 && waktu < 10) {
-            intro.setText("Selamat Pagi, "+ Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        }
-        if (waktu >= 10 && waktu < 15) {
-            intro.setText("Selamat Siang, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        }
-        if (waktu >= 15 && waktu < 19) {
-            intro.setText("Selamat Sore, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        }
-        else {
-            intro.setText("Selamat Malam, "+Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
+        if(Konfigurasi.Did_user.equals("kosong")) {
+            if (waktu >= 4 && waktu < 10) {
+                intro.setText("Selamat Pagi ");
+            }
+            if (waktu >= 10 && waktu < 15) {
+                intro.setText("Selamat Siang ");
+            }
+            if (waktu >= 15 && waktu < 19) {
+                intro.setText("Selamat Sore ");
+            } else {
+                intro.setText("Selamat Malam ");
+            }
+        } else{
+            if (waktu >= 4 && waktu < 10) {
+                intro.setText("Selamat Pagi, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
+            }
+            if (waktu >= 10 && waktu < 15) {
+                intro.setText("Selamat Siang, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
+            }
+            if (waktu >= 15 && waktu < 19) {
+                intro.setText("Selamat Sore, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
+            } else {
+                intro.setText("Selamat Malam, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
+            }
         }
     }
 
