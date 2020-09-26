@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import xtrch.com.prostheticgo2.Adapter.AdapterTabRehab;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class Rehabilitasi extends AppCompatActivity {
 
@@ -78,7 +79,8 @@ public class Rehabilitasi extends AppCompatActivity {
 
     private void getSharedPreference(){
         SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        getStatusUser = preferences.getString("status_user", "null");
+//        getStatusUser = preferences.getString("status_user", "null");
+        getStatusUser = Konfigurasi.Dstatus_user;
     }
 
     private void setTabLayout(){

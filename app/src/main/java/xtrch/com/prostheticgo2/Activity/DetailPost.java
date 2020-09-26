@@ -35,6 +35,7 @@ public class DetailPost extends AppCompatActivity {
     String Inama_depan_user;
     String Inama_belakang_user;
     String Iemail_user;
+    String Istatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +66,18 @@ public class DetailPost extends AppCompatActivity {
         Inama_depan_user = intent.getStringExtra("nama_depan_user");
         Inama_belakang_user = intent.getStringExtra("nama_belakang_user");
         Iemail_user = intent.getStringExtra("email_user");
+        Istatus = intent.getStringExtra("status");
     }
 
     private void setText() {
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.color.colorPrimary);
 
-        Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_INFORMASI + Ifoto_info).apply(requestOptions).into(fotoPost);
+        if(Istatus.equals("informasi")) {
+            Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_INFORMASI + Ifoto_info).apply(requestOptions).into(fotoPost);
+        } else if(Istatus.equals("rehabilitasi")){
+            Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_REHABILITASI + Ifoto_info).apply(requestOptions).into(fotoPost);
+        }
         tvJudul.setText(Ijudul_info);
         tvIsi.setText("    "+Iisi_info);
         tvNamaAdmin.setText(Inama_depan_user+" "+Inama_belakang_user);

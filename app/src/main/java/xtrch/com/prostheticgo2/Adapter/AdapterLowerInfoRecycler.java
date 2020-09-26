@@ -76,6 +76,7 @@ public class AdapterLowerInfoRecycler extends RecyclerView.Adapter<AdapterLowerI
                 intent.putExtra("nama_depan_user", list.getNamaDepanUser());
                 intent.putExtra("nama_belakang_user", list.getNamaBelakangUser());
                 intent.putExtra("email_user", list.getEmailUser());
+                intent.putExtra("status", "informasi");
                 mCtx.startActivity(intent);
             }
         });
