@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Prostesis"></activity>
+        <activity android:name=".Activity.ListProduk"></activity>
+        <activity android:name=".Activity.ListProvider" />
+        <activity android:name=".Activity.Prostesis" />
         <activity android:name=".Activity.Informasi" />
         <activity android:name=".Activity.DetailPost" />
         <activity android:name=".Activity.EditFotoAkun" />
