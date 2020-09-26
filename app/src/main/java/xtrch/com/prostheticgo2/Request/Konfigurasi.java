@@ -28,6 +28,7 @@ public class Konfigurasi {
     public static final String URL_ADD_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/insert_informasi.php";
     public static final String URL_ADD_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/insert_rehabilitasi.php";
     public static final String URL_IMAGE_PROVIDER = "https://prosthetic-go.000webhostapp.com/koneksi/image_provider/";
+    public static final String URL_IMAGE_PRODUK = "https://prosthetic-go.000webhostapp.com/koneksi/image_produk/";
 
     public static String Did_user= "kosong";
     public static String Dnama_depan_user= "";
