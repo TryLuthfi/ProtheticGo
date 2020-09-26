@@ -16,6 +16,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import xtrch.com.prostheticgo2.Activity.EditAkun;
@@ -27,9 +28,11 @@ public class AkunFragment extends Fragment {
     public AkunFragment() {}
 
     Button btnLogout;
+    Button btnLogin;
     SwipeRefreshLayout reload;
     ImageView btnEdit;
     Dialog dialog;
+    ScrollView container2;
 
     String getIdUser;
     String getStatusUser;
@@ -54,25 +57,36 @@ public class AkunFragment extends Fragment {
         //SharedPreference
         getSharedPreference();
         //setNamaBulan
-        getMonth();
-        //SetLocalVariable
-        setLocalVariable();
+//        getMonth();
+        //cekSessions
+        cekSessions();
         //on Click
         setOnClick();
         //Logout
         logoutBtn();
-
+        //Login
+        loginBtn();
         //Reload Page
         reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 getSharedPreference();
-                setLocalVariable();
                 reload.setRefreshing(false);
             }
         });
 
         return view;
+    }
+
+    private void cekSessions() {
+        if(Konfigurasi.Did_user.equals("kosong")){
+            container2.setVisibility(View.VISIBLE);
+            reload.setVisibility(View.GONE);
+        } else {
+            setLocalVariable();
+            container2.setVisibility(View.GONE);
+            reload.setVisibility(View.VISIBLE);
+        }
     }
 
     private void getMonth() {
@@ -116,6 +130,7 @@ public class AkunFragment extends Fragment {
 
     private void setFindView(View view){
         btnLogout = view.findViewById(R.id.akun_logout_btn);
+        btnLogin = view.findViewById(R.id.akun_login_btn);
         reload = view.findViewById(R.id.akun_fragment_reload);
         nama = view.findViewById(R.id.akun_nama);
         tgl = view.findViewById(R.id.akun_tgl);
@@ -123,6 +138,7 @@ public class AkunFragment extends Fragment {
         nohp = view.findViewById(R.id.akun_nohp);
         pekerjaan = view.findViewById(R.id.akun_pekerjaan);
         btnEdit = view.findViewById(R.id.akun_fragment_edit);
+        container2 = view.findViewById(R.id.container2);
     }
 
     private void setOnClick(){
@@ -169,6 +185,16 @@ public class AkunFragment extends Fragment {
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 editor.clear();
                 editor.apply();
+                getActivity().finish();
+            }
+        });
+    }
+
+    private void loginBtn() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), Login.class));
                 getActivity().finish();
             }
         });

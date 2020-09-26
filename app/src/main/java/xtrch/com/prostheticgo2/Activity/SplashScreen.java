@@ -35,7 +35,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void setTimmer() {
-        final Intent i = new Intent(getApplicationContext(), Login.class);
+        final Intent i = new Intent(getApplicationContext(), HomePage.class);
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         Thread timer = new Thread() {
             public void run() {

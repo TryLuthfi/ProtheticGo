@@ -1,5 +1,6 @@
 package xtrch.com.prostheticgo2.Activity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +8,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -32,6 +35,7 @@ import xtrch.com.prostheticgo2.Fragment.InfoFragment;
 import xtrch.com.prostheticgo2.Fragment.SecondFragment;
 import xtrch.com.prostheticgo2.Fragment.ThirdFragment;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class HomePage extends AppCompatActivity {
 
@@ -63,8 +67,6 @@ public class HomePage extends AppCompatActivity {
         setMenuHome();
         //OnClick
         setONClick();
-        //SetLocal
-        setLocalVariable();
         //DefaultFragment
         setFragment(homeFragment);
         //TabLayout
@@ -72,6 +74,9 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void setFindView() {
+        //set Konfigurasi
+        Konfigurasi.Did_user = "kosong";
+
         //FindView
         frameLayout = findViewById(R.id.home_frame);
         menuHome = findViewById(R.id.home_menu);
@@ -107,21 +112,33 @@ public class HomePage extends AppCompatActivity {
                 btnMenuAkun.setVisibility(View.VISIBLE);
             }
         });
+
+        btnMenuHome.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final Dialog dialog= new Dialog(HomePage.this);
+                dialog.setCancelable(true);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setContentView(R.layout.popup_longhomebutton);
+                dialog.show();
+                Window window = dialog.getWindow();
+                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                return true;
+            }
+        });
         btnMenuAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setFragment(akunFragment);
-                frameLayout.setVisibility(View.VISIBLE);
-                tabContainer.setVisibility(View.GONE);
-                floating.setVisibility(View.GONE);
-                btnMenuAkun.setVisibility(View.GONE);
+                    setFragment(akunFragment);
+                    frameLayout.setVisibility(View.VISIBLE);
+                    tabContainer.setVisibility(View.GONE);
+                    floating.setVisibility(View.GONE);
+                    btnMenuAkun.setVisibility(View.GONE);
             }
         });
     }
 
-    private void setLocalVariable() {
-        //
-    }
 
     private void setMenuHome(){
         menuHome.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
