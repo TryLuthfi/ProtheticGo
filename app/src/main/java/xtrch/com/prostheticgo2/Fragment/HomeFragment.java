@@ -17,6 +17,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.Activity.Belanja;
 import xtrch.com.prostheticgo2.Activity.Layanan;
+import xtrch.com.prostheticgo2.Activity.ListProvider;
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.Activity.Prostesis;
 import xtrch.com.prostheticgo2.Activity.Psikologi;
@@ -87,7 +88,7 @@ public class HomeFragment extends Fragment {
         menuBelanja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent belanja = new Intent(getContext(), Belanja.class);
+                Intent belanja = new Intent(getContext(), ListProvider.class);
                 startActivity(belanja);
             }
         });
