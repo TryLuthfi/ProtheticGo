@@ -65,7 +65,7 @@ public class Layanan extends AppCompatActivity {
     }
 
     private void sendEmail(){
-        String[] TO = {"falyoseblings@gmail.com"};
+        String[] TO = {"prosthetic.go@gmail.com"};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
