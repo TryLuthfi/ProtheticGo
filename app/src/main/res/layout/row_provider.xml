@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@color/colorWhite"
+    android:layout_margin="10dp"
+    android:elevation="5dp">
+
+    <ImageView
+        android:id="@+id/row_provider_foto"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:src="@color/colorGrey"/>
+
+    <TextView
+        android:layout_marginHorizontal="16dp"
+        android:id="@+id/row_provider_nama"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Provider"
+        android:textSize="25sp"/>
+
+</LinearLayout>
