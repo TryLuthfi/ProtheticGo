@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import xtrch.com.prostheticgo2.Adapter.AdapterTabInfo;
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
 public class Prostesis extends AppCompatActivity {
 
@@ -64,6 +66,15 @@ public class Prostesis extends AppCompatActivity {
                 finish();
             }
         });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddInformasi.class);
+                intent.putExtra("id_info", "0");
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setTabLayout(){
@@ -99,6 +110,7 @@ public class Prostesis extends AppCompatActivity {
     private void getIdUser(){
         SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 //        getId_user = preferences.getString("id_user", "null");
-        getStatusUser = preferences.getString("status_user", "null");
+//        getStatusUser = preferences.getString("status_user", "null");
+        getStatusUser = Konfigurasi.Dstatus_user;
     }
 }

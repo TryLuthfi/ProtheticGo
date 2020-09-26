@@ -75,7 +75,7 @@ public class HomePage extends AppCompatActivity {
 
     private void setFindView() {
         //set Konfigurasi
-        Konfigurasi.Did_user = "kosong";
+//        Konfigurasi.Did_user = "kosong";
 
         //FindView
         frameLayout = findViewById(R.id.home_frame);
