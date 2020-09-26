@@ -208,11 +208,11 @@ public class AddRehab extends AppCompatActivity {
 
 
 //                                params.put("id_user", id_user);
-                                params.put("judul_informasi", getJudul);
-                                params.put("isi_informasi", getIsi);
+                                params.put("judul_rehabilitasi", getJudul);
+                                params.put("isi_rehabilitasi", getIsi);
                                 params.put("ImageName", f.getName());
-                                params.put("foto_informasi", ConvertImage);
-                                params.put("jenis_informasi", jenis_informasi);;
+                                params.put("foto_rehabilitasi", ConvertImage);
+                                params.put("jenis_rehabilitasi", jenis_informasi);;
 
                                 RequestHandler rh = new RequestHandler();
                                 String res = rh.sendPostRequest(Konfigurasi.URL_ADD_REHABILITASI, params);
