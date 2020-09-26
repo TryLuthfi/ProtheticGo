@@ -16,6 +16,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.AddProduk"></activity>
         <activity android:name=".Activity.AddProvider" />
+        <activity android:name=".Activity.ListProvider" />
+        <activity android:name=".Activity.ListProduk" />
         <activity android:name=".Activity.Prostesis" />
         <activity android:name=".Activity.DetailPost" />
         <activity android:name=".Activity.EditFotoAkun" />

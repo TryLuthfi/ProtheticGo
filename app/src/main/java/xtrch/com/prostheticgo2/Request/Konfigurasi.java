@@ -20,22 +20,24 @@ public class Konfigurasi {
     public static final String URL_VIEW_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/view_informasi.php";
     public static final String URL_VIEW_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/view_rehabilitasi.php";
     public static final String URL_VIEW_PSIKOLOGI = "https://prosthetic-go.000webhostapp.com/koneksi/view_psikologi.php";
+    public static final String URL_VIEW_PROVIDER = "https://prosthetic-go.000webhostapp.com/koneksi/view_provider.php";
     public static final String URL_MAIN = "https://prosthetic-go.000webhostapp.com/";
     public static final String URL_IMAGE_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/image_informasi/";
     public static final String URL_IMAGE_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/image_rehabilitasi/";
     public static final String URL_ADD_INFORMASI = "https://prosthetic-go.000webhostapp.com/koneksi/insert_informasi.php";
     public static final String URL_ADD_REHABILITASI = "https://prosthetic-go.000webhostapp.com/koneksi/insert_rehabilitasi.php";
+    public static final String URL_IMAGE_PROVIDER = "https://prosthetic-go.000webhostapp.com/koneksi/image_provider/";
 
     public static String Did_user= "kosong";
-    public static String Dnama_depan_user= null;
-    public static String Dnama_belakang_user= null;
-    public static String Demail_user= null;
-    public static String Dpass_user= null;
-    public static String Dalamat_user= null;
-    public static String Dnohp_user= null;
-    public static String Dpekerjaan_user= null;
-    public static String Dtempat_lahir_user= null;
-    public static String Dtanggal_lahir_user= null;
+    public static String Dnama_depan_user= "";
+    public static String Dnama_belakang_user= "";
+    public static String Demail_user= "";
+    public static String Dpass_user= "";
+    public static String Dalamat_user= "";
+    public static String Dnohp_user= "";
+    public static String Dpekerjaan_user= "";
+    public static String Dtempat_lahir_user= "";
+    public static String Dtanggal_lahir_user= "";
     public static String Dstatus_user= "admin";
-    public static String Dtanggal_daftar= null;
+    public static String Dtanggal_daftar= "";
 }
