@@ -27,7 +27,7 @@
             android:layout_toRightOf="@id/back_from_prost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prostesis"
+            android:text="Prosthesis"
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:textStyle="bold"/>
