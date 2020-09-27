@@ -77,6 +77,8 @@ public class DetailPost extends AppCompatActivity {
             Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_INFORMASI + Ifoto_info).apply(requestOptions).into(fotoPost);
         } else if(Istatus.equals("rehabilitasi")){
             Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_REHABILITASI + Ifoto_info).apply(requestOptions).into(fotoPost);
+        } else if(Istatus.equals("psiko")){
+            Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_PSIKO + Ifoto_info).apply(requestOptions).into(fotoPost);
         }
         tvJudul.setText(Ijudul_info);
         tvIsi.setText("    "+Iisi_info);

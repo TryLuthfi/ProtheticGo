@@ -52,7 +52,23 @@ public class AdapterPsikoRecycler extends RecyclerView.Adapter<AdapterPsikoRecyc
         holder.info_date.setText(list.getTglInput());
         holder.info_isi.setText("   "+list.getIsiPsiko());
         holder.info_nama.setText(list.getNamaDepanUser()+" "+list.getNamaBelakangUser());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mCtx, DetailPost.class);
+                intent.putExtra("id_info", list.getIdPsiko());
+                intent.putExtra("judul_info", list.getJudulPsiko());
+                intent.putExtra("isi_info", list.getIsiPsiko());
+                intent.putExtra("foto_info", list.getFotoPsiko());
+                intent.putExtra("id_user", list.getIdUser());
+                intent.putExtra("tanggal_input", list.getTglInput());
+                intent.putExtra("nama_depan_user", list.getNamaDepanUser());
+                intent.putExtra("nama_belakang_user", list.getNamaBelakangUser());
+                intent.putExtra("email_user", list.getEmailUser());
+                intent.putExtra("status", "psiko");
+                mCtx.startActivity(intent);
+            }
+        });
     }
 
     @Override
