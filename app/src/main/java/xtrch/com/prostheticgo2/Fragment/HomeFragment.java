@@ -22,6 +22,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.Activity.Belanja;
+import xtrch.com.prostheticgo2.Activity.DetailPost;
+import xtrch.com.prostheticgo2.Activity.DetailPostPsiko;
 import xtrch.com.prostheticgo2.Activity.EditAkun;
 import xtrch.com.prostheticgo2.Activity.HomePage;
 import xtrch.com.prostheticgo2.Activity.Layanan;
@@ -96,7 +98,7 @@ public class HomeFragment extends Fragment {
         menuPsiko.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent psiko = new Intent(getContext(), Psikologi.class);
+                Intent psiko = new Intent(getContext(), DetailPostPsiko.class);
                 startActivity(psiko);
             }
         });
