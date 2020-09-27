@@ -21,6 +21,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.Activity.Belanja;
+import xtrch.com.prostheticgo2.Activity.EditAkun;
 import xtrch.com.prostheticgo2.Activity.HomePage;
 import xtrch.com.prostheticgo2.Activity.Layanan;
 import xtrch.com.prostheticgo2.Activity.ListProvider;
@@ -110,7 +111,27 @@ public class HomeFragment extends Fragment {
                     dialog.show();
                     Window window = dialog.getWindow();
                     window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                } else {
+                } else if(Konfigurasi.Dalamat_user.equals("null") || Konfigurasi.Dnohp_user.equals("null")){
+                    final Dialog dialog= new Dialog(getActivity());
+                    dialog.setCancelable(true);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCanceledOnTouchOutside(true);
+                    dialog.setContentView(R.layout.popup_haruslogin);
+                    TextView textView = dialog.findViewById(R.id.popup_login_text);
+                    Button button = dialog.findViewById(R.id.btnLogin_popup);
+                    textView.setText("Kamu harus melengkapi datamu untuk bisa membeli produk");
+                    button.setText("Lengkapi Data");
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getActivity(), EditAkun.class));
+                        }
+                    });
+                    dialog.show();
+                    Window window = dialog.getWindow();
+                    window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                }
+                else {
                     Intent belanja = new Intent(getContext(), ListProvider.class);
                     startActivity(belanja);
                 }
