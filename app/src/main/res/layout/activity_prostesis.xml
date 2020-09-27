@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Prosthesis"
             android:textColor="@color/colorWhite"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
     </RelativeLayout>
