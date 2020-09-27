@@ -19,6 +19,11 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
+import java.util.Objects;
+
 import xtrch.com.prostheticgo2.Activity.EditAkun;
 import xtrch.com.prostheticgo2.Activity.EditFotoAkun;
 import xtrch.com.prostheticgo2.Activity.HomePage;
@@ -123,11 +128,16 @@ public class AkunFragment extends Fragment {
     }
 
     private void setLocalVariable() {
+        RequestOptions requestOptions = new RequestOptions()
+                .placeholder(R.color.colorWhite);
         nama.setText(Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
         tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+ Konfigurasi.Dtanggal_lahir_user);
         alamat.setText(Konfigurasi.Dalamat_user);
         nohp.setText(Konfigurasi.Dnohp_user);
         pekerjaan.setText(Konfigurasi.Dpekerjaan_user);
+//        if(!Konfigurasi.Dfoto_user.equals("")){
+            Glide.with(Objects.requireNonNull(this)).load(Konfigurasi.URL_IMAGE_USER + Konfigurasi.Dfoto_user).apply(requestOptions).into(btnFoto);
+//        }
     }
 
     private void setFindView(View view){
