@@ -1,7 +1,7 @@
 package xtrch.com.prostheticgo2.Adapter;
 
 import android.app.Activity;
-import android.media.Image;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +19,8 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Objects;
 
-import xtrch.com.prostheticgo2.Activity.ModelProduk;
-import xtrch.com.prostheticgo2.Model.ModelProvider;
+import xtrch.com.prostheticgo2.Activity.DetailProduk;
+import xtrch.com.prostheticgo2.Model.ModelProduk;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
@@ -61,7 +61,18 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ProdukView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
+                Intent detail = new Intent(mCtx, DetailProduk.class);
+                detail.putExtra("id_produk", model.getIdProduk());
+                detail.putExtra("id_provider", model.getIdProvider());
+                detail.putExtra("foto_produk", model.getFotoProduk());
+                detail.putExtra("nama_produk", model.getNamaProduk());
+                detail.putExtra("harga_produk", model.getHargaProduk());
+                detail.putExtra("desk_produk", model.getDeskProduk());
+                detail.putExtra("nohp_provider", model.getNoHpProvider());
+                detail.putExtra("tgl_input", model.getTgl_input());
+                detail.putExtra("nama_provider", model.getNamaProvider());
+                detail.putExtra("foto_provider", model.getFotoProvider());
+                mCtx.startActivity(detail);
             }
         });
     }

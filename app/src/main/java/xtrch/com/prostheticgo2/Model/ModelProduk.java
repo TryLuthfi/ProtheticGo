@@ -1,10 +1,10 @@
-package xtrch.com.prostheticgo2.Activity;
+package xtrch.com.prostheticgo2.Model;
 
 public class ModelProduk {
 
-    String idProduk, namaProduk, deskProduk, beratProduk, stokProduk, hargaProduk, idProvider, tgl_input, noHpProvider, fotoProduk;
+    String idProduk, namaProduk, deskProduk, beratProduk, stokProduk, hargaProduk, idProvider, tgl_input, noHpProvider, fotoProduk, namaProvider, fotoProvider;
 
-    public ModelProduk(String idProduk, String namaProduk, String deskProduk, String beratProduk, String stokProduk, String hargaProduk, String idProvider, String tgl_input, String noHpProvider, String fotoProduk) {
+    public ModelProduk(String idProduk, String namaProduk, String deskProduk, String beratProduk, String stokProduk, String hargaProduk, String idProvider, String tgl_input, String noHpProvider, String fotoProduk, String namaProvider, String fotoProvider) {
         this.idProduk = idProduk;
         this.namaProduk = namaProduk;
         this.deskProduk = deskProduk;
@@ -15,6 +15,24 @@ public class ModelProduk {
         this.tgl_input = tgl_input;
         this.noHpProvider = noHpProvider;
         this.fotoProduk = fotoProduk;
+        this.namaProvider = namaProvider;
+        this.fotoProvider = fotoProvider;
+    }
+
+    public String getFotoProvider() {
+        return fotoProvider;
+    }
+
+    public void setFotoProvider(String fotoProvider) {
+        this.fotoProvider = fotoProvider;
+    }
+
+    public String getNamaProvider() {
+        return namaProvider;
+    }
+
+    public void setNamaProvider(String namaProvider) {
+        this.namaProvider = namaProvider;
     }
 
     public String getFotoProduk() {

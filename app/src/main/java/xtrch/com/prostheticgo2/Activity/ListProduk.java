@@ -29,8 +29,7 @@ import java.util.List;
 import java.util.Objects;
 
 import xtrch.com.prostheticgo2.Adapter.AdapterProduk;
-import xtrch.com.prostheticgo2.Adapter.AdapterProvider;
-import xtrch.com.prostheticgo2.Model.ModelProvider;
+import xtrch.com.prostheticgo2.Model.ModelProduk;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
@@ -146,7 +145,9 @@ public class ListProduk extends AppCompatActivity {
                                             product.getString("id_provider"),
                                             product.getString("tgl_input"),
                                             product.getString("nohp_provider"),
-                                            product.getString("foto_produk")
+                                            product.getString("foto_produk"),
+                                            product.getString("nama_provider"),
+                                            product.getString("foto_provider")
                                     ));
                                 }
                             }
