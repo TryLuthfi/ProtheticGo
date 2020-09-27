@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Tambah Psikologi"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
     </RelativeLayout>
