@@ -38,6 +38,7 @@ public class SplashScreen extends AppCompatActivity {
 
     ProgressDialog dialog;
     String getId_user;
+    String logged = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class SplashScreen extends AppCompatActivity {
 
         getFindView();
         setAnime();
-        setTimmer();
+        cekSessions();
     }
 
     private void setAnime() {
@@ -59,7 +60,8 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void setTimmer() {
-        cekSessions();
+        i = new Intent(getApplicationContext(), HomePage.class);
+        overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         Thread timer = new Thread() {
             public void run() {
                 try {
@@ -67,7 +69,10 @@ public class SplashScreen extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-
+                    if(logged.equals("belum")){
+                        startActivity(i);
+                        finish();
+                    }
                 }
             }
         };
@@ -77,12 +82,11 @@ public class SplashScreen extends AppCompatActivity {
     private void cekSessions() {
         getIdUser();
         if(getId_user != "null"){
+            setTimmer();
             getDataUser();
         } else{
-            i = new Intent(getApplicationContext(), HomePage.class);
-            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-            startActivity(i);
-            finish();
+            logged = "belum";
+            setTimmer();
         }
     }
 

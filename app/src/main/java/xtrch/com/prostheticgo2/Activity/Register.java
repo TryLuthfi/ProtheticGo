@@ -140,7 +140,7 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(Register.this, "Tidak bisa menjangaku server", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, "Tidak bisa menjangkau server", Toast.LENGTH_SHORT).show();
                     }
                 }){
             @Override

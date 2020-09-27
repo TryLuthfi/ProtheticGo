@@ -159,10 +159,11 @@ public class EditAkun extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                 if(s.equals("Berhasil diperbarui")){
                     loading.dismiss();
+                    tanggal_lahir = etTanggal.getText().toString().trim().split("-");
                     Konfigurasi.Dnama_depan_user = etNamadepan.getText().toString();
                     Konfigurasi.Dnama_belakang_user = etNamabelakang.getText().toString();
                     Konfigurasi.Dtempat_lahir_user = etTempat.getText().toString();
-                    Konfigurasi.Dtanggal_lahir_user = etTanggal.getText().toString();
+                    Konfigurasi.Dtanggal_lahir_user = tanggal_lahir[2]+"-"+tanggal_lahir[1]+"-"+tanggal_lahir[0];
                     Konfigurasi.Dalamat_user = etAlamat.getText().toString();
                     Konfigurasi.Dnohp_user = etHp.getText().toString();
                     Konfigurasi.Dpekerjaan_user = etPekerjaan.getText().toString();

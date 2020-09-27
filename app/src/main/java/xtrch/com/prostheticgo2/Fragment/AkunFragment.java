@@ -22,10 +22,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 import xtrch.com.prostheticgo2.Activity.EditAkun;
 import xtrch.com.prostheticgo2.Activity.EditFotoAkun;
+import xtrch.com.prostheticgo2.Activity.GantiPassword;
 import xtrch.com.prostheticgo2.Activity.HomePage;
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.R;
@@ -52,6 +55,8 @@ public class AkunFragment extends Fragment {
 
     String[] tanggal_lahir;
     String bulan;
+
+    SimpleDateFormat dateFormat;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,16 +136,16 @@ public class AkunFragment extends Fragment {
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.color.colorWhite);
         nama.setText(Konfigurasi.Dnama_depan_user +" "+Konfigurasi.Dnama_belakang_user);
-        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+ Konfigurasi.Dtanggal_lahir_user);
+        tgl.setText(Konfigurasi.Dtempat_lahir_user+", "+ dateFormat.format(Date.valueOf(Konfigurasi.Dtanggal_lahir_user)));
         alamat.setText(Konfigurasi.Dalamat_user);
         nohp.setText(Konfigurasi.Dnohp_user);
         pekerjaan.setText(Konfigurasi.Dpekerjaan_user);
-//        if(!Konfigurasi.Dfoto_user.equals("")){
             Glide.with(Objects.requireNonNull(this)).load(Konfigurasi.URL_IMAGE_USER + Konfigurasi.Dfoto_user).apply(requestOptions).into(btnFoto);
-//        }
     }
 
     private void setFindView(View view){
+        dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
         btnLogout = view.findViewById(R.id.akun_logout_btn);
         btnLogin = view.findViewById(R.id.akun_login_btn);
         reload = view.findViewById(R.id.akun_fragment_reload);
@@ -176,7 +181,6 @@ public class AkunFragment extends Fragment {
         dialog.setCancelable(true);
         RelativeLayout btnEdit = dialog.findViewById(R.id.dialog_edit_akun_edit_btn);
         RelativeLayout btnPass = dialog.findViewById(R.id.dialog_edit_akun_pass_btn);
-//        ImageView btnCancel = dialog.findViewById(R.id.dialog_edit_akun_cancel);
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,7 +192,9 @@ public class AkunFragment extends Fragment {
         btnPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent ganti = new Intent(getContext(), GantiPassword.class);
                 dialog.dismiss();
+                startActivity(ganti);
             }
         });
         dialog.show();

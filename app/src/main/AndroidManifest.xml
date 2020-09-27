@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xtrch.com.prostheticgo2">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:name=".Request.AppController"
         android:allowBackup="true"
@@ -14,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.DetailProduk"></activity>
+        <activity android:name=".Activity.GantiPassword" />
+        <activity android:name=".Activity.DetailProduk" />
         <activity android:name=".Activity.AddProduk" />
         <activity android:name=".Activity.AddProvider" />
         <activity android:name=".Activity.ListProvider" />
@@ -41,5 +38,9 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

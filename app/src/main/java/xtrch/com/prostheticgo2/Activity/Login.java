@@ -116,6 +116,7 @@ public class Login extends AppCompatActivity {
 
     //asd
     private void getDataLogin() {
+//        Toast.makeText(this, hasilmd5, Toast.LENGTH_SHORT).show();
         progressDialog.setMessage("Login Process...");
         progressDialog.show();
 
@@ -139,7 +140,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.hide();
-                        Toast.makeText(Login.this, "Tidak bisa menjangaku server", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Tidak bisa menjangkau server", Toast.LENGTH_SHORT).show();
                     }
                 }){
             @Override
