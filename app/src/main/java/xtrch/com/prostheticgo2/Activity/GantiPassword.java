@@ -24,7 +24,7 @@ public class GantiPassword extends AppCompatActivity {
     Button btnSimpan;
 
     String Sold, Snew, SnewP;
-    String hasilmd5;
+    String hasilmd5baru, hasilmd5lama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +45,13 @@ public class GantiPassword extends AppCompatActivity {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnMD5();
+                btnMD5lama();
             }
         });
     }
 
     private void checkPasswordLama() {
-        if(!hasilmd5.equals(Konfigurasi.Dpass_user)){
+        if(!hasilmd5lama.equals(Konfigurasi.Dpass_user)){
             Toast.makeText(this, "Kata sandi saat ini salah", Toast.LENGTH_SHORT).show();
         } else {
             checkPasswordBaru();
@@ -64,6 +64,7 @@ public class GantiPassword extends AppCompatActivity {
         } else if(!Snew.equals(SnewP)){
             Toast.makeText(this, "Kata sandi tidak cocok", Toast.LENGTH_SHORT).show();
         } else if(Snew.equals(SnewP)){
+
             class UpdateData extends AsyncTask<Void,Void,String> {
                 ProgressDialog loading;
 
@@ -80,7 +81,7 @@ public class GantiPassword extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                     if(s.equals("Berhasil diperbarui")){
                         loading.dismiss();
-                        Konfigurasi.Dpass_user = new_pass.getText().toString();
+                        Konfigurasi.Dpass_user = hasilmd5baru;
                         finish();
                     }
                     loading.dismiss();
@@ -90,7 +91,7 @@ public class GantiPassword extends AppCompatActivity {
                 protected String doInBackground(Void... v) {
                     HashMap<String, String> params = new HashMap<>();
                     params.put("id_user", Konfigurasi.Did_user);
-                    params.put("pass_user", hasilmd5);
+                    params.put("pass_user", hasilmd5baru);
 
                     RequestHandler rh = new RequestHandler();
                     String res = rh.sendPostRequest(Konfigurasi.URL_EDIT_PASSWORD, params);
@@ -110,7 +111,26 @@ public class GantiPassword extends AppCompatActivity {
         btnSimpan = findViewById(R.id.ganti_password_simpan_btn);
     }
 
-    public void btnMD5(){
+    public void btnMD5baru(){
+        byte[] md5input = new_pass.getText().toString().getBytes();
+        BigInteger md5Data = null;
+
+        try{
+            md5Data =new BigInteger(1, encryptMd5.encryptMD5(md5input));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        String md5Str = md5Data.toString(16);
+        if(md5Str.length() < 32){
+            md5Str = 0 + md5Str;
+        }
+
+        hasilmd5baru = md5Str;
+        checkDataKosong();
+    }
+
+    public void btnMD5lama(){
         byte[] md5input = old_pass.getText().toString().getBytes();
         BigInteger md5Data = null;
 
@@ -125,8 +145,8 @@ public class GantiPassword extends AppCompatActivity {
             md5Str = 0 + md5Str;
         }
 
-        hasilmd5 = md5Str;
-        checkDataKosong();
+        hasilmd5lama = md5Str;
+        btnMD5baru();
     }
 
     private void checkDataKosong() {
