@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 import xtrch.com.prostheticgo2.R;
@@ -83,6 +85,7 @@ public class DetailPost extends AppCompatActivity {
         tvJudul.setText(Ijudul_info);
         tvIsi.setText("    "+Iisi_info);
         tvNamaAdmin.setText(Inama_depan_user+" "+Inama_belakang_user);
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-YY");
         tvTanggal.setText(Itanggal_input);
     }
 
