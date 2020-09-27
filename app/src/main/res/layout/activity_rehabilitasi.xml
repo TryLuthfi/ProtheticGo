@@ -29,18 +29,19 @@
             android:layout_height="wrap_content"
             android:text="Rehabilitasi"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
         <ImageView
             android:id="@+id/rehab_add_btn"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/ic_round_add_24"
             app:tint="@color/colorWhite"
-            android:layout_marginEnd="5dp"/>
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="16dp"/>
 
     </RelativeLayout>
 
