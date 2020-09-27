@@ -47,7 +47,7 @@ public class AdapterPsikoRecycler extends RecyclerView.Adapter<AdapterPsikoRecyc
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.color.colorPrimary);
 
-        Glide.with(Objects.requireNonNull(mCtx)).load(Konfigurasi.URL_IMAGE_INFORMASI + list.getFotoPsiko()).apply(requestOptions).into(holder.info_gambar);
+        Glide.with(Objects.requireNonNull(mCtx)).load(Konfigurasi.URL_IMAGE_PSIKO + list.getFotoPsiko()).apply(requestOptions).into(holder.info_gambar);
         holder.info_judul.setText(list.getJudulPsiko());
         holder.info_date.setText(list.getTglInput());
         holder.info_isi.setText("   "+list.getIsiPsiko());

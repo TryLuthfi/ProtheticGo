@@ -30,6 +30,7 @@ public class Konfigurasi {
     public static final String URL_ADD_PROVIDER = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_provider.php";
     public static final String URL_ADD_PRODUK = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_produk.php";
     public static final String URL_ADD_HISTORY = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_history_blnj.php";
+    public static final String URL_ADD_PSIKO = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_psikologi.php";
     public static final String URL_IMAGE_PROVIDER = "https://prostheticgo2020.000webhostapp.com/koneksi/image_provider/";
     public static final String URL_IMAGE_PRODUK = "https://prostheticgo2020.000webhostapp.com/koneksi/image_produk/";
     public static final String URL_IMAGE_PSIKO = "https://prostheticgo2020.000webhostapp.com/koneksi/image_psikologi/";
