@@ -60,6 +60,7 @@
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:visibility="gone"
         android:id="@+id/prost_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +68,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/ic_round_add_24"
-        android:tint="@color/colorWhite"/>
+        android:tint="@color/colorWhite"
+        android:layout_margin="16dp"/>
 
 </RelativeLayout>
