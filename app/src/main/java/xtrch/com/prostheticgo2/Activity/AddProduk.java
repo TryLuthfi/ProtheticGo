@@ -4,10 +4,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -22,9 +24,12 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Objects;
 
 import xtrch.com.prostheticgo2.R;
+import xtrch.com.prostheticgo2.Request.Konfigurasi;
+import xtrch.com.prostheticgo2.Request.RequestHandler;
 
 public class AddProduk extends AppCompatActivity {
 
@@ -77,7 +82,7 @@ public class AddProduk extends AppCompatActivity {
         Intent id = getIntent();
         idProduk = id.getStringExtra("id_produk");
         if (idProduk.equals("0")){
-            tvTitle.setText("Tambah Produk untuk");
+            tvTitle.setText("Tambah Produk");
         } else {
             tvTitle.setText("Edit Produk");
         }
@@ -111,6 +116,75 @@ public class AddProduk extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openGallery();
+            }
+        });
+        btnLanjut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String getNama = etNama.getText().toString().trim();
+                final String getDesc = etDesc.getText().toString().trim();
+                final String getHarga = etHarga.getText().toString().trim();
+
+                if(getNama.isEmpty()){
+                    etNama.setError("Harap isi Nama");
+                    Toast.makeText(AddProduk.this, "Harap isi Nama", Toast.LENGTH_SHORT).show();
+                } else if(getDesc.isEmpty()){
+                    etDesc.setError("Harap isi deskripsi");
+                    Toast.makeText(AddProduk.this, "Harap isi deskripsi", Toast.LENGTH_SHORT).show();
+                } else if(getHarga.isEmpty()){
+                    etDesc.setError("Harap isi harga");
+                    Toast.makeText(AddProduk.this, "Harap isi harga", Toast.LENGTH_SHORT).show();
+                } else{
+                    if (imageUri != null) {
+                        imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+                        byteArray = byteArrayOutputStream.toByteArray();
+                        ConvertImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+                        class Upload extends AsyncTask<Void, Void, String> {
+
+                            ProgressDialog loading;
+
+                            @Override
+                            protected void onPreExecute() {
+                                super.onPreExecute();
+                                loading = ProgressDialog.show(AddProduk.this, "Sedang Diproses...", "Tunggu...", false, false);
+                            }
+
+                            @Override
+                            protected void onPostExecute(String s) {
+                                super.onPostExecute(s);
+                                loading.dismiss();
+                                Toast.makeText(AddProduk.this, s, Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+
+                            @Override
+                            protected String doInBackground(Void... v) {
+                                HashMap<String, String> params = new HashMap<>();
+
+
+//                                params.put("id_user", id_user);
+                                params.put("nama_produk", getNama);
+                                params.put("deskripsi_produk", getDesc);
+                                params.put("berat_produk", "100");
+                                params.put("stok_produk", "102");
+                                params.put("harga_produk", getHarga);
+                                params.put("id_provider", getIntent().getStringExtra("idProvider"));
+                                params.put("ImageName", f.getName());
+                                params.put("foto_produk", ConvertImage);
+
+                                RequestHandler rh = new RequestHandler();
+                                String res = rh.sendPostRequest(Konfigurasi.URL_ADD_PRODUK, params);
+                                return res;
+                            }
+                        }
+
+                        Upload ae = new Upload();
+                        ae.execute();
+                    } else {
+                        Toast.makeText(AddProduk.this, "Lampirkan Foto", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }

@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import xtrch.com.prostheticgo2.Activity.EditAkun;
+import xtrch.com.prostheticgo2.Activity.HomePage;
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
@@ -79,7 +80,7 @@ public class AkunFragment extends Fragment {
     }
 
     private void cekSessions() {
-        if(Konfigurasi.Did_user.equals("kosong")){
+        if(Konfigurasi.Did_user.equals("")){
             container2.setVisibility(View.VISIBLE);
             reload.setVisibility(View.GONE);
         } else {
@@ -179,15 +180,31 @@ public class AkunFragment extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearSharedPreference();
                 SharedPreferences preferences = getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
-                startActivity(new Intent(getActivity(), Login.class)
+                startActivity(new Intent(getActivity(), HomePage.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 editor.clear();
                 editor.apply();
                 getActivity().finish();
             }
         });
+    }
+
+    private void clearSharedPreference() {
+        Konfigurasi.Did_user = "";
+        Konfigurasi.Dnama_depan_user = "";
+        Konfigurasi.Dnama_belakang_user = "";
+        Konfigurasi.Demail_user = "";
+        Konfigurasi.Dpass_user = "";
+        Konfigurasi.Dalamat_user = "";
+        Konfigurasi.Dnohp_user = "";
+        Konfigurasi.Dpekerjaan_user = "";
+        Konfigurasi.Dtempat_lahir_user = "";
+        Konfigurasi.Dtanggal_lahir_user = "";
+        Konfigurasi.Dstatus_user = "";
+        Konfigurasi.Dtanggal_daftar = "";
     }
 
     private void loginBtn() {

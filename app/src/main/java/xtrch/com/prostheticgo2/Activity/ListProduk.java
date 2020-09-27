@@ -88,6 +88,7 @@ public class ListProduk extends AppCompatActivity {
             public void onClick(View v) {
                 Intent add = new Intent(ListProduk.this, AddProduk.class);
                 add.putExtra("id_produk", "0");
+                add.putExtra("idProvider", idProvider);
                 startActivity(add);
             }
         });

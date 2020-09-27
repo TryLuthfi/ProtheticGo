@@ -28,10 +28,11 @@ public class Konfigurasi {
     public static final String URL_ADD_INFORMASI = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_informasi.php";
     public static final String URL_ADD_REHABILITASI = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_rehabilitasi.php";
     public static final String URL_ADD_PROVIDER = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_provider.php";
+    public static final String URL_ADD_PRODUK = "https://prostheticgo2020.000webhostapp.com/koneksi/insert_produk.php";
     public static final String URL_IMAGE_PROVIDER = "https://prostheticgo2020.000webhostapp.com/koneksi/image_provider/";
     public static final String URL_IMAGE_PRODUK = "https://prostheticgo2020.000webhostapp.com/koneksi/image_produk/";
 
-    public static String Did_user= "kosong";
+    public static String Did_user= "";
     public static String Dnama_depan_user= "";
     public static String Dnama_belakang_user= "";
     public static String Demail_user= "";
@@ -41,6 +42,6 @@ public class Konfigurasi {
     public static String Dpekerjaan_user= "";
     public static String Dtempat_lahir_user= "";
     public static String Dtanggal_lahir_user= "";
-    public static String Dstatus_user= "admin";
+    public static String Dstatus_user= "";
     public static String Dtanggal_daftar= "";
 }

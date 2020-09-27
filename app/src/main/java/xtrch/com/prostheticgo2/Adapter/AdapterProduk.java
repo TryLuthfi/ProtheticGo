@@ -51,12 +51,10 @@ public class AdapterProduk extends RecyclerView.Adapter<AdapterProduk.ProdukView
         formatRupiah.setMaximumFractionDigits(0);
 
         final ModelProduk model = mItems.get(position);
-        holder.tvNama.setText(model.getNamaProduk());
-        holder.tvHarga.setText(model.getHargaProduk());
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.color.colorPrimary);
 
-        Glide.with(Objects.requireNonNull(mCtx)).load(Konfigurasi.URL_IMAGE_REHABILITASI + model.getFotoProduk()).apply(requestOptions).into(holder.foto);
+        Glide.with(Objects.requireNonNull(mCtx)).load(Konfigurasi.URL_IMAGE_PRODUK + model.getFotoProduk()).apply(requestOptions).into(holder.foto);
         holder.tvNama.setText(model.getNamaProduk());
         holder.tvHarga.setText(formatRupiah.format(Double.valueOf(model.getHargaProduk())));
 

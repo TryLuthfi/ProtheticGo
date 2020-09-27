@@ -1,5 +1,6 @@
 package xtrch.com.prostheticgo2.Fragment;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +9,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import androidx.fragment.app.Fragment;
@@ -16,6 +21,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import xtrch.com.prostheticgo2.Activity.Belanja;
+import xtrch.com.prostheticgo2.Activity.HomePage;
 import xtrch.com.prostheticgo2.Activity.Layanan;
 import xtrch.com.prostheticgo2.Activity.ListProvider;
 import xtrch.com.prostheticgo2.Activity.Login;
@@ -88,8 +94,26 @@ public class HomeFragment extends Fragment {
         menuBelanja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent belanja = new Intent(getContext(), ListProvider.class);
-                startActivity(belanja);
+                if(Konfigurasi.Did_user.equals("")){
+                    final Dialog dialog= new Dialog(getActivity());
+                    dialog.setCancelable(true);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCanceledOnTouchOutside(true);
+                    dialog.setContentView(R.layout.popup_haruslogin);
+                    Button button = dialog.findViewById(R.id.btnLogin_popup);
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(new Intent(getActivity(), Login.class));
+                        }
+                    });
+                    dialog.show();
+                    Window window = dialog.getWindow();
+                    window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                } else {
+                    Intent belanja = new Intent(getContext(), ListProvider.class);
+                    startActivity(belanja);
+                }
             }
         });
         menuLayanan.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +139,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setIntro(final int waktu) {
-        if(Konfigurasi.Did_user.equals("kosong")) {
+        if(Konfigurasi.Did_user.equals("")) {
             if (waktu >= 4 && waktu < 10) {
                 intro.setText("Selamat Pagi ");
             }

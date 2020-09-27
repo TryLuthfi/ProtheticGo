@@ -245,7 +245,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_below="@id/tengah"
                         android:textSize="18sp"
-                        android:text="Upps datamu masih kosong"
+                        android:text="Ups.. datamu masih kosong"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
