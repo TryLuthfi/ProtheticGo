@@ -31,7 +31,8 @@
                     android:id="@+id/home_logo"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/app_logo_trans"/>
+                    android:src="@drawable/app_logo_trans"
+                    android:background="@drawable/bg_circle_white"/>
 
                 <TextView
                     android:id="@+id/home_app_name"
@@ -88,6 +89,43 @@
                             android:layout_height="50dp">
 
                             <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/home_menu_prost"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@color/colorGrey"/>
+
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/ic_round_menu_book_24"
+                                app:tint="@color/colorWhite" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Prosthesis"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:foreground="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_gravity="center"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
                                 android:id="@+id/home_menu_rehab"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -107,7 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rehabilitasi"
-                            android:textStyle="bold"/>
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
 
@@ -144,7 +182,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Psikologi"
-                            android:textStyle="bold"/>
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
 
@@ -181,9 +219,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Keranjang"
-                            android:textStyle="bold"/>
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
 
                     <LinearLayout
                         android:foreground="?attr/selectableItemBackground"
@@ -218,52 +268,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Layanan"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:foreground="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:layout_gravity="center"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp">
-
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/home_menu_prost"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@color/colorBlue"/>
-
-                            <ImageView
-                                android:layout_centerInParent="true"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/ic_round_menu_book_24"
-                                app:tint="@color/colorWhite" />
-
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Prostesis"
-                            android:textStyle="bold"/>
+                            android:textSize="12sp"/>
 
                     </LinearLayout>
 
