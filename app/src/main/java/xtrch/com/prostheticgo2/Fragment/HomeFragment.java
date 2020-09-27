@@ -1,5 +1,6 @@
 package xtrch.com.prostheticgo2.Fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -40,12 +41,13 @@ public class HomeFragment extends Fragment {
     String getStatusUser;
 
     SwipeRefreshLayout reload;
-    TextView intro;
+    TextView intro, sejarahProst, modernProst, indoProst;
     CircleImageView menuRehab, menuPsiko, menuBelanja, menuLayanan, menuProst;
     Calendar c;
     SimpleDateFormat date;
     String formattedDate;
     int waktu;
+    AlertDialog.Builder dialog;
 
 
     @Override
@@ -58,6 +60,7 @@ public class HomeFragment extends Fragment {
         menuOnClick();
         getSharedPreference();
         setIntro(waktu);
+        setText();
 
         return view;
     }
@@ -70,11 +73,16 @@ public class HomeFragment extends Fragment {
         menuLayanan = view.findViewById(R.id.home_menu_layanan);
         menuProst = view.findViewById(R.id.home_menu_prost);
         intro = view.findViewById(R.id.home_intro);
+        sejarahProst = view.findViewById(R.id.home_sejarah_prost);
+        modernProst = view.findViewById(R.id.home_modern_prost);
+        indoProst = view.findViewById(R.id.home_indo_prost);
+        dialog = new AlertDialog.Builder(getContext());
 
         c = Calendar.getInstance();
         date = new SimpleDateFormat("HH");
         formattedDate = date.format(c.getTime());
         waktu = Integer.parseInt(formattedDate);
+//        Toast.makeText(getContext(), "" + waktu, Toast.LENGTH_SHORT).show();
     }
 
     private void menuOnClick() {
@@ -164,27 +172,65 @@ public class HomeFragment extends Fragment {
             if (waktu >= 4 && waktu < 10) {
                 intro.setText("Selamat Pagi ");
             }
-            if (waktu >= 10 && waktu < 15) {
+            else if (waktu >= 10 && waktu < 15) {
                 intro.setText("Selamat Siang ");
             }
-            if (waktu >= 15 && waktu < 19) {
+            else if (waktu >= 15 && waktu < 18) {
                 intro.setText("Selamat Sore ");
-            } else {
+            }
+            else if(waktu >= 18) {
                 intro.setText("Selamat Malam ");
             }
         } else{
             if (waktu >= 4 && waktu < 10) {
                 intro.setText("Selamat Pagi, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
             }
-            if (waktu >= 10 && waktu < 15) {
+            else if (waktu >= 10 && waktu < 15) {
                 intro.setText("Selamat Siang, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
             }
-            if (waktu >= 15 && waktu < 19) {
+            else if (waktu >= 15 && waktu < 18) {
                 intro.setText("Selamat Sore, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
-            } else {
+            }
+            else if (waktu >= 18){
                 intro.setText("Selamat Malam, " + Konfigurasi.Dnama_depan_user + " " + Konfigurasi.Dnama_belakang_user);
             }
         }
+    }
+
+    private void setText(){
+        sejarahProst.setText("Dikenal sejak era kerajaan Mesir, bidang Prostetik telah berubah menjadi contoh bagaimana determinasi manusia untuk menjadi lebih baik.\n(Klik untuk selengkapnya)");
+        modernProst.setText("Beralih ke era modern seiring berlangsungnya Perang Saudara Amerika Serikat, jumlah kasus amputasi meningkat drastis.\n(Klik untuk selengkapnya)");
+        indoProst.setText("Pada tahun 1946 bersama Suroto Reksopranoto pertama kali membuat alat bantu Ortotik dan Prostetik yang sangat sederhana...\n(Klik untuk selengkapnya");
+        sejarahProst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setTitle("Sejarah Prosthesis");
+                dialog.setMessage("Dikenal sejak era kerajaan Mesir, bidang Prostetik telah berubah menjadi contoh bagaimana determinasi manusia untuk menjadi lebih baik. Sejarah evolusi dari prostetik merupakan sangatlah panjang, dari bentuk awal yang primitif hingga bentuk masa kini yang canggih.\n\nTeknologi Prostesis tertua ditemukan di kota Thebes, Mesir pada tahun 2000. Jari jempol palsu ditemukan di mummy  yang diduga menderita komplikasi dari penyakit Diabetes Mellitus. Jari jempol palsu ini diduga dibuat pada tahun 1069 hingga 664 Sebelum Masehi. Kaki Palsu bersejarah lainnya yang diduga dibuat pada sekitar 300 sebelum masehi ditemukan di Capua, Itali, pada tahun 1858. Kaki palsu ini dibuat menggunakan besi dan peruggu dengan inti dari kayu, diduga untuk pasien aputasi dibawah lutut.");
+                dialog.setCancelable(true);
+                dialog.setIcon(R.drawable.app_logo_trans);
+                dialog.show();
+            }
+        });
+        modernProst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setTitle("Prosthetic Modern");
+                dialog.setMessage("Beralih ke era modern seiring berlangsungnya Perang Saudara Amerika Serikat, jumlah kasus amputasi meningkat drastis. James Hanger, salah satu korban amputasi pertama pada Perang Saudara mengembangkan apa yang kemudian dinamakan “Hanger Limb”. Orang-orang seperti Hanger, Selpho, Palmer dan A. A. Marks membantu mengembangkan dan memajukan bidang prostetik dalam hal mekanisme dan bahan.");
+                dialog.setCancelable(true);
+                dialog.setIcon(R.drawable.app_logo_trans);
+                dialog.show();
+            }
+        });
+        indoProst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.setTitle("Prosthetic di Indonesia");
+                dialog.setMessage("Pada tahun 1946 bersama Suroto Reksopranoto pertama kali membuat alat bantu Ortotik dan Prostetik yang sangat sederhana (dari bambu) yang merupakan cikal bakal / perintisan bengkel Protese di Indonesia yang kemudian berkembang menjadi training center.");
+                dialog.setCancelable(true);
+                dialog.setIcon(R.drawable.app_logo_trans);
+                dialog.show();
+            }
+        });
     }
 
     private void getSharedPreference(){
