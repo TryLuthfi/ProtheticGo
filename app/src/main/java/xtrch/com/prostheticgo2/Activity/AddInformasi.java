@@ -77,6 +77,12 @@ public class AddInformasi extends AppCompatActivity {
     }
 
     private void setOnClick() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btnTambahFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -219,9 +225,9 @@ public class AddInformasi extends AppCompatActivity {
         Intent id = getIntent();
         idInfo = id.getStringExtra("id_info");
         if (idInfo.equals("0")){
-            tvTitle.setText("Tambah Informasi");
+            tvTitle.setText("Tambah Prosthesis");
         } else {
-            tvTitle.setText("Edit Informasi");
+            tvTitle.setText("Edit Prosthesis");
         }
     }
 

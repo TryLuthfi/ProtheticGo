@@ -84,8 +84,8 @@ public class Rehabilitasi extends AppCompatActivity {
     }
 
     private void setTabLayout(){
-        rehabTab.addTab(rehabTab.newTab().setText("Upper Extrimity"));
-        rehabTab.addTab(rehabTab.newTab().setText("Lower Extrimity"));
+        rehabTab.addTab(rehabTab.newTab().setText("Ekstrimitas Atas"));
+        rehabTab.addTab(rehabTab.newTab().setText("Ekstrimitas Bawah"));
         //Adapter
         AdapterTabRehab adapterTabRehab = new AdapterTabRehab(getSupportFragmentManager(), rehabTab.getTabCount());
         rehabPager.setAdapter(adapterTabRehab);
