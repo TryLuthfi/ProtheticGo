@@ -46,6 +46,8 @@ public class EditFotoAkun extends AppCompatActivity {
     private byte[] byteArray;
     private String ConvertImage;
 
+    String stat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,10 +86,27 @@ public class EditFotoAkun extends AppCompatActivity {
                 openGallery();
             }
         });
+        btnSimpan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(stat.equals("profil")){
+                    editFotoProfil();
+                } else if(stat.equals("depan")){
+                    editFotoDepan();
+                } else if(stat.equals("samping")){
+                    editFotoSamping();
+                } else if (stat.equals("blkg")){
+                    editFotoBlkg();
+                } else if(stat.equals("prost")){
+                    editFotoProst();
+                }
+            }
+        });
     }
 
     private void getIntentState(){
         Intent status = getIntent();
+        stat = status.getStringExtra("status");
         if(status.getStringExtra("status").equals("profil")){
             tvTitle.setText("Edit Foto Profil");
         } else if(status.getStringExtra("status").equals("depan")){
@@ -101,7 +120,7 @@ public class EditFotoAkun extends AppCompatActivity {
         }
     }
 
-    private void editProfil(){
+    private void editFotoProfil(){
         if (imageUri != null) {
             imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
@@ -129,11 +148,192 @@ public class EditFotoAkun extends AppCompatActivity {
                 protected String doInBackground(Void... v) {
                     HashMap<String, String> params = new HashMap<>();
 
-
-                    params.put("foto_produk", ConvertImage);
+                    params.put("id_user", Konfigurasi.Did_user);
+                    params.put("ImageName", f.getName());
+                    params.put("foto", ConvertImage);
 
                     RequestHandler rh = new RequestHandler();
-                    String res = rh.sendPostRequest(Konfigurasi.URL_ADD_PRODUK, params);
+                    String res = rh.sendPostRequest(Konfigurasi.URL_ADD_IMG_PROFIL, params);
+                    return res;
+                }
+            }
+
+            Upload ae = new Upload();
+            ae.execute();
+        } else {
+            Toast.makeText(EditFotoAkun.this, "Lampirkan Foto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void editFotoDepan(){
+        if (imageUri != null) {
+            imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+            byteArray = byteArrayOutputStream.toByteArray();
+            ConvertImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+            class Upload extends AsyncTask<Void, Void, String> {
+
+                ProgressDialog loading;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    loading = ProgressDialog.show(EditFotoAkun.this, "Sedang Diproses...", "Tunggu...", false, false);
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    loading.dismiss();
+                    Toast.makeText(EditFotoAkun.this, s, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+                @Override
+                protected String doInBackground(Void... v) {
+                    HashMap<String, String> params = new HashMap<>();
+
+                    params.put("id_user", Konfigurasi.Did_user);
+                    params.put("ImageName", f.getName());
+                    params.put("foto", ConvertImage);
+
+                    RequestHandler rh = new RequestHandler();
+                    String res = rh.sendPostRequest(Konfigurasi.URL_ADD_IMG_DEPAN, params);
+                    return res;
+                }
+            }
+
+            Upload ae = new Upload();
+            ae.execute();
+        } else {
+            Toast.makeText(EditFotoAkun.this, "Lampirkan Foto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void editFotoSamping(){
+        if (imageUri != null) {
+            imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+            byteArray = byteArrayOutputStream.toByteArray();
+            ConvertImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+            class Upload extends AsyncTask<Void, Void, String> {
+
+                ProgressDialog loading;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    loading = ProgressDialog.show(EditFotoAkun.this, "Sedang Diproses...", "Tunggu...", false, false);
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    loading.dismiss();
+                    Toast.makeText(EditFotoAkun.this, s, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+                @Override
+                protected String doInBackground(Void... v) {
+                    HashMap<String, String> params = new HashMap<>();
+
+                    params.put("id_user", Konfigurasi.Did_user);
+                    params.put("ImageName", f.getName());
+                    params.put("foto", ConvertImage);
+
+                    RequestHandler rh = new RequestHandler();
+                    String res = rh.sendPostRequest(Konfigurasi.URL_ADD_IMG_SAMPING, params);
+                    return res;
+                }
+            }
+
+            Upload ae = new Upload();
+            ae.execute();
+        } else {
+            Toast.makeText(EditFotoAkun.this, "Lampirkan Foto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void editFotoBlkg(){
+        if (imageUri != null) {
+            imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+            byteArray = byteArrayOutputStream.toByteArray();
+            ConvertImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+            class Upload extends AsyncTask<Void, Void, String> {
+
+                ProgressDialog loading;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    loading = ProgressDialog.show(EditFotoAkun.this, "Sedang Diproses...", "Tunggu...", false, false);
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    loading.dismiss();
+                    Toast.makeText(EditFotoAkun.this, s, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+                @Override
+                protected String doInBackground(Void... v) {
+                    HashMap<String, String> params = new HashMap<>();
+
+                    params.put("id_user", Konfigurasi.Did_user);
+                    params.put("ImageName", f.getName());
+                    params.put("foto", ConvertImage);
+
+                    RequestHandler rh = new RequestHandler();
+                    String res = rh.sendPostRequest(Konfigurasi.URL_ADD_IMG_BLKG, params);
+                    return res;
+                }
+            }
+
+            Upload ae = new Upload();
+            ae.execute();
+        } else {
+            Toast.makeText(EditFotoAkun.this, "Lampirkan Foto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void editFotoProst(){
+        if (imageUri != null) {
+            imageUri.compress(Bitmap.CompressFormat.JPEG, 40, byteArrayOutputStream);
+            byteArray = byteArrayOutputStream.toByteArray();
+            ConvertImage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+            class Upload extends AsyncTask<Void, Void, String> {
+
+                ProgressDialog loading;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    loading = ProgressDialog.show(EditFotoAkun.this, "Sedang Diproses...", "Tunggu...", false, false);
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    loading.dismiss();
+                    Toast.makeText(EditFotoAkun.this, s, Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+                @Override
+                protected String doInBackground(Void... v) {
+                    HashMap<String, String> params = new HashMap<>();
+
+                    params.put("id_user", Konfigurasi.Did_user);
+                    params.put("ImageName", f.getName());
+                    params.put("foto", ConvertImage);
+
+                    RequestHandler rh = new RequestHandler();
+                    String res = rh.sendPostRequest(Konfigurasi.URL_ADD_IMG_PROST, params);
                     return res;
                 }
             }
