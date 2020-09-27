@@ -240,6 +240,11 @@ public class Login extends AppCompatActivity {
                                     Konfigurasi.Dtanggal_lahir_user = jsonObject.getString("tanggal_lahir_user");
                                     Konfigurasi.Dstatus_user = jsonObject.getString("status_user");
                                     Konfigurasi.Dtanggal_daftar = jsonObject.getString("tanggal_daftar");
+                                    Konfigurasi.Dfoto_user = jsonObject.getString("foto_user");
+                                    Konfigurasi.Dfoto_depan = jsonObject.getString("foto_depan");
+                                    Konfigurasi.Dfoto_samping = jsonObject.getString("foto_samping");
+                                    Konfigurasi.Dfoto_belakang = jsonObject.getString("foto_belakang");
+                                    Konfigurasi.Dfoto_prost = jsonObject.getString("foto_prosthesis");
 
                                     gotoHomepage();
                                 } else{

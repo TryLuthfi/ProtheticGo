@@ -45,4 +45,9 @@ public class Konfigurasi {
     public static String Dtanggal_lahir_user= "";
     public static String Dstatus_user= "admin";
     public static String Dtanggal_daftar= "";
+    public static String Dfoto_user= "";
+    public static String Dfoto_depan= "";
+    public static String Dfoto_samping= "";
+    public static String Dfoto_belakang= "";
+    public static String Dfoto_prost= "";
 }

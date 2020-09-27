@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import xtrch.com.prostheticgo2.Activity.EditAkun;
+import xtrch.com.prostheticgo2.Activity.EditFotoAkun;
 import xtrch.com.prostheticgo2.Activity.HomePage;
 import xtrch.com.prostheticgo2.Activity.Login;
 import xtrch.com.prostheticgo2.R;
@@ -31,7 +32,7 @@ public class AkunFragment extends Fragment {
     Button btnLogout;
     Button btnLogin;
     SwipeRefreshLayout reload;
-    ImageView btnEdit;
+    ImageView btnEdit, btnFoto;
     Dialog dialog;
     ScrollView container2;
 
@@ -140,6 +141,7 @@ public class AkunFragment extends Fragment {
         pekerjaan = view.findViewById(R.id.akun_pekerjaan);
         btnEdit = view.findViewById(R.id.akun_fragment_edit);
         container2 = view.findViewById(R.id.container2);
+        btnFoto = view.findViewById(R.id.akun_foto_profil);
     }
 
     private void setOnClick(){
@@ -147,6 +149,12 @@ public class AkunFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 setDialogEdit();
+            }
+        });
+        btnFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), EditFotoAkun.class));
             }
         });
     }
