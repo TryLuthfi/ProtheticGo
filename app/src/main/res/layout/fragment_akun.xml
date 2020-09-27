@@ -29,8 +29,8 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/akun_foto_profil"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:src="@color/colorWhite"/>
 
                     <TextView
@@ -42,7 +42,7 @@
                         android:layout_height="wrap_content"
                         android:text="John Doe"
                         android:textColor="@color/colorWhite"
-                        android:textSize="35sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"/>
 
                     <ImageView

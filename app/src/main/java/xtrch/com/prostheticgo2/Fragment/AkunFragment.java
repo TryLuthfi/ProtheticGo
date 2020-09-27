@@ -33,7 +33,7 @@ public class AkunFragment extends Fragment {
     Button btnLogin;
     SwipeRefreshLayout reload;
     ImageView btnEdit, btnFoto;
-    Dialog dialog;
+    Dialog dialog,dialogFoto;
     ScrollView container2;
 
     String getIdUser;
@@ -154,7 +154,7 @@ public class AkunFragment extends Fragment {
         btnFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), EditFotoAkun.class));
+                setDialogFoto();
             }
         });
     }
@@ -179,6 +179,65 @@ public class AkunFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    private void setDialogFoto(){
+        dialog = new Dialog(getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_edit_foto);
+        dialog.setCancelable(true);
+        RelativeLayout btnProfil = dialog.findViewById(R.id.dialog_foto_profil);
+        RelativeLayout btnDepan = dialog.findViewById(R.id.dialog_foto_depan);
+        RelativeLayout btnSamping = dialog.findViewById(R.id.dialog_foto_samping);
+        RelativeLayout btnBlkg = dialog.findViewById(R.id.dialog_foto_blkg);
+        RelativeLayout btnProst = dialog.findViewById(R.id.dialog_foto_prost);
+//        ImageView btnCancel = dialog.findViewById(R.id.dialog_edit_akun_cancel);
+        btnProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getContext(), EditFotoAkun.class);
+                edit.putExtra("status", "profil");
+                dialog.dismiss();
+                startActivity(edit);
+            }
+        });
+        btnDepan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getContext(), EditFotoAkun.class);
+                edit.putExtra("status", "depan");
+                dialog.dismiss();
+                startActivity(edit);
+            }
+        });
+        btnSamping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getContext(), EditFotoAkun.class);
+                edit.putExtra("status", "samping");
+                dialog.dismiss();
+                startActivity(edit);
+            }
+        });
+        btnBlkg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getContext(), EditFotoAkun.class);
+                edit.putExtra("status", "blkg");
+                dialog.dismiss();
+                startActivity(edit);
+            }
+        });
+        btnProst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getContext(), EditFotoAkun.class);
+                edit.putExtra("status", "prost");
+                dialog.dismiss();
+                startActivity(edit);
             }
         });
         dialog.show();

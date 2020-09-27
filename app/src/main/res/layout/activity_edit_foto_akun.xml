@@ -22,7 +22,7 @@
             android:tint="@color/colorWhite"/>
 
         <TextView
-            android:id="@+id/edit_foto_title_akun"
+            android:id="@+id/edit_foto_title"
             android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/back_from_edit_foto_akun"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Edit Foto"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"
+            android:textSize="15sp"
             android:textStyle="bold"/>
 
     </RelativeLayout>
@@ -66,7 +66,7 @@
                             android:id="@+id/edit_foto_akun_tvProfil"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Foto Profil :"/>
+                            android:text="Foto :"/>
 
                         <ImageView
                             android:id="@+id/edit_foto_akun_profil"
@@ -77,93 +77,6 @@
 
                         <Button
                             android:id="@+id/edit_foto_akun_profil_btn"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SIMPAN"
-                            android:background="@drawable/btn_primary_round"
-                            android:textColor="@color/colorWhite"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/edit_foto_akun_tvDepan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Foto Body Depan :"/>
-
-                        <ImageView
-                            android:id="@+id/edit_foto_akun_depan"
-                            android:layout_below="@id/edit_foto_akun_tvDepan"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/undraw_photos"/>
-
-                        <Button
-                            android:id="@+id/edit_foto_akun_depan_btn"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SIMPAN"
-                            android:background="@drawable/btn_primary_round"
-                            android:textColor="@color/colorWhite"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/edit_foto_akun_tvSamping"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Foto Body Samping :"/>
-
-                        <ImageView
-                            android:id="@+id/edit_foto_akun_samping"
-                            android:layout_below="@id/edit_foto_akun_tvSamping"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/undraw_photos"/>
-
-                        <Button
-                            android:id="@+id/edit_foto_akun_samping_btn"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SIMPAN"
-                            android:background="@drawable/btn_primary_round"
-                            android:textColor="@color/colorWhite"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/edit_foto_akun_tvBlkg"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Foto Body Belakang :"/>
-
-                        <ImageView
-                            android:id="@+id/edit_foto_akun_blkg"
-                            android:layout_below="@id/edit_foto_akun_tvBlkg"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/undraw_photos"/>
-
-                        <Button
-                            android:id="@+id/edit_foto_akun_blkg_btn"
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
                             android:layout_width="wrap_content"
