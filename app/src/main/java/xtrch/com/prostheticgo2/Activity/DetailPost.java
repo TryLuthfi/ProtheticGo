@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.graphics.text.LineBreaker;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,6 +18,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
 
+import me.biubiubiu.justifytext.library.JustifyTextView;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
 
@@ -24,8 +26,9 @@ public class DetailPost extends AppCompatActivity {
 
     ImageView fotoPost, fotoAdmin;
     ImageButton btnBack;
-    TextView tvJudul, tvIsi, tvNamaAdmin, tvTanggal;
+    TextView tvJudul, tvNamaAdmin, tvTanggal;
     SwipeRefreshLayout reload;
+    JustifyTextView tvIsi;
 
     String Iid_info;
     String Ijudul_info;
