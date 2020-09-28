@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class ListProvider extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressBar loading;
     ImageView btnAdd;
+    LinearLayout imgKosong;
 
     List<ModelProvider> mItems;
 
@@ -72,6 +74,7 @@ public class ListProvider extends AppCompatActivity {
         btnBack = findViewById(R.id.back_from_listProv);
         loading = findViewById(R.id.listProv_loading);
         btnAdd = findViewById(R.id.listProv_add);
+        imgKosong = findViewById(R.id.listProv_kosong);
     }
 
     private void setOnClick(){
@@ -139,9 +142,15 @@ public class ListProvider extends AppCompatActivity {
                             AdapterProvider adapter= new AdapterProvider(ListProvider.this, mItems);
 
                             if (adapter != null){
-                                recyclerView.setAdapter(adapter);
-                                loading.setVisibility(View.INVISIBLE);
-                                reload.setRefreshing(false);
+                                if(array.length() == 0){
+                                    loading.setVisibility(View.INVISIBLE);
+                                    reload.setRefreshing(false);
+                                    imgKosong.setVisibility(View.VISIBLE);
+                                }else {
+                                    recyclerView.setAdapter(adapter);
+                                    loading.setVisibility(View.INVISIBLE);
+                                    reload.setRefreshing(false);
+                                }
 
                             }else {
                                 Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
