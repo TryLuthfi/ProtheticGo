@@ -2,6 +2,8 @@ package xtrch.com.prostheticgo2.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import me.biubiubiu.justifytext.library.JustifyTextView;
 import xtrch.com.prostheticgo2.Model.ModelPsikologi;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.AppController;
@@ -40,7 +42,8 @@ public class DetailPostPsiko extends AppCompatActivity {
 
     ImageView fotoPost, fotoAdmin;
     ImageButton btnBack;
-    TextView tvJudul, tvIsi, tvNamaAdmin, tvTanggal;
+    TextView tvJudul, tvNamaAdmin, tvTanggal;
+    JustifyTextView tvIsi;
     SwipeRefreshLayout reload;
     RelativeLayout header;
     ProgressBar progressBar;
@@ -100,6 +103,12 @@ public class DetailPostPsiko extends AppCompatActivity {
         header = findViewById(R.id.header);
         progressBar = findViewById(R.id.detail_post_psiko_progressbar);
         scrollView = findViewById(R.id.scroll);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void loadPostingan() {

@@ -89,7 +89,7 @@
 
                     </RelativeLayout>
 
-                    <TextView
+                    <me.biubiubiu.justifytext.library.JustifyTextView
                         android:id="@+id/detail_post_isi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -100,6 +100,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_margin="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
