@@ -79,7 +79,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="D:\Ghifa\Projects\ProstheticGo\app_logo.png" />
+                                                <entry key="imagePath" value="D:\Ghifa\Projects\ProstheticGo\app_logo_trans.png" />
                                                 <entry key="scalingPercent" value="85" />
                                               </map>
                                             </option>
@@ -113,7 +113,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="backgroundColor" value="c02743" />
                                     </map>
                                   </option>
                                 </PersistentState>
