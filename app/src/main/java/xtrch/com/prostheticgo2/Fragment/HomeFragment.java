@@ -203,15 +203,15 @@ public class HomeFragment extends Fragment {
     }
 
     private void setText(){
-        sejarahProst.setText("Dikenal sejak era kerajaan Mesir, bidang Prostetik telah berubah menjadi contoh bagaimana determinasi manusia untuk menjadi lebih baik.\n(Klik untuk selengkapnya)");
-        bukuProst.setText("Ambroise Paré dianggap sebagai bapak operasi amputasi dan prosthesis modern di pertengahan hingga akhir tahun 1500. Beliau adalah seorang dokter bedah tentara...\n(Klik untuk selengkapnya)");
-        modernProst.setText("Beralih ke era modern seiring berlangsungnya Perang Saudara Amerika Serikat, jumlah kasus amputasi meningkat drastis.\n(Klik untuk selengkapnya)");
-        indoProst.setText("Pada tahun 1946 bersama Suroto Reksopranoto pertama kali membuat alat bantu Ortotik dan Prostetik yang sangat sederhana...\n(Klik untuk selengkapnya");
+        sejarahProst.setText("Dikenal sejak era kerajaan Mesir, bidang Prostetik telah berubah menjadi contoh bagaimana determinasi manusia untuk menjadi lebih baik.\n(Klik untuk selengkapnya)\n");
+        bukuProst.setText("Ambroise Paré dianggap sebagai bapak operasi amputasi dan prosthesis modern di pertengahan hingga akhir tahun 1500. Beliau adalah seorang dokter bedah tentara...\n(Klik untuk selengkapnya)\n");
+        modernProst.setText("Beralih ke era modern seiring berlangsungnya Perang Saudara Amerika Serikat, jumlah kasus amputasi meningkat drastis.\n(Klik untuk selengkapnya)\n");
+        indoProst.setText("Pada tahun 1946 bersama Suroto Reksopranoto pertama kali membuat alat bantu Ortotik dan Prostetik yang sangat sederhana...\n(Klik untuk selengkapnya\n");
         sejarahProst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.setTitle("Sejarah Prosthesis");
-                dialog.setMessage("Dikenal sejak era kerajaan Mesir, bidang Prostetik telah berubah menjadi contoh bagaimana determinasi manusia untuk menjadi lebih baik. Sejarah evolusi dari prostetik merupakan sangatlah panjang, dari bentuk awal yang primitif hingga bentuk masa kini yang canggih.\n\nTeknologi Prostesis tertua ditemukan di kota Thebes, Mesir pada tahun 2000. Jari jempol palsu ditemukan di mummy  yang diduga menderita komplikasi dari penyakit Diabetes Mellitus. Jari jempol palsu ini diduga dibuat pada tahun 1069 hingga 664 Sebelum Masehi. Kaki Palsu bersejarah lainnya yang diduga dibuat pada sekitar 300 sebelum masehi ditemukan di Capua, Itali, pada tahun 1858. Kaki palsu ini dibuat menggunakan besi dan peruggu dengan inti dari kayu, diduga untuk pasien aputasi dibawah lutut.");
+                dialog.setMessage("Dikenal sejak era kerajaan Mesir, bidang Prostetik telah berubah menjadi contoh bagaimana determinasi manusia untuk menjadi lebih baik. Sejarah evolusi dari prostetik merupakan sangatlah panjang, dari bentuk awal yang primitif hingga bentuk masa kini yang canggih.\n\nTeknologi Prostesis tertua ditemukan di kota Thebes, Mesir pada tahun 2000. Jari jempol palsu ditemukan di mummy  yang diduga menderita komplikasi dari penyakit Diabetes Mellitus. Jari jempol palsu ini diduga dibuat pada tahun 1069 hingga 664 Sebelum Masehi. Kaki Palsu bersejarah lainnya yang diduga dibuat pada sekitar 300 sebelum masehi ditemukan di Capua, Itali, pada tahun 1858. Kaki palsu ini dibuat menggunakan besi dan peruggu dengan inti dari kayu, diduga untuk pasien aputasi dibawah lutut.\n");
                 dialog.setCancelable(true);
                 dialog.setIcon(R.drawable.app_logo_trans);
                 dialog.show();
@@ -221,7 +221,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.setTitle("Buku Ambrosius Pare tentang prosthesis");
-                dialog.setMessage("Ambroise Paré dianggap sebagai bapak operasi amputasi dan prosthesis modern di pertengahan hingga akhir tahun 1500. Beliau adalah seorang dokter bedah tentara Perancis yang juga merupakan seorang tukang potong rambut. Ambroise memperkenalkan prosedur amputasi modern di tahun 1529 dan membuat prostesis untuk ekstremitas atas dan bawah di tahun 1536. Beliau juga menemukan prostesis di atas lutut berupa tungkai yang bisa ditekuk dan prostesis kaki yang posisinya terfiksasi, tali pengekang yang bisa diatur dan fitur-fitur mekanik yang digunakan pada peralatan modern saat ini. Semua karyanya mencerminkan bagaimana cara kerja prostesis yang sesungguhnya.");
+                dialog.setMessage("Ambroise Paré dianggap sebagai bapak operasi amputasi dan prosthesis modern di pertengahan hingga akhir tahun 1500. Beliau adalah seorang dokter bedah tentara Perancis yang juga merupakan seorang tukang potong rambut. Ambroise memperkenalkan prosedur amputasi modern di tahun 1529 dan membuat prostesis untuk ekstremitas atas dan bawah di tahun 1536. Beliau juga menemukan prostesis di atas lutut berupa tungkai yang bisa ditekuk dan prostesis kaki yang posisinya terfiksasi, tali pengekang yang bisa diatur dan fitur-fitur mekanik yang digunakan pada peralatan modern saat ini. Semua karyanya mencerminkan bagaimana cara kerja prostesis yang sesungguhnya.\n");
                 dialog.setCancelable(true);
                 dialog.setIcon(R.drawable.app_logo_trans);
                 dialog.show();
@@ -231,7 +231,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.setTitle("Prosthetic Modern");
-                dialog.setMessage("Beralih ke era modern seiring berlangsungnya Perang Saudara Amerika Serikat, jumlah kasus amputasi meningkat drastis. James Hanger, salah satu korban amputasi pertama pada Perang Saudara mengembangkan apa yang kemudian dinamakan “Hanger Limb”. Orang-orang seperti Hanger, Selpho, Palmer dan A. A. Marks membantu mengembangkan dan memajukan bidang prostetik dalam hal mekanisme dan bahan.");
+                dialog.setMessage("Beralih ke era modern seiring berlangsungnya Perang Saudara Amerika Serikat, jumlah kasus amputasi meningkat drastis. James Hanger, salah satu korban amputasi pertama pada Perang Saudara mengembangkan apa yang kemudian dinamakan “Hanger Limb”. Orang-orang seperti Hanger, Selpho, Palmer dan A. A. Marks membantu mengembangkan dan memajukan bidang prostetik dalam hal mekanisme dan bahan.\n");
                 dialog.setCancelable(true);
                 dialog.setIcon(R.drawable.app_logo_trans);
                 dialog.show();
@@ -253,7 +253,7 @@ public class HomeFragment extends Fragment {
                         "7. Yayasan Paraplegia diperuntukkan bagi pasien dan keluarga yang menderita paraplegia yang tempat tinggalkan tidak memungkinkan dilalui kursi roda ( misal di pegunungan )\n\n" +
                         "8. Yayasan Koperasi penderita cacat “Harapan” untuk paguyuban & usaha untuk meningkatkan kesejahteraan penderita cacat yang telah mengikuti pelatihan dari Lembaga Pusat Rehabilitasi Penderita cacat Tubuh (LPRPCT) yang sekarang berubah nama Balai Besar Rehabilitasi Sosial Bina Daksa (BBRSBD) yang berlokasi di Jebres.\n\n" +
                         "9. Yayasan Pembinaan Olah Raga Penderita cacat diperuntukkan bagi pelatihan dan pembinaan mental lewat pembinaan olah raga , yang dulu pernah mendunia dengan banyaknya penderita cacat mengikuti turnamen OR dunia.\n\n" +
-                        "10. Pusat Rehabilitasi Sosial Bina masyarakat (PRSBM) berpusat di Colomadu difokuskan untuk pelatihan dengan memberikan kesadaran masyarakat masalah kecacatannya baik di daerah  setempat lewat lembaga Kesehatan daerah ataupun di PRSBM");
+                        "10. Pusat Rehabilitasi Sosial Bina masyarakat (PRSBM) berpusat di Colomadu difokuskan untuk pelatihan dengan memberikan kesadaran masyarakat masalah kecacatannya baik di daerah  setempat lewat lembaga Kesehatan daerah ataupun di PRSBM\n");
                 dialog.setCancelable(true);
                 dialog.setIcon(R.drawable.app_logo_trans);
                 dialog.show();

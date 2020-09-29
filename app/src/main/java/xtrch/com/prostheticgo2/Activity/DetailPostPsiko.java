@@ -86,7 +86,7 @@ public class DetailPostPsiko extends AppCompatActivity {
         Glide.with(Objects.requireNonNull(getApplicationContext())).load(Konfigurasi.URL_IMAGE_PSIKO + Ifoto_info).apply(requestOptions).into(fotoPost);
 
         tvJudul.setText(Ijudul_info);
-        tvIsi.setText("    "+Iisi_info);
+        tvIsi.setText("    "+Iisi_info + "\n");
         tvNamaAdmin.setText(Inama_depan_user+" "+Inama_belakang_user);
         tvTanggal.setText(Itanggal_input);
     }
