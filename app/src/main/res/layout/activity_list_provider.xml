@@ -28,7 +28,7 @@
             android:layout_toRightOf="@id/back_from_listProv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Provider"
+            android:text="Keranjang"
             android:textColor="@color/colorWhite"
             android:textSize="20sp"
             android:textStyle="bold"/>

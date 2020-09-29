@@ -2,6 +2,9 @@ package xtrch.com.prostheticgo2.Activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,6 +22,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -28,10 +32,16 @@ import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import xtrch.com.prostheticgo2.Adapter.AdapterFotoProduk;
+import xtrch.com.prostheticgo2.Adapter.AdapterProduk;
+import xtrch.com.prostheticgo2.Model.ModelFotoProduk;
+import xtrch.com.prostheticgo2.Model.ModelProduk;
 import xtrch.com.prostheticgo2.R;
 import xtrch.com.prostheticgo2.Request.AppController;
 import xtrch.com.prostheticgo2.Request.Konfigurasi;
@@ -43,8 +53,11 @@ public class DetailProduk extends AppCompatActivity {
     TextView tvNama, tvDesk, tvHarga, tvNamaProvider, tvTgl;
     Button btnBeli;
     AlertDialog.Builder dialogBeli;
+    RecyclerView recyclerView;
+    SwipeRefreshLayout reload;
 
     String idProduk, idProvider, noHpProvider;
+    List<ModelFotoProduk> mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +70,14 @@ public class DetailProduk extends AppCompatActivity {
         getIntentState();
         //OnClick
         setOnClick();
+        //reload
+        setReload();
+        //loadFoto
+        loadFotoProduk();
     }
 
     private void setFindView(){
+        mItems = new ArrayList<>();
         btnBack = findViewById(R.id.back_from_detail_produk);
         fotoProduk = findViewById(R.id.detail_produk_foto);
         fotoProvider = findViewById(R.id.detail_produk_fotoProvider);
@@ -69,7 +87,10 @@ public class DetailProduk extends AppCompatActivity {
         tvNamaProvider = findViewById(R.id.detail_produk_namaProvider);
         tvTgl = findViewById(R.id.detail_produk_tgl);
         btnBeli = findViewById(R.id.detail_produk_beli);
+        reload = findViewById(R.id.detail_produk_reload);
         dialogBeli = new AlertDialog.Builder(this);
+        recyclerView = findViewById(R.id.detail_produk_fotoRecycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
     }
 
     private void getIntentState(){
@@ -139,6 +160,61 @@ public class DetailProduk extends AppCompatActivity {
         startActivity(i);
     }
 
+    private void loadFotoProduk(){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Konfigurasi.URL_VIEW_FOTO_PRODUK,
+
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            //converting the string to json array object
+                            JSONArray array = new JSONArray(response);
+
+
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject product = array.getJSONObject(i);
+//                                Toast.makeText(DetailProduk.this, "" + idProduk, Toast.LENGTH_SHORT).show();
+
+                                if(product.getString("id_produk").equals(idProduk)) {
+                                    mItems.add(new ModelFotoProduk(
+                                            product.getString("id_foto_produk"),
+                                            product.getString("foto_produk"),
+                                            product.getString("id_produk")
+                                    ));
+                                    reload.setRefreshing(false);
+                                }
+                            }
+
+                            AdapterFotoProduk adapter= new AdapterFotoProduk(DetailProduk.this, mItems);
+
+                            if (adapter != null){
+                                recyclerView.setAdapter(adapter);
+//                                loading.setVisibility(View.INVISIBLE);
+//                                reload.setRefreshing(false);
+
+                            }else {
+                                Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
+                            }
+
+//                            loading.dismiss();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+//                            Toast.makeText(DetailProduk.this, "EX" + e, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(DetailProduk.this, "ER" + error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        Volley.newRequestQueue(Objects.requireNonNull(getApplicationContext())).add(stringRequest);
+    }
+
     private void sendHistory(){
         StringRequest sendHistory = new StringRequest(Request.Method.POST, Konfigurasi.URL_ADD_HISTORY,
                 new Response.Listener<String>() {
@@ -162,5 +238,15 @@ public class DetailProduk extends AppCompatActivity {
             }
         };
         AppController.getInstance().addToRequestQueue(sendHistory);
+    }
+
+    private void setReload(){
+        reload.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mItems.clear();
+                loadFotoProduk();
+            }
+        });
     }
 }

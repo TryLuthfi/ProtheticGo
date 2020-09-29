@@ -34,7 +34,7 @@
     </RelativeLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/detail_post_reload"
+        android:id="@+id/detail_produk_reload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -54,6 +54,12 @@
                     android:layout_height="200dp"
                     android:src="@color/colorAccent"
                     android:elevation="5dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/detail_produk_fotoRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"/>
 
                 <LinearLayout
                     android:layout_margin="16dp"
@@ -97,6 +103,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_marginHorizontal="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
